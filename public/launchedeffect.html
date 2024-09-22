@@ -1,0 +1,66 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-07-21T14:25:24.2476024"><title>Launched &amp; Disposable Effect | Jetpack Compose</title><script type="application/json" id="virtual-toc-data">[{"id":"launchedeffect","level":0,"title":"LaunchedEffect","anchor":"#launchedeffect"},{"id":"disposableeffect","level":0,"title":"DisposableEffect","anchor":"#disposableeffect"},{"id":"key-points","level":0,"title":"Key Points","anchor":"#key-points"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b267/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Launched &amp; Disposable Effect | Jetpack Compose"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Jetpack Compose Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/launchedeffect.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Launched &amp; Disposable Effect | Jetpack Compose"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/launchedeffect.html#webpage",
+    "url": "writerside-documentation/launchedeffect.html",
+    "name": "Launched &amp; Disposable Effect | Jetpack Compose",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Jetpack Compose Help"
+}</script><!-- End Schema.org --></head><body data-id="LaunchedEffect" data-main-title="Launched & Disposable Effect" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Coroutines.md|Coroutines"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Jetpack Compose  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="LaunchedEffect" id="LaunchedEffect.md">Launched & Disposable Effect</h1><p id="dbwunr_52">In Jetpack Compose, both <code class="code" id="dbwunr_53">LaunchedEffect</code> and <code class="code" id="dbwunr_54">DisposableEffect</code> are used to manage side effects related to the lifecycle of a composable function. They allow you to perform actions when a composable is initially composed (<code class="code" id="dbwunr_55">LaunchedEffect</code>) or when it leaves the composition (<code class="code" id="dbwunr_56">DisposableEffect</code>).</p><section class="chapter"><h2 id="launchedeffect" data-toc="launchedeffect">LaunchedEffect</h2><p id="dbwunr_57">LaunchedEffect is used to launch coroutines or perform side effects when a composable is first composed or recomposed. It ensures that these side effects are tied to the lifecycle of the composable and are canceled if the composable is no longer active.</p><div class="code-block" data-lang="kotlin">
+import androidx.compose.runtime.*
+import androidx.compose.foundation.*
+import kotlinx.coroutines.*
+@Composable
+fun ExampleComposable() {
+LaunchedEffect(Unit) { 
+// Perform a coroutine-based or side-effect operation
+delay(1000L) // Example: Simulate a delay
+println(&quot;LaunchedEffect completed&quot;)
+}
+    // Composable UI content
+    Text(&quot;Hello, Jetpack Compose!&quot;)
+}
+</div><p id="dbwunr_59">There could be separate <code class="code" id="dbwunr_60">launchEffect</code> functions that are launched independently of each other. And only occurs when the condition given changed (The condition data or value changes while the app is running and the <code class="code" id="dbwunr_61">@Composable</code> has to recompose itself)</p><div class="code-block" data-lang="kotlin">
+import androidx.compose.runtime.*
+import androidx.compose.foundation.*
+import kotlinx.coroutines.*
+@Composable
+fun ExampleComposable() {
+LaunchedEffect(Unit) { // Start whenever the composable is Launched or recomposed
+// Perform a coroutine-based or side-effect operation
+delay(1000L) // Example: Simulate a delay
+println(&quot;LaunchedEffect completed&quot;)
+}
+LaunchedEffect(condition) { // Start when de condition changes
+// Perform a coroutine-based or side-effect operation
+delay(1000L) // Example: Simulate a delay
+println(&quot;LaunchedEffect completed&quot;)
+}
+    // Composable UI content
+    Text(&quot;Hello, Jetpack Compose!&quot;)
+}
+</div></section><section class="chapter"><h2 id="disposableeffect" data-toc="disposableeffect">DisposableEffect</h2><p id="dbwunr_63"><code class="code" id="dbwunr_64">DisposableEffect</code> is used to perform cleanup operations when a composable is removed from the composition. It allows you to release resources or cancel ongoing operations that were started in LaunchedEffect.</p><div class="code-block" data-lang="kotlin">
+import androidx.compose.runtime.*
+import androidx.compose.foundation.*
+import kotlinx.coroutines.*
+@Composable
+fun ExampleDisposableComposable() {
+DisposableEffect(Unit) {
+// Perform cleanup or cancellation of resources
+println(&quot;DisposableEffect initialized&quot;)
+        onDispose {
+            // Clean up resources when the composable is disposed
+            println(&quot;DisposableEffect disposed&quot;)
+        }
+    }
+    // Composable UI content
+    Text(&quot;Goodbye, Jetpack Compose!&quot;)
+}
+</div></section><section class="chapter"><h2 id="key-points" data-toc="key-points">Key Points</h2><ul class="list _bullet" id="dbwunr_66"><li class="list__item" id="dbwunr_67"><p id="dbwunr_68"><span class="control" id="dbwunr_69">Lifecycle Management</span>: Both LaunchedEffect and DisposableEffect ensure that side effects and cleanup operations are tied to the lifecycle of Jetpack Compose composables.</p></li><li class="list__item" id="dbwunr_70"><p id="dbwunr_71"><span class="control" id="dbwunr_72">Asynchronous Operations</span>: Use LaunchedEffect for starting coroutines or performing asynchronous operations that should be managed by Jetpack Compose's lifecycle.</p></li><li class="list__item" id="dbwunr_73"><p id="dbwunr_74"><span class="control" id="dbwunr_75">Resource Cleanup</span>: Use DisposableEffect for cleaning up resources, canceling ongoing operations, or removing listeners when composables are disposed.</p></li></ul></section><div class="last-modified">Last modified: 21 julio 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="coroutines.html" class="navigation-links__prev">Coroutines</a><a href="job.html" class="navigation-links__next">Job</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b267/app.js"></script></body></html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-07-21T14:25:24.3256209"><title>Room | Jetpack Compose</title><script type="application/json" id="virtual-toc-data">[{"id":"implementation","level":0,"title":"Implementation","anchor":"#implementation"},{"id":"use","level":0,"title":"Use","anchor":"#use"},{"id":"database-configuration","level":0,"title":"Database Configuration","anchor":"#database-configuration"},{"id":"todo","level":0,"title":"TODO","anchor":"#todo"},{"id":"queries","level":0,"title":"Queries","anchor":"#queries"},{"id":"relations","level":0,"title":"Relations","anchor":"#relations"},{"id":"saving-images","level":0,"title":"Saving Images","anchor":"#saving-images"},{"id":"more-information","level":0,"title":"More Information","anchor":"#more-information"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b267/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Room | Jetpack Compose"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Jetpack Compose Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/room.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Room | Jetpack Compose"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/room.html#webpage",
+    "url": "writerside-documentation/room.html",
+    "name": "Room | Jetpack Compose",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Jetpack Compose Help"
+}</script><!-- End Schema.org --></head><body data-id="Room" data-main-title="Room" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs=""><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Jetpack Compose  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Room" id="Room.md">Room</h1><p id="baygq5_384">Apps that handle <span class="control" id="baygq5_385">non-trivial amounts</span> of structured data can benefit greatly from persisting that data locally. The most common use case is to cache relevant pieces of data so that when the device cannot access the network, the user can still browse that content while they are offline.</p><p id="baygq5_386">The Room persistence library provides an abstraction layer over SQLite to allow fluent database access while harnessing the full power of SQLite. In particular, Room provides the following benefits:</p><p id="baygq5_387">Compile-time verification of SQL queries. Convenience annotations that minimize repetitive and error-prone boilerplate code. Streamlined database migration paths.</p><section class="chapter"><h2 id="implementation" data-toc="implementation">Implementation</h2><p id="baygq5_388">To use Room in your app, add the following dependencies to your app's build.gradle file:</p><p id="baygq5_389">Kotlin Extensions and Coroutines support for Room:</p><div class="tabs" id="baygq5_390" data-anchors="[baygq5_391,baygq5_393]"><div class="tabs__content" data-gtm="tab" id="baygq5_391" data-title="Groovy"><div class="code-block" data-lang="groovy" data-title="Groovy">
+plugins{
+...
+     id 'kotlin-kapt'
+}
+...
+dependencies{
+    def room_version = &quot;2.6.1&quot;
+    implementation &quot;androidx.room:room-runtime:$room_version&quot;
+    annotationProcessor &quot;androidx.room:room-compiler:$room_version&quot;
+    // optional but suggested - Kotlin Extensions and Coroutines support for Room
+    implementation &quot;androidx.room:room-ktx:$room_version&quot;
+    kapt &quot;androidx.room:room-compiler:$room_version&quot;
+    ...
+    // optional - Paging 3 Integration
+    implementation &quot;androidx.room:room-paging:$room_version&quot;
+}
+</div></div><div class="tabs__content" data-gtm="tab" id="baygq5_393" data-title="Kotlin"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+plugins{
+...
+     id(&quot;kotlin-kapt&quot;)
+}
+...
+dependencies {
+    val room_version = &quot;2.6.1&quot;
+    implementation(&quot;androidx.room:room-runtime:$room_version&quot;)
+    annotationProcessor(&quot;androidx.room:room-compiler:$room_version&quot;)
+    // optional but suggested - Kotlin Extensions and Coroutines support for Room
+    implementation(&quot;androidx.room:room-ktx:$room_version&quot;)
+    kapt(&quot;androidx.room:room-compiler:$room_version&quot;)
+    ...
+    // optional - Paging 3 Integration
+    implementation(&quot;androidx.room:room-paging:$room_version&quot;)
+}
+</div></div></div></section><section class="chapter"><h2 id="use" data-toc="use">Use</h2><section class="chapter"><h3 id="data-entity" data-toc="data-entity">Data entity</h3><p id="baygq5_395">When you use the Room persistence library to store your app's data, you define entities to represent the objects that you want to store. Each entity corresponds to a table in the associated Room database, and each instance of an entity represents a row of data in the corresponding table.</p><div class="code-block" data-lang="kotlin">
+@Entity
+data class dataClass( ... )
+</div><p id="baygq5_397">By default, Room uses the class name as the database table name. If you want the table to have a different name, set the tableName property of the @Entity annotation.</p><div class="code-block" data-lang="kotlin">
+@Entity(tableName = &quot;table_name&quot;)
+data class dataClass( ... )
+</div></section><section class="chapter"><h3 id="rows-and-primary-keys" data-toc="rows-and-primary-keys">Rows and Primary Keys</h3><p id="baygq5_399">A Room <code class="code" id="baygq5_400">entity</code> includes fields for each column in the corresponding table in the database, including one or more columns that make up the <code class="code" id="baygq5_401">primary key</code>.</p><div class="code-block" data-lang="kotlin">
+    @PrimaryKey //(autoGenerate = true)
+    val id: Int,
+    // Default column name &quot;col1&quot; 
+    val col1: Type?,
+    @ColumnInfo(name = &quot;col2&quot;) 
+    val col2: Type
+</div></section><section class="chapter"><h3 id="ignore-fields" data-toc="ignore-fields">Ignore fields</h3><p id="baygq5_403">By default, Room creates a column for each field that's defined in the entity. If an entity has fields that you don't want to persist, you can annotate them using @Ignore, as shown in the following code snippet:</p><div class="code-block" data-lang="kotlin">
+@Ignore val picture: Bitmap?
+</div></section><section class="chapter"><h3 id="index" data-toc="index">Index</h3><p id="baygq5_405">If your app must support SDK versions that don't support FTS3- or FTS4-table-backed entities, you can still index certain columns in the database to speed up your queries. To add indices to an entity, include the indices property within the @Entity annotation, listing the names of the columns that you want to include in the index or composite index. The following code snippet demonstrates this annotation process:</p><div class="code-block" data-lang="kotlin">
+@Entity(indices = [Index(value = [&quot;col2&quot;, &quot;col1&quot;])])
+</div><p id="baygq5_407">Sometimes, certain fields or groups of fields in a database must be unique. You can enforce this uniqueness property by setting the unique property of an @Index annotation to true. The following code sample prevents a table from having two rows that contain the same set of values for the firstName and lastName columns:</p><div class="code-block" data-lang="kotlin">
+@Entity(indices = [Index(value = [&quot;first_name&quot;, &quot;last_name&quot;],
+unique = true)])
+</div></section></section><section class="chapter"><h2 id="database-configuration" data-toc="database-configuration">Database Configuration</h2><p id="baygq5_409">The following code defines an <code class="code" id="baygq5_410">AppDatabase</code> class to hold the database. <code class="code" id="baygq5_411">AppDatabase</code> defines the database configuration and serves as the app's main access point to the persisted data. The database class must satisfy the following conditions:</p><ul class="list _bullet" id="baygq5_412"><li class="list__item" id="baygq5_413"><p>The class must be annotated with a <code class="code" id="baygq5_414">@Database</code> annotation that includes an entities array that lists all the data entities associated with the database.</p></li><li class="list__item" id="baygq5_415"><p>The class must be an abstract class that extends <code class="code" id="baygq5_416">RoomDatabase</code>.</p></li><li class="list__item" id="baygq5_417"><p>For each DAO class that is associated with the database, the database class must define an abstract method that has zero arguments and returns an instance of the DAO class.</p></li></ul><div class="code-block" data-lang="kotlin">
+@Database(entities = [Entity::class ... ], version = 1, exportSchema = false)
+abstract class AppDatabase : RoomDatabase() {
+    abstract fun interfaceDao(): InterfaceDao
+    // Mor Interfaces with @Dao ...
+}
+</div><section class="chapter"><h3 id="creation" data-toc="creation">Creation</h3><p id="baygq5_419">There is two ways to create the database and initialize it:</p><div class="tabs" id="baygq5_420" data-anchors="[baygq5_421,baygq5_425]"><div class="tabs__content" data-gtm="tab" id="baygq5_421" data-title="Using var"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+// If applicationContext is reachable
+val db = Room.databaseBuilder(
+            applicationContext, 
+            AppDatabase::class.java, &quot;database-name&quot;
+        ).build()
+</div><p id="baygq5_423">See how to create a view model using ApplicationViewModel on <a href="mvvm.html" id="baygq5_424" data-tooltip="Usually, these are a data classes that contain all the elements (usually variables) that helps to create entities. But also, they can be used to manage the application's state.">MVVM</a></p></div><div class="tabs__content" data-gtm="tab" id="baygq5_425" data-title="Using Hilt (Recommended)"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+@Module
+@InstallIn(SingletonComponent::class)
+object AppModule {
+    @Singleton
+    @Provides
+    fun providesInterfaceDao(database: AppDatabase): InterfaceDao {
+        return database.chronosDao()
+    }
+    // Other InterfaceDao return Functions 
+    ...
+    @Singleton
+    @Provides
+    fun providesDatabase(@ApplicationContext context: Context): AppDatabase {
+        return Room.databaseBuilder(
+            context = context,
+            klass = AppDatabase::class.java,
+            name = &quot;database_name&quot;
+        ).fallbackToDestructiveMigration().build()
+    }
+}
+</div></div></div><aside class="prompt" data-type="tip" data-title="" id="baygq5_427"><p id="baygq5_428"><span class="control" id="baygq5_429">Note</span></p><p id="baygq5_430">When using the first option, we need to use the <code class="code" id="baygq5_431">db.daoInterface()</code> to get to all the CRUD functions See more about daoInterface below and on <a href="room-dao.html" id="baygq5_432" data-tooltip="When you use the Room persistence library to store your app's data, you interact with the stored data by defining data access objects, or DAOs. Each DAO includes methods that offer abstract access to your app's database. At compile time, Room automatically generates implementations…">Room with Interfaces</a></p></aside></section></section><section class="chapter"><h2 id="todo" data-toc="todo">TODO</h2><p id="baygq5_433">Implement foreign key</p></section><section class="chapter"><h2 id="queries" data-toc="queries">Queries</h2><p id="baygq5_434">The <code class="code" id="baygq5_435">@Query</code> annotation lets you write SQL statements and expose them as DAO methods. Use these query methods to query data from your app's database or when you need to perform more complex insertions, updates, and deletions.</p><p id="baygq5_436">Room validates SQL queries at compile time. This means that if there's a problem with your query, a <code class="code" id="baygq5_437">compilation error</code> occurs instead of a <code class="code" id="baygq5_438">runtime</code> failure.</p><section class="chapter"><h3 id="insert" data-toc="insert">Insert</h3><p id="baygq5_439">The <code class="code" id="baygq5_440">@Insert</code> annotation lets you define methods that insert their parameters into the appropriate table in the database.</p><div class="code-block" data-lang="kotlin">
+@Dao
+interface EntityDao {
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insert(entity: Entity)
+    @Insert
+    fun insertBoth(entity3: Entity, entity2: Entity)
+    @Insert
+    fun insertMultipleEntities(entity: Entity, examples: List&lt;Example&gt;)
+}
+</div><p id="baygq5_442">Each parameter for an <code class="code" id="baygq5_443">@Insert</code> method must be either an instance of a Room data entity class annotated with <code class="code" id="baygq5_444">@Entity</code> or a collection of data entity class instances, each of which points to a database. <span class="control" id="baygq5_445">When an <code class="code" id="baygq5_446">@Insert</code> method is called, Room inserts each passed entity instance into the corresponding database table.</span></p><p id="baygq5_447">If the <code class="code" id="baygq5_448">@Insert</code> method receives a single parameter, it can return a long value, which is the new rowId for the inserted item. If the parameter is an array or a collection, then return an array or a collection of long values instead, with each value as the rowId for one of the inserted items.</p></section><section class="chapter"><h3 id="update" data-toc="update">Update</h3><p id="baygq5_449">The <code class="code" id="baygq5_450">@Update</code> annotation lets you define methods that update specific rows in a database table. Like <code class="code" id="baygq5_451">@Insert</code>methods, <code class="code" id="baygq5_452">@Update</code> methods accept <code class="code" id="baygq5_453">data entity</code> instances as parameters.</p><div class="code-block" data-lang="kotlin">
+@Dao
+interface EntityInterface {
+    @Update
+    fun update(entity: Entity)
+}
+</div><p id="baygq5_455">Room uses the primary key to match passed entity instances to rows in the database. If there is no row with the same <code class="code" id="baygq5_456">primary key</code>, Room makes no changes.</p><p id="baygq5_457">An <code class="code" id="baygq5_458">@Update</code> method can optionally return an int value indicating the number of rows that were updated successfully.</p></section><section class="chapter"><h3 id="delete" data-toc="delete">Delete</h3><p id="baygq5_459">The <code class="code" id="baygq5_460">@Delete</code> annotation lets you define methods that delete specific rows from a database table. Like <code class="code" id="baygq5_461">@Insert</code> methods, <code class="code" id="baygq5_462">@Delet</code>e methods accept data entity instances as parameters.</p><div class="code-block" data-lang="kotlin">
+@Dao
+interface EntityInterface {
+    @Delete
+    fun delete(entity: Entity)
+}
+</div><p id="baygq5_464">Room uses the primary key to match passed entity instances to rows in the database. If there is no row with the same <code class="code" id="baygq5_465">primary key</code>, Room makes no changes.</p><p id="baygq5_466">A <code class="code" id="baygq5_467">@Delete</code> method can optionally return an int value indicating the number of rows that were deleted successfully.</p></section><section class="chapter"><h3 id="select" data-toc="select">Select</h3><p id="baygq5_468">The <code class="code" id="baygq5_469">@Query</code> annotation lets you write SQL statements and expose them as DAO methods. Use these query methods to query data from your app's database or when you need to perform more complex insertions, updates, and deletions.</p><section class="chapter"><h4 id="simples" data-toc="simples">Simples</h4><div class="code-block" data-lang="kotlin">
+@Query(&quot;SELECT * FROM tableName&quot;)
+fun getAll(): Array&lt;Example&gt; // It also return a List
+</div></section><section class="chapter"><h4 id="get-specific-columns" data-toc="get-specific-columns">Get specific Columns</h4><p id="baygq5_471">Most of the time, you only need to return a subset of the columns from the table that you are querying. For example, your UI might display just the first and last column for a table instead of every detail about that user. To save resources and streamline your query's execution, only query the fields that you need.</p><div class="code-block" data-lang="kotlin">
+@Query(&quot;SELECT first_col, last_col FROM tableName&quot;)
+fun getFirstAndLastColumnsOnly(): List&lt;Entity&gt;
+</div><p id="baygq5_473">Room understands that the query returns values for the <code class="code" id="baygq5_474">first_col</code> and <code class="code" id="baygq5_475">last_col</code> columns and that these values can be mapped onto the fields in the <code class="code" id="baygq5_476">Entity</code> class. If the query returns a column that doesn't map onto a field in the returned object, Room displays a warning.</p></section><section class="chapter"><h4 id="get-with-params" data-toc="get-with-params">Get with params</h4><p id="baygq5_477">Most of the time, your DAO methods need to accept parameters so that they can perform filtering operations. Room supports using method parameters as bind parameters in your queries.</p><div class="code-block" data-lang="kotlin">
+@Query(&quot;SELECT * FROM tableName WHERE columnName &gt; :param&quot;)
+fun getDataHigherThan(param: Any): Array&lt;Entity&gt;
+</div><p id="baygq5_479">You can also pass multiple parameters or reference the same parameter multiple times in a query, as demonstrated in the following code:</p><div class="code-block" data-lang="kotlin">
+@Query(&quot;SELECT * FROM tableName WHERE colName BETWEEN :minParam AND :maxParam&quot;)
+fun getDataBetween(minParam: Any, maxParam: Any): Array&lt;Entity&gt;
+</div></section><section class="chapter"><h4 id="get-data-from-multiple-tables" data-toc="get-data-from-multiple-tables">Get data from multiple tables</h4><p id="baygq5_481">Some of your queries might require access to multiple tables to calculate the result. You can use JOIN clauses in your SQL queries to reference more than one table.</p><div class="code-block" data-lang="kotlin">
+@Query(
+    &quot;SELECT * FROM table1 &quot; +
+    &quot;INNER JOIN table2 ON table2.id = table1.id &quot; +
+    &quot;INNER JOIN table3 ON  table3.id = table2.tab3_id &quot; +
+    &quot;WHERE table3 LIKE :param&quot;
+)
+fun getJoin(param: Any?): List&lt;Entity&gt;
+</div><p id="baygq5_483">You can also define simple objects to return a subset of columns from multiple joined tables, as discussed in the Return a subset of a table's columns section. The following code defines a DAO with a method that returns the names of users and the names of the books that they have borrowed:</p><div class="code-block" data-lang="kotlin">
+interface InterfaceDao {
+    @Query(
+        &quot;SELECT tabla1.value AS table1_value, tabla2.value AS table2_value &quot; +
+        &quot;FROM tabla1, tabla2 &quot; +
+        &quot;WHERE tabla1.tab1_id = tabla2.tab1_id&quot;
+    )
+    fun getJoin(): LiveDatat&lt;List&lt;Entity&gt;&gt;
+    // You can also define this class in a separate file.
+    data class JoinDataClass(
+        val table1_value: String?, 
+        val table2_value: String?)
+}
+</div><p id="baygq5_485">In Room 2.4 and higher, you can also query columns from multiple tables without defining an additional data class by writing query methods that return a <code class="code" id="baygq5_486">multimap</code></p><div class="code-block" data-lang="kotlin">
+@Query(
+    &quot;SELECT * FROM table1&quot; +
+    &quot;JOIN table2 ON table1.table1_id = table2.table1_id&quot;
+)
+fun joinQuery(): Map&lt;Entity, List&lt;Example&gt;&gt;
+</div><p id="baygq5_488">When your query method returns a multimap, you can write queries that use <code class="code" id="baygq5_489">GROUP BY</code> clauses, letting you take advantage of SQL's capabilities for advanced calculations and filtering.</p></section></section></section><section class="chapter"><h2 id="relations" data-toc="relations">Relations</h2><section class="chapter"><h3 id="embed-objects" data-toc="embed-objects">Embed Objects</h3><p id="baygq5_490">Sometimes, you'd like to express an entity or data object as a cohesive whole in your database logic, even if the object contains several fields. In these situations, you can use the <code class="code" id="baygq5_491">@Embedded</code> annotation to represent an object that you'd like to decompose into its subfields within a table. You can then query the embedded fields just as you do for</p><div class="code-block" data-lang="kotlin">
+data class Example(
+    val street: String?,
+    val state: String?,
+    val city: String?,
+    @ColumnInfo(name = &quot;post_code&quot;) val postCode: Int
+)
+@Entity
+data class Entity(
+@PrimaryKey val id: Int,
+val value1: String?,
+@Embedded val value2: Example?
+)
+</div></section><section class="chapter"><h3 id="1-1-relationship" data-toc="1-1-relationship">1:1 relationship</h3><p id="baygq5_493">A one-to-one relationship between two entities is a relationship where each instance of the parent entity corresponds to exactly one instance of the child entity, and the reverse is also true.</p><section class="procedure-steps" id="baygq5_494"><ol class="list _decimal"><li class="list__item" id="baygq5_495"><p>To define a one-to-one relationship, first create a class for each of your two entities. One of the entities must include a variable that is a reference to the primary key of the other entity. </p><div class="code-block" data-lang="kotlin">
+@Entity
+data class Entity(
+    @PrimaryKey val entityId: Long,
+    val name: Any,
+    val something: Any
+)
+@Entity
+data class Example(
+@PrimaryKey val exampleId: Long,
+val entity_id: Long
+)
+</div></li><li class="list__item" id="baygq5_497"><p id="baygq5_498">To query the list of users and corresponding libraries, you must first model the one-to-one relationship between the two entities. To do this, create a new data class where each instance holds an instance of the parent entity and the corresponding instance of the child entity. Add the <code class="code" id="baygq5_499">@Relation</code> annotation to the instance of the child entity, with parentColumn set to the name of the primary key column of the parent entity and entityColumn set to the name of the column of the child entity that references the parent entity's primary key.</p><div class="code-block" data-lang="kotlin">
+data class ExampleRelationClass(
+    @Embedded val entity: Entity,
+    @Relation(
+         parentColumn = &quot; entityId&quot;,
+         entityColumn = &quot; entity_id&quot;
+    )
+    val example: Example
+)
+</div></li><li class="list__item" id="baygq5_501"><p id="baygq5_502">Finally, add a method to the DAO class that returns all instances of the data class that pairs the parent entity and the child entity. This method requires Room to run two queries, so add the @Transaction annotation to this method so that the whole operation is performed atomically.</p><div class="code-block" data-lang="kotlin">
+@Transaction
+@Query(&quot;SELECT * FROM table&quot;)
+fun getUsersAndLibraries(): List&lt;ExampleRelationClass&gt;
+</div></li></ol></section></section><section class="chapter"><h3 id="1-many-relationship" data-toc="1-many-relationship">1:Many relationship</h3><p id="baygq5_504">A one-to-many relationship between two entities is a relationship where each instance of the parent entity corresponds to zero or more instances of the child entity, but each instance of the child entity can only correspond to exactly one instance of the parent entity.</p><section class="procedure-steps" id="baygq5_505"><ol class="list _decimal"><li class="list__item" id="baygq5_506"><p id="baygq5_507">To define a one-to-many relationship, first create a class for the two entities. As in a one-to-one relationship, the child entity must include a variable that is a reference to the primary key of the parent entity.</p><div class="code-block" data-lang="kotlin">
+@Entity
+data class Entity(
+    @PrimaryKey val entityId: Long,
+    val name: Any,
+    val something: Any
+)
+@Entity
+data class Example(
+@PrimaryKey val exampleId: Long,
+val entity_id: Long,
+val exampleName: String
+)
+</div></li><li class="list__item" id="baygq5_509"><p id="baygq5_510">To query the list of users and corresponding playlists, you must first model the one-to-many relationship between the two entities. To do this, create a new data class where each instance holds an instance of the parent entity and a list of all corresponding child entity instances. Add the <code class="code" id="baygq5_511">@Relation</code> annotation to the instance of the child entity, with <code class="code" id="baygq5_512">parentColumn</code> set to the name of the primary key column of the parent entity and <code class="code" id="baygq5_513">entityColumn</code> set to the name of the column of the child entity that references the parent entity's primary key.</p><div class="code-block" data-lang="kotlin">
+data class ExampleRelationClass(
+    @Embedded val entity: Entity,
+    @Relation(
+         parentColumn = &quot; entityId&quot;,
+         entityColumn = &quot; entity_id&quot;
+    )
+    val example: List&lt;Example&gt;
+)
+</div></li><li class="list__item" id="baygq5_515"><p id="baygq5_516">Finally, add a method to the DAO class that returns all instances of the data class that pairs the parent entity and the child entity. This method requires Room to run two queries, so add the <code class="code" id="baygq5_517">@Transaction</code> annotation to this method so that the whole operation is performed atomically.</p><div class="code-block" data-lang="kotlin">
+@Transaction
+@Query(&quot;SELECT * FROM table&quot;)
+fun getUsersAndLibraries(): List&lt;ExampleRelationClass&gt;
+</div></li></ol></section></section></section><section class="chapter"><h2 id="saving-images" data-toc="saving-images">Saving Images</h2><p id="baygq5_519">There is two ways to save images using room:</p><ul class="list _bullet" id="baygq5_520"><li class="list__item" id="baygq5_521"><p>Converting the image to a x64 file</p></li><li class="list__item" id="baygq5_522"><p>Saving the image into gallery or device storage and only saving the path to the image (Android Recommendation)</p></li></ul><p id="baygq5_523">Following the Android Recommendation allows to save space into device storage and make it easier to handle errors and to get access to the images.</p><section class="procedure-steps" id="baygq5_524"><ol class="list _decimal"><li class="list__item" id="baygq5_525"><p id="baygq5_526">Optional: If working with the camera (as it is usually done), it is first necessary to grant permissions within the <code class="code" id="baygq5_527">AndroidManifest</code> file. See <a href="camera.html" id="baygq5_528" data-tooltip="Camera requires to grant permissions for use hardware option before using it. Also requires to specify if the camera hardware implementation is required for the application to be launched.">Grant camera permissions</a>.</p></li><li class="list__item" id="baygq5_529"><p>It is necessary to create a file where the image will be saved, giving it a name and a location in storage. The following code creates a function that save the file into the context </p><div class="code-block" data-lang="kotlin">
+fun Context.saveImageRoom(imageUri: Uri): String {
+    val timeStamp = SimpleDateFormat(&quot;yyyyMMdd_HHmmss&quot;).format(Date())
+    val imageFileName = &quot;JPEG_$timeStamp.jpg&quot;
+    val outputDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+    val outputFile = File(outputDir, imageFileName)
+    val inputStream = contentResolver.openInputStream(imageUri)
+    val outputStream = FileOutputStream(outputFile)
+    inputStream?.let { input -&gt;
+        outputStream.use { output -&gt;
+            input.copyTo(output) 
+        }
+    }
+    return outputFile.absolutePath
+}
+</div><p id="baygq5_531"><span class="control" id="baygq5_532">Where:</span></p><ul class="list _bullet" id="baygq5_533"><li class="list__item" id="baygq5_534"><p><code class="code" id="baygq5_535">timeStamp</code>: Get the image creation date (It could be replaced with a unique ID)</p></li><li class="list__item" id="baygq5_536"><p><code class="code" id="baygq5_537">imageFileName</code>: Indicates the file name (It must be unique)</p></li><li class="list__item" id="baygq5_538"><p><code class="code" id="baygq5_539">outputDir</code>: Get the directory where the file will be saved.</p></li><li class="list__item" id="baygq5_540"><p><code class="code" id="baygq5_541">outputFile</code>: Indicates the File (Image name and location).</p></li><li class="list__item" id="baygq5_542"><p><code class="code" id="baygq5_543">inputStream</code>: Creates an input Stream to read the de data located into the given Uri.</p></li><li class="list__item" id="baygq5_544"><p><code class="code" id="baygq5_545">outputStream</code>: Creates an output stream to write the data into the storage.</p></li><li class="list__item" id="baygq5_546"><p><code class="code" id="baygq5_547">inputStream?.let { input -&gt;</code> This checks if inputStream is non-null. If it is, it executes the block of code inside the let function, passing inputStream as the parameter input.</p></li><li class="list__item" id="baygq5_548"><p><code class="code" id="baygq5_549">outputStream.use { output -&gt;</code> This ensures that outputStream is properly closed after the block of code is executed, even if an exception occurs.</p></li><li class="list__item" id="baygq5_550"><p><code class="code" id="baygq5_551">input.copyTo(output)</code> This copies the data from the inputStream to the outputStream. The copyTo function reads bytes from the inputStream and writes them to the outputStream.</p></li><li class="list__item" id="baygq5_552"><p><code class="code" id="baygq5_553">outputFile.absolutePath</code>: Indicates the absolute path of the image file location.</p></li></ul></li><li class="list__item" id="baygq5_554"><p id="baygq5_555">Then, it is necessary to create a val to invoke the function created earlier. This is because the function is within the context and needs access to some other data to work properly.</p><div class="code-block" data-lang="kotlin">
+val saveImageRoom = { imageUri: Uri -&gt;
+        try {
+            val imagePath = context.saveImageRoom(imageUri)
+            saveRoomFunction(ImgRoomEntity(path = imagePath))
+        } catch (e: Exception) {
+            // Exception handling
+        }
+    }
+</div><p id="baygq5_557"><span class="control" id="baygq5_558">Where:</span></p><ul class="list _bullet" id="baygq5_559"><li class="list__item" id="baygq5_560"><p><code class="code" id="baygq5_561">saveImageRoom</code>: A lambda function that requires a Uri to be executed.</p></li><li class="list__item" id="baygq5_562"><p><code class="code" id="baygq5_563">imagePath</code>: Creates the file where the image is stored and contains the path to the file.</p></li><li class="list__item" id="baygq5_564"><p><code class="code" id="baygq5_565">saveRoomFunction(ImgRoomEntity(path = imagePath))</code>: An example function that store the image with room.</p></li><li class="list__item" id="baygq5_566"><p><code class="code" id="baygq5_567">ImgRoomEntity(path = imagePath)</code>: An example entity that creates the model to store the image. It contains and ID as primary key, but has the auto Increment property, so it only requires the path to be created.</p></li></ul></li><li class="list__item" id="baygq5_568"><p>Invoke the lambda function and give the Uri. </p><div class="code-block" data-lang="kotlin">
+saveImageRoom(uri)
+</div><p id="baygq5_570">see <a href="camera.html" id="baygq5_571" data-tooltip="Camera requires to grant permissions for use hardware option before using it. Also requires to specify if the camera hardware implementation is required for the application to be launched.">Camera permissions</a> to know how to get the Uri when launching the camera</p></li></ol></section></section><section class="chapter"><h2 id="more-information" data-toc="more-information">More Information</h2><p id="baygq5_572"><a href="https://developer.android.com/reference/kotlin/androidx/room/Dao" id="baygq5_573" data-external="true" rel="noopener noreferrer">More info about annotations</a></p></section><div class="last-modified">Last modified: 21 julio 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="dagger-hilt.html" class="navigation-links__prev">Dagger-Hilt</a><a href="room-dao.html" class="navigation-links__next">Room Dao</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b267/app.js"></script></body></html>

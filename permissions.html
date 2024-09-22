@@ -1,0 +1,111 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-07-21T14:25:24.2556129"><title>Permissions | Jetpack Compose</title><script type="application/json" id="virtual-toc-data">[{"id":"workflow-for-using-permissions","level":0,"title":"Workflow for using permissions","anchor":"#workflow-for-using-permissions"},{"id":"types-of-permissions","level":0,"title":"Types of permissions","anchor":"#types-of-permissions"},{"id":"add-declaration-to-app-manifest","level":0,"title":"Add declaration to app manifest","anchor":"#add-declaration-to-app-manifest"},{"id":"declare-hardware-as-optional","level":0,"title":"Declare hardware as optional","anchor":"#declare-hardware-as-optional"},{"id":"determine-hardware-availability","level":0,"title":"Determine hardware availability","anchor":"#determine-hardware-availability"},{"id":"request-runtime-permissions","level":0,"title":"Request runtime permissions","anchor":"#request-runtime-permissions"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b267/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Permissions | Jetpack Compose"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Jetpack Compose Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/permissions.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Permissions | Jetpack Compose"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/permissions.html#webpage",
+    "url": "writerside-documentation/permissions.html",
+    "name": "Permissions | Jetpack Compose",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Jetpack Compose Help"
+}</script><!-- End Schema.org --></head><body data-id="Permissions" data-main-title="Permissions" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs=""><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Jetpack Compose  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Permissions" id="Permissions.md">Permissions</h1><p id="i6q9nxh_102">App permissions help support user privacy by protecting access to the following:</p><ul class="list _bullet" id="i6q9nxh_103"><li class="list__item" id="i6q9nxh_104"><p>Restricted data, such as system state and users' contact information</p></li><li class="list__item" id="i6q9nxh_105"><p>Restricted actions, such as connecting to a paired device and recording audio</p></li></ul><section class="chapter"><h2 id="workflow-for-using-permissions" data-toc="workflow-for-using-permissions">Workflow for using permissions</h2><p id="i6q9nxh_106">If your app offers functionality that might require access to restricted data or restricted actions, determine whether you can get the information or perform the actions without needing to declare permissions. You can fulfill many use cases in your app, such as taking photos, pausing media playback, and displaying relevant ads, without needing to declare any permissions.</p><p id="i6q9nxh_107">If you decide that your app must access restricted data or perform restricted actions to fulfill a use case, declare the appropriate permissions. Some permissions, known as install-time permissions, are automatically granted when your app is installed. Other permissions, known as runtime permissions, require your app to go a step further and request the permission at runtime.</p></section><section class="chapter"><h2 id="types-of-permissions" data-toc="types-of-permissions">Types of permissions</h2><p id="i6q9nxh_108">Android categorizes permissions into different types, including install-time permissions, runtime permissions, and special permissions. Each permission's type indicates the scope of restricted data that your app can access, and the scope of restricted actions that your app can perform, when the system grants your app that permission. The protection level for each permission is based on its type and is shown on the permissions API reference page.</p><section class="chapter"><h3 id="install-time-permissions" data-toc="install-time-permissions">Install-time permissions</h3><p id="i6q9nxh_109">Install-time permissions give your app limited access to restricted data or let your app perform restricted actions that minimally affect the system or other apps. When you declare install-time permissions in your app, an app store presents an install-time permission notice to the user when they view an app's details page, as shown in figure 2. The system automatically grants your app the permissions when the user installs your app.</p><p id="i6q9nxh_110">Android includes several sub-types of install-time permissions, including normal permissions and signature permissions.</p></section><section class="chapter"><h3 id="normal-permissions" data-toc="normal-permissions">Normal permissions</h3><p id="i6q9nxh_111">These permissions allow access to data and actions that extend beyond your app's sandbox but present very little risk to the user's privacy and the operation of other apps.</p><p id="i6q9nxh_112">The system assigns the normal protection level to normal permissions.</p></section><section class="chapter"><h3 id="signature-permissions" data-toc="signature-permissions">Signature permissions</h3><p id="i6q9nxh_113">The system grants a signature permission to an app only when the app is signed by the same certificate as the app or the OS that defines the permission.</p><p id="i6q9nxh_114">Applications that implement privileged services, such as autofill or VPN services, also make use of signature permissions. These apps require service-binding signature permissions so that only the system can bind to the services.</p><p id="i6q9nxh_115">The system assigns the signature protection level to signature permissions.</p></section><section class="chapter"><h3 id="runtime-permissions" data-toc="runtime-permissions">Runtime permissions</h3><p id="i6q9nxh_116">Runtime permissions, also known as dangerous permissions, give your app additional access to restricted data or let your app perform restricted actions that more substantially affect the system and other apps. Therefore, you need to request runtime permissions in your app before you can access the restricted data or perform restricted actions. Don't assume that these permissions have been previously granted&mdash;check them and, if needed, request them before each access. <figure id="i6q9nxh_117"><img alt="image_2.png" src="images/image_2.png" title="image_2.png" width="188" height="150"></figure></p><p id="i6q9nxh_118">When your app requests a runtime permission, the system presents a runtime permission prompt, as shown in figure 3.</p><p id="i6q9nxh_119">Many runtime permissions access private user data, a special type of restricted data that includes potentially sensitive information. Examples of private user data include location and contact information.</p></section></section><section class="chapter"><h2 id="add-declaration-to-app-manifest" data-toc="add-declaration-to-app-manifest">Add declaration to app manifest</h2><div class="code-block" data-lang="markup">
+
+&lt;manifest ...&gt;
+    &lt;uses-permission android:name=&quot;android.permission.CAMERA&quot;/&gt;
+    &lt;application ...&gt;
+        ...
+    &lt;/application&gt;
+&lt;/manifest&gt;
+
+</div></section><section class="chapter"><h2 id="declare-hardware-as-optional" data-toc="declare-hardware-as-optional">Declare hardware as optional</h2><p id="i6q9nxh_121">Some permissions, such as <code class="code" id="i6q9nxh_122">CAMERA</code>, let your app access pieces of hardware that only some Android devices have. If your app declares one of these <a href="https://developer.android.com/guide/topics/manifest/uses-feature-element#permissions-features" id="i6q9nxh_123" data-external="true" rel="noopener noreferrer">hardware-associated permissions</a>, consider whether your app can still run on a device that doesn't have that hardware. In most cases, hardware is optional, so it's better to declare the hardware as optional by setting <code class="code" id="i6q9nxh_124">android:required</code> to <code class="code" id="i6q9nxh_125">false</code> in your <a href="https://developer.android.com/guide/topics/manifest/uses-feature-element" id="i6q9nxh_126" data-external="true" rel="noopener noreferrer"><code class="code" id="i6q9nxh_127">&lt;uses-feature&gt;</code></a> declaration, as shown in the following code snippet from an <code class="code" id="i6q9nxh_128">AndroidManifest.xml</code> file:</p><div class="code-block" data-lang="markup">
+
+&lt;manifest ...&gt;
+    &lt;application&gt;
+        ...
+    &lt;/application&gt;
+    &lt;uses-feature android:name=&quot;android.hardware.camera&quot;
+                  android:required=&quot;false&quot; /&gt;
+&lt;/manifest&gt;
+
+
+</div></section><section class="chapter"><h2 id="determine-hardware-availability" data-toc="determine-hardware-availability">Determine hardware availability</h2><p id="i6q9nxh_130">If you declare hardware as optional, it's possible for your app to run on a device that doesn't have that hardware. To check whether a device has a specific piece of hardware, use the * * <code class="code" id="i6q9nxh_131">[hasSystemFeature()](https://developer.android.com/reference/android/content/pm/PackageManager#hasSystemFeature(java.lang.String))</code>** method, as shown in the following code snippet. If the hardware isn't available, gracefully disable that feature in your app.</p><div class="code-block" data-lang="kotlin">
+// Check whether your app is running on a device that has a front-facing camera.
+if (applicationContext.packageManager.hasSystemFeature(
+        PackageManager.FEATURE_CAMERA_FRONT)) {
+    // Continue with the part of your app's workflow that requires a
+    // front-facing camera.
+} else {
+    // Gracefully degrade your app experience.
+}
+</div></section><section class="chapter"><h2 id="request-runtime-permissions" data-toc="request-runtime-permissions">Request runtime permissions</h2><p id="i6q9nxh_133">Every Android app runs in a limited-access sandbox. If your app needs to use resources or information outside of its own sandbox, you can declare a runtime permission and set up a permission request that provides this access. These steps are part of the workflow for using permissions.</p><p id="i6q9nxh_134">The permissions dialog shown by the system when you call <code class="code" id="i6q9nxh_135">requestPermissions()</code> says what permission your app wants, but doesn't say why. In some cases, the user might find that puzzling. It's a good idea to explain to the user why your app wants the permissions before you call <code class="code" id="i6q9nxh_136">requestPermissions()</code>.</p><p id="i6q9nxh_137">The following code snippet shows how to handle the permissions response:</p><div class="tabs" id="i6q9nxh_138" data-anchors="[i6q9nxh_139,i6q9nxh_141]"><div class="tabs__content" data-gtm="tab" id="i6q9nxh_139" data-title="Option 1"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+// Create a val to launch the permission window.
+ val permissionLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.RequestPermission()
+    ) { permission -&gt;
+        if (permission != null) {
+            // You can use the API that requires the permission.
+        } else {
+            // You can directly ask for the permission. Or handle what
+            // if the permission was denied.
+        }
+    }
+</div></div><div class="tabs__content" data-gtm="tab" id="i6q9nxh_141" data-title="Option 2"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+// Register the permissions callback, which handles the user's response to the
+// system permissions dialog. Save the return value, an instance of
+// ActivityResultLauncher. You can use either a val, as shown in this snippet,
+// or a lateinit var in your onAttach() or onCreate() method.
+val requestPermissionLauncher =
+    registerForActivityResult(RequestPermission()
+    ) { isGranted: Boolean -&gt;
+        if (isGranted) {
+            // Permission is granted. Continue the action or workflow in your
+            // app.
+        } else {
+            // Explain to the user that the feature is unavailable because the
+            // feature requires a permission that the user has denied. At the
+            // same time, respect the user's decision. Don't link to system
+            // settings in an effort to convince the user to change their
+            // decision.
+        }
+    }
+</div></div></div><p id="i6q9nxh_143">And this code snippet demonstrates the recommended process to check for a permission and to request a permission from the user when necessary:</p><div class="tabs" id="i6q9nxh_144" data-anchors="[i6q9nxh_145,i6q9nxh_147]"><div class="tabs__content" data-gtm="tab" id="i6q9nxh_145" data-title="Option 1"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+// Check the status from the permission
+val permissionCheckResult =ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA)
+// If it is used in an ApplicationActivity context must be: applicationContext
+// or this if it is used in MainActivity file.
+if (permissionCheckResult == PackageManager.PERMISSION_GRANTED) {
+        // use the API that requires acess
+} else { 
+        // You can directly ask for the permission. Or handle what
+        // if the permission was denied.
+}
+</div></div><div class="tabs__content" data-gtm="tab" id="i6q9nxh_147" data-title="Option 2"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+when {
+    ContextCompat.checkSelfPermission(
+            CONTEXT,
+            Manifest.permission.REQUESTED_PERMISSION
+            ) == PackageManager.PERMISSION_GRANTED -&gt; {
+        // You can use the API that requires the permission.
+    }
+    ActivityCompat.shouldShowRequestPermissionRationale(
+            this, Manifest.permission.REQUESTED_PERMISSION) -&gt; {
+        // In an educational UI, explain to the user why your app requires this
+        // permission for a specific feature to behave as expected, and what
+        // features are disabled if it's declined. In this UI, include a
+        // &quot;cancel&quot; or &quot;no thanks&quot; button that lets the user continue
+        // using your app without granting the permission.
+        showInContextUI(...)
+    }
+    else -&gt; {
+        // You can directly ask for the permission.
+        // The registered ActivityResultCallback gets the result of this request.
+        requestPermissionLauncher.launch(
+                Manifest.permission.REQUESTED_PERMISSION)
+    }
+}
+</div></div></div><p id="i6q9nxh_149">Read more about <a href="https://developer.android.com/reference/android/Manifest.permission" id="i6q9nxh_150" data-external="true" rel="noopener noreferrer">permissions</a></p></section><div class="last-modified">Last modified: 21 julio 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="admob.html" class="navigation-links__prev">TODO : AdMob</a><a href="internet.html" class="navigation-links__next">Internet</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b267/app.js"></script></body></html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-07-21T14:25:24.2486084"><title>Intents | Jetpack Compose</title><script type="application/json" id="virtual-toc-data">[{"id":"types","level":0,"title":"Types","anchor":"#types"},{"id":"types-of-intent-actions","level":0,"title":"Types of Intent Actions","anchor":"#types-of-intent-actions"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b267/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Intents | Jetpack Compose"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Jetpack Compose Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/intents.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Intents | Jetpack Compose"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/intents.html#webpage",
+    "url": "writerside-documentation/intents.html",
+    "name": "Intents | Jetpack Compose",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Jetpack Compose Help"
+}</script><!-- End Schema.org --></head><body data-id="Intents" data-main-title="Intents" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs=""><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Jetpack Compose  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Intents" id="Intents.md">Intents</h1><p id="jhdus9_180">Intents are asynchronous messages that allow application components to request functionality from other Android components. They are used to start activities, services, and send broadcasts.</p><ul class="list _bullet" id="jhdus9_181"><li class="list__item" id="jhdus9_182"><p>Starting a new activity: Use explicit intents to navigate between activities in your app.</p></li><li class="list__item" id="jhdus9_183"><p>Opening a web page: Use implicit intents to open URLs in a web browser.</p></li><li class="list__item" id="jhdus9_184"><p>Sending an email: Use implicit intents to open email clients with pre-filled content.</p></li><li class="list__item" id="jhdus9_185"><p>Broadcasting messages: Use broadcast intents to send messages to multiple app components.</p></li></ul><section class="chapter"><h2 id="types" data-toc="types">Types</h2><p id="jhdus9_186">Types of Intents</p><section class="chapter"><h3 id="explicit-intents" data-toc="explicit-intents">Explicit Intents</h3><p id="jhdus9_187">Explicit intents specify the component to start by name (the fully qualified class name). They are typically used to start a component within the same application.</p><div class="code-block" data-lang="kotlin">
+val intent = Intent(this, TargetActivity::class.java)
+startActivity(intent)
+</div></section><section class="chapter"><h3 id="implicit-intents" data-toc="implicit-intents">Implicit Intents</h3><p id="jhdus9_189">Implicit intents do not specify a specific component. Instead, they declare a general action to perform, allowing any app that can handle the action to respond.</p><div class="code-block" data-lang="kotlin">
+val intent = Intent(Intent.ACTION_VIEW).apply {
+    data = Uri.parse(&quot;https://www.example.com&quot;)
+}
+startActivity(intent)
+</div><p id="jhdus9_191">Creating an intent involves creating an instance of the Intent class and specifying the action, data, and component (if applicable).</p><div class="code-block" data-lang="kotlin">
+val intent = Intent(this, TargetActivity::class.java)
+intent.putExtra(&quot;key&quot;, &quot;value&quot;)
+startActivity(intent)
+</div></section></section><section class="chapter"><h2 id="types-of-intent-actions" data-toc="types-of-intent-actions">Types of Intent Actions</h2><p id="jhdus9_193">Intent actions are predefined string constants that describe the general action to be performed by the intent. These actions determine how the intent is handled by the receiving component.</p><section class="chapter"><h3 id="intent-action-view" data-toc="intent-action-view"><code class="code" id="jhdus9_195">Intent.ACTION_VIEW</code></h3><p id="jhdus9_196">Displays data to the user.</p><p id="jhdus9_197"><span class="control" id="jhdus9_198">Common Uses</span>: Opening a web page in a browser, viewing a map location, viewing a contact, or opening a document.</p><p id="jhdus9_199"><span class="control" id="jhdus9_200">Open a Web Page:</span></p><div class="code-block" data-lang="kotlin">
+// If it necessary to launch the Intent where there is no context
+context = LocalContext.current
+val intent = Intent(Intent.ACTION_VIEW).apply {
+    data = Uri.parse(&quot;https://www.example.com&quot;)
+}
+/*context.*/startActivity(intent)
+</div><p id="jhdus9_202"><span class="control" id="jhdus9_203">View a Location on a Map:</span></p><div class="code-block" data-lang="kotlin">
+// If it necessary to launch the Intent where there is no context
+context = LocalContext.current
+val gmmIntentUri = Uri.parse(&quot;geo:37.7749,-122.4194&quot;)
+val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+mapIntent.setPackage(&quot;com.google.android.apps.maps&quot;)
+/*context.*/startActivity(mapIntent)
+</div></section><section class="chapter"><h3 id="intent-action-send" data-toc="intent-action-send"><code class="code" id="jhdus9_206">Intent.ACTION_SEND</code></h3><p id="jhdus9_207">Send data to another application.</p><p id="jhdus9_208"><span class="control" id="jhdus9_209">Common Uses:</span> Sharing text, images, or other content via email, messaging apps, or social media.</p><p id="jhdus9_210"><span class="control" id="jhdus9_211">Share Text Content:</span></p><div class="code-block" data-lang="kotlin">
+// If it necessary to launch the Intent where there is no context
+context = LocalContext.current
+val intent = Intent(Intent.ACTION_SEND).apply {
+    type = &quot;text/plain&quot;
+    putExtra(Intent.EXTRA_TEXT, &quot;Check out this link: https://www.example.com&quot;)
+}
+/*context.*/startActivity(Intent.createChooser(intent, &quot;Share via&quot;))
+</div><p id="jhdus9_213"><span class="control" id="jhdus9_214">Share an Image:</span></p><div class="code-block" data-lang="kotlin">
+// If it necessary to launch the Intent where there is no context
+context = LocalContext.current
+val uri = Uri.parse(&quot;file://path/to/image&quot;)
+val intent = Intent(Intent.ACTION_SEND).apply {
+    type = &quot;image/ /* [.png .webp .jpg .jpeg  * -&gt; (All) ]*/&quot;
+    putExtra(Intent.EXTRA_STREAM, uri)
+}
+/*context.*/startActivity(Intent.createChooser(intent, &quot;Share Image via&quot;))
+</div></section><section class="chapter"><h3 id="intent-action-sendto" data-toc="intent-action-sendto"><code class="code" id="jhdus9_217">Intent.ACTION_SENDTO</code></h3><p id="jhdus9_218">Send data to a specific URI.</p><p id="jhdus9_219"><span class="control" id="jhdus9_220">Common Uses</span>: Sending an email or SMS.</p><p id="jhdus9_221"><span class="control" id="jhdus9_222">Send an Email:</span></p><div class="tabs" id="jhdus9_223" data-anchors="[jhdus9_224,jhdus9_226]"><div class="tabs__content" data-gtm="tab" id="jhdus9_224" data-title="One address"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+// If it necessary to launch the Intent where there is no context
+context = LocalContext.current
+val intent = Intent(Intent.ACTION_SENDTO).apply {
+    data = Uri.parse(&quot;mailto:example@example.com&quot;)
+    putExtra(Intent.EXTRA_SUBJECT, &quot;Subject Here&quot;)
+    putExtra(Intent.EXTRA_TEXT, &quot;Body Here&quot;)
+}
+/*context.*/startActivity(Intent.createChooser(intent, &quot;Email Client&quot;)) // startActivity(intent) by default
+</div></div><div class="tabs__content" data-gtm="tab" id="jhdus9_226" data-title="Multiple addresses"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+// If it necessary to launch the Intent where there is no context
+context = LocalContext.current
+// Send an email
+val intent = Intent(Intent.ACTION_SEND)
+            email = &quot;example@mail.com, test@example.com&quot;
+            var emailAddress: Array&lt;String&gt; = emptyArray()
+            email.trim().split(&quot;, &quot;).forEach { emailAddress += it }
+            intent.putExtra(Intent.EXTRA_EMAIL, emailAddress)
+            intent.putExtra(Intent.EXTRA_SUBJECT, &quot;subject&quot;)
+            intent.putExtra(Intent.EXTRA_TEXT, &quot;message&quot;)
+            intent.type = &quot;message/rfc822&quot;
+/*context.*/startActivity(Intent.createChooser(intent, &quot;Email Client&quot;))
+</div></div></div><p id="jhdus9_228"><span class="control" id="jhdus9_229">Send an SMS:</span></p><div class="code-block" data-lang="kotlin">
+// If it necessary to launch the Intent where there is no context
+context = LocalContext.current
+val intent = Intent(Intent.ACTION_SENDTO).apply {
+    data = Uri.parse(&quot;smsto:$phoneNumber&quot;)
+    putExtra(&quot;sms_body&quot;, &quot;Hello, how are you?&quot;)
+}
+/*context.*/startActivity(intent)
+</div></section><section class="chapter"><h3 id="intent-action-pick" data-toc="intent-action-pick"><code class="code" id="jhdus9_232">Intent.ACTION_PICK</code></h3><p id="jhdus9_233">Pick an item from the data, returning what was selected.</p><p id="jhdus9_234"><span class="control" id="jhdus9_235">Common Uses</span>: Picking a contact, picking an image from the gallery.</p><p id="jhdus9_236"><span class="control" id="jhdus9_237">Pick a Contact:</span></p><div class="code-block" data-lang="kotlin">
+// If it necessary to launch the Intent where there is no context
+context = LocalContext.current
+val intent = Intent(Intent.ACTION_PICK).apply {
+    type = ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE
+}
+/*context.*/startActivityForResult(intent, REQUEST_CODE_PICK_CONTACT)
+</div><p id="jhdus9_239"><span class="control" id="jhdus9_240">Pick an Image:</span></p><div class="code-block" data-lang="kotlin">
+// If it necessary to launch the Intent where there is no context
+context = LocalContext.current
+val intent = Intent(Intent.ACTION_PICK).apply {
+    type = &quot;image/ * &quot; // No blank spaces.
+}
+/*context.*/startActivityForResult(intent, REQUEST_CODE_PICK_IMAGE)
+</div></section><section class="chapter"><h3 id="intent-action-dial" data-toc="intent-action-dial"><code class="code" id="jhdus9_243">Intent.ACTION_DIAL</code></h3><p id="jhdus9_244">Dial a number, showing the dialer screen with the number pre-filled.</p><p id="jhdus9_245"><span class="control" id="jhdus9_246">Common Uses</span>: Initiating a phone call without directly placing the call.</p><p id="jhdus9_247"><span class="control" id="jhdus9_248">Dial a Number:</span></p><div class="code-block" data-lang="kotlin">
+// If it necessary to launch the Intent where there is no context
+context = LocalContext.current
+val intent = Intent(Intent.ACTION_DIAL).apply {
+    data = Uri.parse(&quot;tel:$phoneNumber&quot;)
+}
+/*context.*/startActivity(intent)
+</div></section><section class="chapter"><h3 id="intent-action-call" data-toc="intent-action-call"><code class="code" id="jhdus9_251">Intent.ACTION_CALL</code></h3><p id="jhdus9_252">Directly call a number (requires CALL_PHONE permission).</p><p id="jhdus9_253"><span class="control" id="jhdus9_254">Common Uses</span>: Placing a phone call directly.</p><p id="jhdus9_255"><span class="control" id="jhdus9_256">Directly Call a Number:</span></p><div class="code-block" data-lang="kotlin">
+// If it necessary to launch the Intent where there is no context
+context = LocalContext.current
+val intent = Intent(Intent.ACTION_CALL).apply {
+    data = Uri.parse(&quot;tel:$phoneNumber&quot;)
+}
+/*context.*/startActivity(intent)
+</div><aside class="prompt" data-type="note" data-title="" id="jhdus9_258"><p id="jhdus9_259"><span class="control" id="jhdus9_260">Note</span></p><p id="jhdus9_261">Using <code class="code" id="jhdus9_262">ACTION_CALL</code> requires the <code class="code" id="jhdus9_263">android.permission.CALL_PHONE</code> permission in your manifest and is generally discouraged in favor of <code class="code" id="jhdus9_264">ACTION_DIAL</code> for security reasons.</p></aside></section><section class="chapter"><h3 id="edit" data-toc="edit">Edit</h3><p id="jhdus9_265">Edit the specified data.</p><p id="jhdus9_266"><span class="control" id="jhdus9_267">Common Uses:</span> Editing a contact, editing a calendar event.</p><p id="jhdus9_268"><span class="control" id="jhdus9_269">Edit a Contact:</span></p><div class="code-block" data-lang="kotlin">
+// If it necessary to launch the Intent where there is no context
+context = LocalContext.current
+val contactUri = Uri.parse(&quot;content://contacts/people/1&quot;)
+val intent = Intent(Intent.ACTION_EDIT).apply {
+    data = contactUri
+}
+/*context.*/startActivity(intent)
+</div></section></section><div class="last-modified">Last modified: 21 julio 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="retrofit.html" class="navigation-links__prev">RetroFit</a><a href="firebase.html" class="navigation-links__next">Firebase</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b267/app.js"></script></body></html>

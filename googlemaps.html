@@ -1,0 +1,208 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-07-21T14:25:24.3746233"><title>GPS | Jetpack Compose</title><script type="application/json" id="virtual-toc-data">[{"id":"permissions","level":0,"title":"Permissions","anchor":"#permissions"},{"id":"check-feature-availability","level":0,"title":"Check Feature availability","anchor":"#check-feature-availability"},{"id":"request-permissions","level":0,"title":"Request Permissions","anchor":"#request-permissions"},{"id":"request-coarse-permissions","level":0,"title":"Request Coarse Permissions","anchor":"#request-coarse-permissions"},{"id":"request-both-permissions","level":0,"title":"Request Both Permissions","anchor":"#request-both-permissions"},{"id":"get-location","level":0,"title":"Get location","anchor":"#get-location"},{"id":"show-location-on-a-map","level":0,"title":"Show Location on a Map","anchor":"#show-location-on-a-map"},{"id":"todo-get-background-location","level":0,"title":"TODO : Get Background Location","anchor":"#todo-get-background-location"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b267/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="GPS | Jetpack Compose"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Jetpack Compose Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/googlemaps.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="GPS | Jetpack Compose"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/googlemaps.html#webpage",
+    "url": "writerside-documentation/googlemaps.html",
+    "name": "GPS | Jetpack Compose",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Jetpack Compose Help"
+}</script><!-- End Schema.org --></head><body data-id="GoogleMaps" data-main-title="GPS" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Permissions.md|Permissions"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Jetpack Compose  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="GoogleMaps" id="GoogleMaps.md">GPS</h1><p id="nkybhb_210">One of the unique features of mobile applications is location awareness. Mobile users take their devices with them everywhere, and adding location awareness to your app offers users a more contextual experience. The location APIs available in Google Play services facilitate adding location awareness to your app with automated location tracking, wrong-side-of-the-street detection, geofencing, and activity recognition.</p><section class="chapter"><h2 id="permissions" data-toc="permissions">Permissions</h2><p id="nkybhb_211">Using GPS requires granting permissions for the hardware option before using it. The permissions to be granted depend on the type of location.</p><div class="code-block" data-lang="markup">
+
+&lt;!-- Always include this permission --&gt;
+    &lt;uses-permission android:name=&quot;android.permission.ACCESS_COARSE_LOCATION&quot; /&gt;
+    &lt;!-- Include only if your app benefits from precise location access. --&gt;
+    &lt;uses-permission android:name=&quot;android.permission.ACCESS_FINE_LOCATION&quot; /&gt;
+
+</div><p id="nkybhb_213">If your app requires to get background locations you must also add:</p><div class="code-block" data-lang="markup">
+
+&lt;!-- Always include this permission --&gt;
+    &lt;uses-permission android:name=&quot;android.permission.ACCESS_COARSE_LOCATION&quot; /&gt;
+    &lt;!-- Include only if your app benefits from precise location access. --&gt;
+    &lt;uses-permission android:name=&quot;android.permission.ACCESS_FINE_LOCATION&quot; /&gt;
+
+</div></section><section class="chapter"><h2 id="check-feature-availability" data-toc="check-feature-availability">Check Feature availability</h2><div class="code-block" data-lang="kotlin">
+ if (context.packageManager.hasSystemFeature(PackageManager.FEATURE_LOCATION_GPS)) {
+            // It has GPS feature so can be used.
+        } else {
+            // Handle what to do otherwise
+        }
+</div></section><section class="chapter"><h2 id="request-permissions" data-toc="request-permissions">Request Permissions</h2><p id="nkybhb_216">Whether you need Fine or Coarse location you must request the permissions.</p></section><section class="chapter"><h2 id="request-coarse-permissions" data-toc="request-coarse-permissions">Request Coarse Permissions</h2><p id="nkybhb_217">As you cannot request the <code class="code" id="nkybhb_218">ACCESS_FINE_LOCATION</code> permission alone, you can only request the <code class="code" id="nkybhb_219">ACCESS_COARSE_LOCATION</code> individually.</p><div class="code-block" data-lang="kotlin">
+val permissionLauncher = rememberLauncherForActivityResult(
+    contract = ActivityResultContracts.RequestPermission()) 
+    { isGranted -&gt;
+        if (isGranted) {
+            // Use GPS.
+        } else {
+            // Do something.
+        }
+    }
+permissionLauncher.launch(Manifest.permission.ACCESS_COARSE_LOCATION)
+</div></section><section class="chapter"><h2 id="request-both-permissions" data-toc="request-both-permissions">Request Both Permissions</h2><p id="nkybhb_221">When asking for both permissions you can get help from <code class="code" id="nkybhb_222">accompanist-permissions</code> google library adding it to the AppModule <code class="code" id="nkybhb_223">Build.gradle</code></p><div class="tabs" id="nkybhb_224" data-anchors="[nkybhb_225,nkybhb_227]"><div class="tabs__content" data-gtm="tab" id="nkybhb_225" data-title="Groovy"><div class="code-block" data-lang="groovy" data-title="Groovy">
+dependencies{
+    ...
+    implementation &quot;com.google.accompanist:accompanist-permissions:0.24.13-rc&quot;
+    ...
+}
+</div></div><div class="tabs__content" data-gtm="tab" id="nkybhb_227" data-title="Kotlin"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+dependencies{
+    ...
+    implementation(&quot;com.google.accompanist:accompanist-permissions:0.24.13-rc&quot;)
+    ...
+}
+</div></div></div><p id="nkybhb_229">Then, using the <code class="code" id="nkybhb_230">rememberMultiplePermissionsState()</code> you can request two or more permissions at the same time.</p><div class="code-block" data-lang="kotlin">
+val permissionsState = rememberMultiplePermissionsState(
+                permissions = listOf(
+                    android.Manifest.permission.ACCESS_FINE_LOCATION,
+                    android.Manifest.permission.ACCESS_COARSE_LOCATION)
+            )
+    if (!permissionsState.allPermissionsGranted) {
+            permissionsState.launchMultiplePermissionRequest()
+    }
+</div><p id="nkybhb_232">You can not request <code class="code" id="nkybhb_233">ACCESS_FINE_LOCATION</code> permission only, you must request both at the same request.</p><aside class="prompt" data-type="note" data-title="" id="nkybhb_234"><p id="nkybhb_235"><span class="control" id="nkybhb_236">Note</span></p><p id="nkybhb_237"><code class="code" id="nkybhb_238">ACCESS_FINE_LOCATION</code> must be requested with <code class="code" id="nkybhb_239">ACCESS_COARSE_LOCATION</code></p></aside><section class="chapter"><h3 id="check-permissions-granted" data-toc="check-permissions-granted">Check Permissions Granted</h3><div class="code-block" data-lang="kotlin">
+if (ActivityCompat.checkSelfPermission(
+            context,
+            Manifest.permission.ACCESS_FINE_LOCATION
+        ) == PackageManager.PERMISSION_GRANTED &amp;&amp; ActivityCompat.checkSelfPermission(
+            context,
+            Manifest.permission.ACCESS_COARSE_LOCATION
+        ) == PackageManager.PERMISSION_GRANTED
+    ) { 
+        // Use GPS feature.
+}else{
+    // Ask for Permissions again
+}
+</div></section></section><section class="chapter"><h2 id="get-location" data-toc="get-location">Get location</h2><section class="procedure-steps" id="nkybhb_241"><ol class="list _decimal"><li class="list__item" id="nkybhb_242"><p id="nkybhb_243">Add <code class="code" id="nkybhb_244">play-services-location</code> into your <code class="code" id="nkybhb_245">Build.gradle</code> dependencies.</p><div class="tabs" id="nkybhb_246" data-anchors="[nkybhb_247,nkybhb_249]"><div class="tabs__content" data-gtm="tab" id="nkybhb_247" data-title="Groovy"><div class="code-block" data-lang="groovy" data-title="Groovy">
+implementation 'com.google.android.gms:play-services-location:19.0.1'
+</div></div><div class="tabs__content" data-gtm="tab" id="nkybhb_249" data-title="Kotlin"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+implementation (&quot;com.google.android.gms:play-services-location:19.0.1&quot;)
+</div></div></div></li><li class="list__item" id="nkybhb_251"><p>Create location services client </p><p id="nkybhb_252">In your activity's <code class="code" id="nkybhb_253">onCreate()</code> method, create an instance of the Fused Location Provider Client as the following code snippet shows.</p><div class="code-block" data-lang="kotlin">
+ fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+</div></li><li class="list__item" id="nkybhb_255"><p>Get the last known location </p><p id="nkybhb_256">Once you have created the Location Services client you can get the last known location of a user's device. When your app is connected to these you can use the fused location provider's <code class="code" id="nkybhb_257">getLastLocation()</code> method to retrieve the device location. The precision of the location returned by this call is determined by the permission setting you put in your app manifest, as described in the guide on how to request location permissions.</p><p id="nkybhb_258">To request the last known location, call the <code class="code" id="nkybhb_259">getLastLocation()</code> method. The following code snippet illustrates the request and a simple handling of the response:</p><div class="code-block" data-lang="kotlin">
+fusedLocationClient.lastLocation
+        .addOnSuccessListener { location : Location? -&gt;
+            // Got last known location. In some rare situations this can be null.
+        }.addOnFailureListener { exception -&gt;
+            // Handler exception
+            }
+</div></li></ol></section><section class="chapter"><h3 id="choose-the-best-location-estimate" data-toc="choose-the-best-location-estimate">Choose the best location estimate</h3><p id="nkybhb_261">The FusedLocationProviderClient provides several methods to retrieve device location information. Choose from one of the following, depending on your app's use case:</p><ul class="list _bullet" id="nkybhb_262"><li class="list__item" id="nkybhb_263"><p><code class="code" id="nkybhb_264">getLastLocation()</code> gets a location estimate more quickly and minimizes battery usage that can be attributed to your app. However, the location information might be out of date, if no other clients have actively used location recently.</p></li><li class="list__item" id="nkybhb_265"><p><code class="code" id="nkybhb_266">getCurrentLocation()</code> gets a fresher, more accurate location more consistently. However, this method can cause active location computation to occur on the device</p></li></ul><p id="nkybhb_267">This is the recommended way to get a fresh location, whenever possible, and is safer than alternatives like starting and managing location updates yourself using <code class="code" id="nkybhb_268">requestLocationUpdates()</code>. If your app calls <code class="code" id="nkybhb_269">requestLocationUpdates()</code>, your app can sometimes consume large amounts of power if location isn't available, or if the request isn't stopped correctly after obtaining a fresh location.</p></section></section><section class="chapter"><h2 id="show-location-on-a-map" data-toc="show-location-on-a-map">Show Location on a Map</h2><section class="procedure-steps"><h3 id="nkybhb_270" data-toc="nkybhb_270">Setting up</h3><ol class="list _decimal"><li class="list__item" id="nkybhb_271"><p id="nkybhb_272">Create an Account</p><p id="nkybhb_273">First, you need to create an account in <a href="https://console.cloud.google.com/" id="nkybhb_274" data-external="true" rel="noopener noreferrer">Google Cloud</a></p></li><li class="list__item" id="nkybhb_275"><p id="nkybhb_276">Start a new Project</p><p id="nkybhb_277">Add a new billing account, wait for Google to accept your account and enable: <code class="code" id="nkybhb_278">Maps Sdk for Android</code> copy the API KEY and add it into your <code class="code" id="nkybhb_279">AndoridManifest</code>. (Do not restrict API Key for testing)</p></li><li class="list__item" id="nkybhb_280"><p>Add your API Key into your android Manifest </p><div class="code-block" data-lang="markup">
+
+ &lt;application&gt;
+    ...
+    &lt;meta-data
+            android:name=&quot;com.google.android.geo.API_KEY&quot;
+            android:value=&quot;PASTE YOUR API KEY&quot;/&gt;
+    &lt;activity&gt;
+    ...
+    &lt;/activity&gt;
+&lt;/application&gt;
+
+</div></li><li class="list__item" id="nkybhb_282"><p id="nkybhb_283">Add Map Dependencies</p><p id="nkybhb_284">Add the following dependencies into your <code class="code" id="nkybhb_285">Build.gradle</code> dependencies</p><div class="code-block" data-lang="kotlin">
+    implementation(&quot;com.google.maps.android:maps-compose:2.11.2&quot;)
+    implementation(&quot;com.google.android.gms:play-services-maps:19.0.0&quot;)
+    implementation(&quot;com.google.android.libraries.places:places:3.5.0&quot;)
+</div></li><li class="list__item" id="nkybhb_287"><p>Enable Geocoding API </p><figure id="nkybhb_288"><img alt="image_3.png" src="images/image_3.png" title="image_3.png" width="407" height="168"></figure></li></ol></section><section class="chapter"><h3 id="get-locations" data-toc="get-locations">Get Locations</h3><div class="code-block" data-lang="kotlin">
+val apiKey = &quot;Your API KEY&quot;
+            val url =
+                &quot;geoCoding API URL&quot;
+            val response = withContext(Dispatchers.IO) {
+                // get the Json Response
+                URL(url).readText()
+            }
+            // Get the result and convert it to a Kotlin DataClass
+            val result = Gson().fromJson(response, GoogleGeoResults::class.java)
+            // Usually, you have to add a list of results in the DataClass
+            // That contain all the data required
+            if (result.results.isNotEmpty()) {
+                // Handle result.
+            } else {
+               // Handle errors
+            }
+</div><aside class="prompt" data-type="note" data-title="" id="nkybhb_290"><p id="nkybhb_291"><span class="control" id="nkybhb_292">Note</span></p><p id="nkybhb_293">The Kotlin <code class="code" id="nkybhb_294">DataClass</code> must contain the structure of the <code class="code" id="nkybhb_295">Json</code> using the same names as those in the <code class="code" id="nkybhb_296">Json response</code>, otherwise, you must create a data factory to convert <code class="code" id="nkybhb_297">Json</code> into a <code class="code" id="nkybhb_298">DataClass</code></p></aside><section class="chapter"><h4 id="dataclass" data-toc="dataclass">DataClass</h4><p id="nkybhb_299">The following code shows an example of Kotlin DataClass using <code class="code" id="nkybhb_300">https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&amp;key=YOUR_API_KEY</code> Geocoding API URL.</p><div class="code-block" data-lang="kotlin">
+data class GoogleGeoResults(
+    val results: List&lt;Results&gt;,
+    val status: String,
+)
+data class Results(
+    val geometry: Geometry,
+    val formatted_address: String,
+)
+data class Geometry(
+    val location: Location,
+)
+data class Location(
+    val lat: Double,
+    val lng: Double,
+)
+</div><aside class="prompt" data-type="tip" data-title="DataClass Structure" id="nkybhb_302"><p>Your DataClass must depend on the Json structure given by the URL you are working with. </p><p id="nkybhb_303">Read more about <a href="https://developers.google.com/maps/documentation/geocoding/start?hl=es-419" id="nkybhb_304" data-external="true" rel="noopener noreferrer">Geocoding Request URL</a></p></aside></section></section><section class="chapter"><h3 id="creating-map" data-toc="creating-map">Creating Map</h3><p id="nkybhb_305">Add <code class="code" id="nkybhb_306">GoogleMap()</code> composable to create the Google Maps view.</p><div class="code-block" data-lang="kotlin">
+//Creates the location using two doubles lat and lang
+val location = LatLng(lat, lng)
+// Creates the pointer position
+val pointerState = rememberMarkerState(position = location)
+// Indicates the position and zoom that the camera must have.
+val cameraPosition = CameraPosition.fromLatLngZoom(location, 10f)
+// Creates the camera state when scrolling around.
+val cameraState = rememberCameraPositionState { position = cameraPosition }
+ GoogleMap(
+    modifier = Modifier.matchParentSize(),
+    // Indicates exactly where the camera must focus
+    cameraPositionState = cameraState,
+    // What will happen after the map is loaded 
+    onMapLoaded = { /* Code inside Here */}) { 
+          // Add a Marker or a MarkerInfoWindow
+        }
+    }
+</div><section class="chapter"><h4 id="adding-a-marker" data-toc="adding-a-marker">Adding a marker</h4><p id="nkybhb_308">If only one Marker Required:</p><div class="code-block" data-lang="kotlin">
+Marker(
+    // Indicates the place where the Marker is shown.
+    // pointerState was create above.
+    state = pointerState,
+    // Will show a tag over the marker with the title.
+    title = &quot;Location Name&quot;
+)
+</div><p id="nkybhb_310">If two or more Markers required:</p><div class="code-block" data-lang="kotlin">
+val places : List&lt;LatLng&gt; = listOf(LatLng(123.0,123.00) ... )
+places.forEach{ place -&gt;
+  Marker(
+    state = rememberMarkerState(position = place),
+    title = &quot;Title&quot;
+  )
+}
+</div></section><section class="chapter"><h4 id="adding-a-markerinfowindow" data-toc="adding-a-markerinfowindow">Adding a MarkerInfoWindow</h4><div class="code-block" data-lang="kotlin">
+MarkerInfoWindow(state = pointerState) {
+    PointerCard(&quot;address&quot;) 
+}
+@Composable
+fun PointerCard(address: String?) {
+    Card(
+        modifier = Modifier
+            .padding(16.dp)
+            .height(150.dp)
+    ) {
+        Column(
+            modifier = Modifier
+                .padding(16.dp)
+                .fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Icon(
+                imageVector = Icons.Default.LocationOn,
+                contentDescription = &quot;&quot;,
+                modifier = Modifier.size(40.dp)
+            )
+            Text(
+                text = address ?: &quot;No address&quot;,
+                fontWeight = FontWeight.Bold,
+                fontSize = 20.sp,
+                modifier = Modifier.padding(15.dp)
+            )
+        }
+    }
+}
+</div></section></section></section><section class="chapter"><h2 id="todo-get-background-location" data-toc="todo-get-background-location">TODO : Get Background Location</h2></section><div class="last-modified">Last modified: 21 julio 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="local-notification.html" class="navigation-links__prev">Local Notification</a><a href="todo-nfc.html" class="navigation-links__next">TODO : NFC</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b267/app.js"></script></body></html>

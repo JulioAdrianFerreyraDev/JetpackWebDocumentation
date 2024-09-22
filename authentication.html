@@ -1,0 +1,82 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-07-21T14:25:24.2476024"><title>TODO : Authentication | Jetpack Compose</title><script type="application/json" id="virtual-toc-data">[{"id":"key-features","level":0,"title":"Key Features","anchor":"#key-features"},{"id":"implementation","level":0,"title":"Implementation","anchor":"#implementation"},{"id":"use","level":0,"title":"Use","anchor":"#use"},{"id":"todo-check-if-you-can-use-hilt-and-dagger","level":0,"title":"TODO CHECK IF YOU CAN USE HILT AND DAGGER","anchor":"#todo-check-if-you-can-use-hilt-and-dagger"},{"id":"todo-another-auth-sign-in-methods","level":0,"title":"TODO ANOTHER AUTH SIGN-IN METHODS","anchor":"#todo-another-auth-sign-in-methods"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b267/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="TODO : Authentication | Jetpack Compose"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Jetpack Compose Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/authentication.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="TODO : Authentication | Jetpack Compose"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/authentication.html#webpage",
+    "url": "writerside-documentation/authentication.html",
+    "name": "TODO : Authentication | Jetpack Compose",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Jetpack Compose Help"
+}</script><!-- End Schema.org --></head><body data-id="Authentication" data-main-title="TODO : Authentication" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Firebase.md|Firebase"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Jetpack Compose  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Authentication" id="Authentication.md">TODO : Authentication</h1><p id="-jl4xy0_100">Firebase Authentication is a service provided by Firebase that enables you to authenticate users in your app. It supports multiple authentication methods, including email and password, phone number, and popular identity providers like Google, Facebook, Twitter, and GitHub.</p><section class="chapter"><h2 id="key-features" data-toc="key-features">Key Features</h2><ol class="list _decimal" id="-jl4xy0_101" type="1"><li class="list__item" id="-jl4xy0_102"><p><span class="control" id="-jl4xy0_103">Multiple Authentication Methods:</span></p></li></ol><ul class="list _bullet" id="-jl4xy0_104"><li class="list__item" id="-jl4xy0_105"><p>Email and Password: Allow users to sign up and log in using their email addresses and passwords.</p></li><li class="list__item" id="-jl4xy0_106"><p>Phone Number: Authenticate users by sending a verification code to their phone number.</p></li><li class="list__item" id="-jl4xy0_107"><p>Federated Identity Providers: Use third-party providers like Google, Facebook, Twitter, and GitHub to sign in users.</p></li></ul><ol class="list _decimal" id="-jl4xy0_108" type="1" start="2"><li class="list__item" id="-jl4xy0_109"><p id="-jl4xy0_110"><span class="control" id="-jl4xy0_111">Anonymous Authentication:</span></p><ul class="list _bullet" id="-jl4xy0_112"><li class="list__item" id="-jl4xy0_113"><p>Allow users to access your app without requiring them to sign up. They can later upgrade to a full account by providing additional credentials.</p></li></ul></li><li class="list__item" id="-jl4xy0_114"><p id="-jl4xy0_115"><span class="control" id="-jl4xy0_116">Secure Token Management:</span></p><ul class="list _bullet" id="-jl4xy0_117"><li class="list__item" id="-jl4xy0_118"><p>Firebase Auth manages user sessions securely, providing access tokens that can be used to authenticate requests to your backend services.</p></li></ul></li><li class="list__item" id="-jl4xy0_119"><p id="-jl4xy0_120"><span class="control" id="-jl4xy0_121">Easy Integration with Firebase Services:</span></p><ul class="list _bullet" id="-jl4xy0_122"><li class="list__item" id="-jl4xy0_123"><p>Seamlessly integrate with other Firebase services like Firestore, Realtime Database, and Firebase Storage to manage user-specific data.</p></li></ul></li><li class="list__item" id="-jl4xy0_124"><p id="-jl4xy0_125"><span class="control" id="-jl4xy0_126">Custom Authentication System:</span></p><ul class="list _bullet" id="-jl4xy0_127"><li class="list__item" id="-jl4xy0_128"><p>Implement custom authentication by integrating with your existing user management system and issuing Firebase Auth tokens.</p></li></ul></li></ol></section><section class="chapter"><h2 id="implementation" data-toc="implementation">Implementation</h2><p id="-jl4xy0_129">In your module (app-level) Gradle file, add the dependency for the Firebase <code class="code" id="-jl4xy0_130">Authentication</code> library for Android. Is recommend to use the Firebase <a href="firebase.html" id="-jl4xy0_131" data-tooltip="Is a set of backend cloud computing services and application development platforms provided by Google. It hosts databases, services, authentication, and integration for a variety of applications, including Android, iOS, JavaScript, Node.js, Java, Unity, PHP, and C++.">Android BoM</a> to control library versioning.</p><div class="code-block" data-lang="kotlin">
+dependencies {
+    // Import the BoM for the Firebase platform
+    implementation(platform(&quot;com.google.firebase:firebase-bom:33.1.2&quot;))
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation(&quot;com.google.firebase:firebase-auth-ktx&quot;)
+}
+</div></section><section class="chapter"><h2 id="use" data-toc="use">Use</h2></section><section class="chapter"><h2 id="todo-check-if-you-can-use-hilt-and-dagger" data-toc="todo-check-if-you-can-use-hilt-and-dagger">TODO CHECK IF YOU CAN USE HILT AND DAGGER</h2><section class="chapter"><h3 id="initialize-auth" data-toc="initialize-auth">Initialize Auth</h3><section class="procedure-steps" id="-jl4xy0_133"><ol class="list _decimal"><li class="list__item" id="-jl4xy0_134"><p>Declare an instance of FirebaseAuth </p><div class="code-block" data-lang="kotlin">
+private val auth: FirebaseAuth = Firebase.auth
+</div></li><li class="list__item" id="-jl4xy0_136"><p>You can check if there is an active session </p><div class="code-block" data-lang="kotlin">
+var currentUser : FirebaseUser? = null
+   private set
+private fun getCurrentUser(){
+   currentUser = auth.currentUser
+}
+init{
+   getCurrentUser()
+}
+</div><p id="-jl4xy0_138">Recommended if working with <code class="code" id="-jl4xy0_139">ViewModel</code></p></li></ol></section></section><section class="chapter"><h3 id="login" data-toc="login">LogIn</h3><div class="code-block" data-lang="kotlin">
+fun login(email: String, password: String) {
+        viewModelScope.launch {
+            try {
+                auth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        // Action if sucess
+                    } else {
+                        // Handle the it not success
+                    }
+                }
+            } catch (e: Exception) {
+                // Handle exceptions
+            }
+        }
+    }
+</div></section><section class="chapter"><h3 id="create-users" data-toc="create-users">Create Users</h3><div class="code-block" data-lang="kotlin">
+fun createUser(email: String, password: String, username: String) {
+        viewModelScope.launch {
+            try {
+                auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        // Action if success
+                    } else {
+                       // Actions if not success
+                    }
+                }
+            } catch (e: Exception) {
+                // Handle exceptions
+            }
+        }
+    }
+</div></section><section class="chapter"><h3 id="logout" data-toc="logout">LogOut</h3><div class="code-block" data-lang="kotlin">
+fun logOut() {
+        auth.signOut()
+    }
+</div></section><section class="chapter"><h3 id="get-user-information" data-toc="get-user-information">Get user information</h3><div class="code-block" data-lang="kotlin">
+val user = auth.currentUser
+user?.let {
+    // Name, email address, and profile photo Url
+    val name = it.displayName
+    val email = it.email
+    val photoUrl = it.photoUrl
+    // Check if user's email is verified
+    val emailVerified = it.isEmailVerified
+    // The user's ID, unique to the Firebase project. 
+    val uid = it.uid
+}
+</div><aside class="prompt" data-type="warning" data-title="" id="-jl4xy0_144"><p id="-jl4xy0_145"><span class="control" id="-jl4xy0_146">Warning</span> Do NOT use this value to authenticate with your backend server, if you have one. Use <code class="code" id="-jl4xy0_147">FirebaseUser.getIdToken()</code> instead.</p></aside></section></section><section class="chapter"><h2 id="todo-another-auth-sign-in-methods" data-toc="todo-another-auth-sign-in-methods">TODO ANOTHER AUTH SIGN-IN METHODS</h2></section><div class="last-modified">Last modified: 21 julio 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="firebase.html" class="navigation-links__prev">Firebase</a><a href="cloud-firestore.html" class="navigation-links__next">Cloud Firestore</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b267/app.js"></script></body></html>

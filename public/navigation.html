@@ -1,0 +1,91 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-07-21T14:25:24.2476024"><title>Navigation | Jetpack Compose</title><script type="application/json" id="virtual-toc-data">[{"id":"implementation","level":0,"title":"Implementation","anchor":"#implementation"},{"id":"getting-started","level":0,"title":"Getting Started","anchor":"#getting-started"},{"id":"open-the-browser","level":0,"title":"Open the Browser","anchor":"#open-the-browser"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b267/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Navigation | Jetpack Compose"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Jetpack Compose Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/navigation.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Navigation | Jetpack Compose"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/navigation.html#webpage",
+    "url": "writerside-documentation/navigation.html",
+    "name": "Navigation | Jetpack Compose",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Jetpack Compose Help"
+}</script><!-- End Schema.org --></head><body data-id="Navigation" data-main-title="Navigation" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs=""><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Jetpack Compose  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Navigation" id="Navigation.md">Navigation</h1><p id="i7yq203_134">The Navigation component provides support for Jetpack Compose applications. You can navigate between composables while taking advantage of the Navigation component's infrastructure and features.</p><section class="chapter"><h2 id="implementation" data-toc="implementation">Implementation</h2><p id="i7yq203_135">The following implementation must be added into build.gradle dependencies:</p><div class="tabs" id="i7yq203_136" data-anchors="[i7yq203_137,i7yq203_139]"><div class="tabs__content" data-gtm="tab" id="i7yq203_137" data-title="Groovy"><div class="code-block" data-lang="groovy" data-title="Groovy">
+dependencies {
+    def nav_version = &quot;2.7.7&quot;
+    implementation &quot;androidx.navigation:navigation-compose:$nav_version&quot;
+}
+</div></div><div class="tabs__content" data-gtm="tab" id="i7yq203_139" data-title="Kotlin"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+dependencies {
+    val nav_version = &quot;2.7.7&quot;
+    implementation(&quot;androidx.navigation:navigation-compose:$nav_version&quot;)
+}
+</div></div></div><aside class="prompt" data-type="warning" data-title="" id="i7yq203_141"><p id="i7yq203_142"><span class="control" id="i7yq203_143">Version warning</span></p><p id="i7yq203_144">Be sure you are using the version you need to work in your application. The version used above is just an example and the latest version available in 06/07/2024</p></aside></section><section class="chapter"><h2 id="getting-started" data-toc="getting-started">Getting Started</h2><p id="i7yq203_145">When implementing navigation in an app, implement a navigation host, graph, and controller. For more information, see the Navigation overview.</p><section class="chapter"><h3 id="navcontroller" data-toc="navcontroller">NavController</h3><p id="i7yq203_146">To create a NavController when using Jetpack Compose, call <code class="code" id="i7yq203_147">rememberNavController()</code></p><div class="code-block" data-lang="kotlin">
+val navController = rememberNavController()
+</div></section><section class="chapter"><h3 id="navhost" data-toc="navhost">NavHost</h3><p id="i7yq203_149">After the navController declaration, you need to add a navHost that allows to create all the routes by adding a name to the composable destination.</p><div class="code-block" data-lang="kotlin">
+NavHost(navController = navController, startDestination = &quot;startDestinationView&quot;) {
+    composable(route = &quot;routeName&quot;) { 
+        ComposableView()
+    }
+}
+</div><section class="chapter"><h4 id="navigation-from-a-composable" data-toc="navigation-from-a-composable">Navigation From a Composable</h4><div class="tabs" id="i7yq203_151" data-anchors="[i7yq203_152,i7yq203_154]"><div class="tabs__content" data-gtm="tab" id="i7yq203_152" data-title="Navigation"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+navController.navigate(route = &quot;routeName&quot;)
+</div></div><div class="tabs__content" data-gtm="tab" id="i7yq203_154" data-title="Navigation with params"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+navController.navigate(route = &quot;routeName/?${parameter}&quot;) 
+// The &quot;?&quot; only goes if the param is nullSafety   
+</div></div></div><p id="i7yq203_156">You can also navigate back into the graph navigation:</p><div class="code-block" data-lang="kotlin">
+popUpTo(id = 0) // If 0 (zero) is given, then it closes the app, 
+//otherwise it will navigate to the tab given graph navigation index
+navController.popBackStack() // Navigate back to the previous screen
+</div><aside class="prompt" data-type="warning" data-title="" id="i7yq203_158"><p id="i7yq203_159"><span class="control" id="i7yq203_160">Expose events from your composables</span></p><p id="i7yq203_161">When a composable function needs to navigate to a new screen, you shouldn't pass it a reference to the <code class="code" id="i7yq203_162">NavController</code> so that it can call <code class="code" id="i7yq203_163">navigate()</code> directly.</p></aside><p id="i7yq203_164">According to Unidirectional Data Flow (UDF) principles, the composable should instead expose an event that the NavController handles. More directly put, your composable should have a parameter of <code class="code" id="i7yq203_165">type () -&gt; Unit</code>.</p><p id="i7yq203_166">When you add destinations to your NavHost with the <code class="code" id="i7yq203_167">composable()</code>function, pass your composable a call to <code class="code" id="i7yq203_168">NavController.navigate()</code>.</p><div class="tabs" id="i7yq203_169" data-anchors="[i7yq203_170,i7yq203_172]"><div class="tabs__content" data-gtm="tab" id="i7yq203_170" data-title="Navigation with no parameters"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+NavHost(navController = navController, startDestination = &quot;startDestinationView&quot;) {
+    composable(route = &quot;routeName&quot;) { 
+        ComposableView(onNavigation = {navController.navigate(route = &quot;routeName&quot;)})
+    }
+}
+</div></div><div class="tabs__content" data-gtm="tab" id="i7yq203_172" data-title="Navigation with parameters"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+NavHost(navController = navController, startDestination = &quot;startDestinationView&quot;) {
+    composable(route = &quot;routeName/{param}&quot;,
+    arguments = listOf(navArgument(&quot;param&quot;) { type = NavType.Type}) {
+        val param = it.arguments?.getType(&quot;param&quot;)
+        ComposableView(param = param)
+    }
+}
+</div></div></div><p id="i7yq203_174">When you need to pass parameters from <code class="code" id="i7yq203_175">@Composable</code> to another <code class="code" id="i7yq203_176">@Composable</code> the next steps are required:</p><section class="procedure-steps" id="i7yq203_177"><ol class="list _decimal"><li class="list__item" id="i7yq203_178"><p id="i7yq203_179">In the departure `@Composable` add a function parameter that requires the type of value that will be sent to the next `@Composable`</p><div class="code-block" data-lang="kotlin">
+@Composable
+fun DepartureView( ... , onNavigation : (Any) : -&gt; Unit) 
+{ /* A composable that uses the function */ }
+</div><p id="i7yq203_181">Yo can add any parameters into the de <code class="code" id="i7yq203_182">onNavigation</code> argument</p></li><li class="list__item" id="i7yq203_183"><p>In the destination `@Composable` add as a parameter the variable that represents the parameter needed in that `@Composable` </p><div class="code-block" data-lang="kotlin">
+@Composable
+fun DestinationView(parameterRequired : Any)
+{ /* Use the parameter here */ }
+</div></li><li class="list__item" id="i7yq203_185"><p>Configure the NavHost adding the starting route and the routes to navigate to another `@Composable` </p><div class="code-block" data-lang="kotlin">
+NavHost(navController = navController, startDestination = &quot;startDestination&quot;) {
+    composable(&quot;startDestination&quot;) {
+        DepartureView( ... , onNavigation  = { param -&gt;
+            navController.navigate(&quot;routeName/${param}&quot;)
+        })
+    // if there is more than one parameter : 
+    composable(&quot;startDestination&quot;) {
+        DepartureView( ... , onNavigation  = { param1, param2, ... -&gt;
+            navController.navigate(&quot;routeName/${param1}/?${param2}&quot;)
+        })
+    }
+    composable(
+        &quot;routeName/{param}&quot;,
+        arguments = listOf(navArgument(name = &quot;param&quot;) { type = NavType.AnyType})
+        ) {
+            val param = it.arguments?.getInt(&quot;param&quot;) ?: Any
+            DestinationView(parameterRequired = param)
+    }
+}
+</div></li></ol></section></section></section></section><section class="chapter"><h2 id="open-the-browser" data-toc="open-the-browser">Open the Browser</h2><p id="i7yq203_187">To open a browser tab an open a web page, it must be done using an <a href="intents.html" id="i7yq203_188" data-tooltip="Intents are asynchronous messages that allow application components to request functionality from other Android components. They are used to start activities, services, and send broadcasts.">Intent</a>.</p><section class="procedure-steps"><h3 id="opening_a_browser_tab" data-toc="opening_a_browser_tab">Opening a Browser Tab</h3><ol class="list _decimal"><li class="list__item" id="i7yq203_189"><p>Create `context` variable. </p><div class="code-block" data-lang="kotlin">
+val context = LocalContext.current
+</div></li><li class="list__item" id="i7yq203_191"><p>Create an `Intent` variable and specify the function to do. </p><div class="code-block" data-lang="kotlin">
+val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
+</div></li><li class="list__item" id="i7yq203_193"><p>Using the `context` created above, start a new activity specifying the`Intent` </p><div class="code-block" data-lang="kotlin">
+context.startActivity(intent)
+</div></li></ol></section><aside class="prompt" data-type="note" data-title="" id="i7yq203_195"><p id="i7yq203_196"><span class="control" id="i7yq203_197">TODO</span></p><p id="i7yq203_198">Add the deep linking and web browser documentation from android studio official documentation.</p></aside></section><div class="last-modified">Last modified: 21 julio 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="mvvm.html" class="navigation-links__prev">MVVM</a><a href="coroutines.html" class="navigation-links__next">Coroutines</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b267/app.js"></script></body></html>

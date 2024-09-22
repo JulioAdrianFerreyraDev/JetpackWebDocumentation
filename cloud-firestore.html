@@ -1,0 +1,227 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-07-21T14:25:24.3356061"><title>Cloud Firestore | Jetpack Compose</title><script type="application/json" id="virtual-toc-data">[{"id":"check-if-working-with-hilt-and-dagger","level":0,"title":"CHECK IF WORKING WITH HILT AND DAGGER","anchor":"#check-if-working-with-hilt-and-dagger"},{"id":"implementation","level":0,"title":"Implementation","anchor":"#implementation"},{"id":"use","level":0,"title":"Use","anchor":"#use"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b267/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Cloud Firestore | Jetpack Compose"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Jetpack Compose Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/cloud-firestore.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Cloud Firestore | Jetpack Compose"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/cloud-firestore.html#webpage",
+    "url": "writerside-documentation/cloud-firestore.html",
+    "name": "Cloud Firestore | Jetpack Compose",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Jetpack Compose Help"
+}</script><!-- End Schema.org --></head><body data-id="Cloud-Firestore" data-main-title="Cloud Firestore" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Firebase.md|Firebase"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Jetpack Compose  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Cloud-Firestore" id="Cloud-Firestore.md">Cloud Firestore</h1><section class="chapter"><h2 id="check-if-working-with-hilt-and-dagger" data-toc="check-if-working-with-hilt-and-dagger">CHECK IF WORKING WITH HILT AND DAGGER</h2><p id="i6itqze_370">Cloud Firestore is a flexible, scalable database for mobile, web, and server development from Firebase and Google Cloud. Like Firebase Realtime Database, it keeps your data in sync across client apps through realtime listeners and offers offline support for mobile and web so you can build responsive apps that work regardless of network latency or Internet connectivity. Cloud Firestore also offers seamless integration with other Firebase and Google Cloud products, including Cloud Functions.</p><ul class="list _bullet" id="i6itqze_371"><li class="list__item" id="i6itqze_372"><p id="i6itqze_373"><span class="control" id="i6itqze_374">Data Structure:</span></p><ul class="list _bullet" id="i6itqze_375"><li class="list__item" id="i6itqze_376"><p>Collections and Documents: Firestore organizes data into collections and documents. Each document contains fields, and collections are groups of documents.</p></li></ul></li><li class="list__item" id="i6itqze_377"><p id="i6itqze_378"><span class="control" id="i6itqze_379">Real-time Synchronization:</span></p><ul class="list _bullet" id="i6itqze_380"><li class="list__item" id="i6itqze_381"><p>Real-time Updates: Similar to Realtime Database, Firestore also supports real-time updates, allowing changes to be propagated to connected clients in real-time.</p></li></ul></li><li class="list__item" id="i6itqze_382"><p id="i6itqze_383"><span class="control" id="i6itqze_384">Scalability:</span></p><ul class="list _bullet" id="i6itqze_385"><li class="list__item" id="i6itqze_386"><p>Hierarchical Data Model: Firestore's data model supports more complex hierarchical data structures, allowing for more flexible querying and scalability compared to Realtime Database.</p></li></ul></li><li class="list__item" id="i6itqze_387"><p id="i6itqze_388"><span class="control" id="i6itqze_389">Offline Support:</span></p><ul class="list _bullet" id="i6itqze_390"><li class="list__item" id="i6itqze_391"><p>Robust Offline Support: Firestore provides robust offline support with local persistence, enabling applications to continue functioning offline and sync data when connectivity is restored.</p></li></ul></li><li class="list__item" id="i6itqze_392"><p id="i6itqze_393"><span class="control" id="i6itqze_394">Usage Scenarios:</span></p><ul class="list _bullet" id="i6itqze_395"><li class="list__item" id="i6itqze_396"><p>Complex Queries: Applications with complex queries or larger datasets benefit from Firestore's hierarchical data model and indexing capabilities.</p></li></ul></li><li class="list__item" id="i6itqze_397"><p id="i6itqze_398"><span class="control" id="i6itqze_399">Multi-Region Deployment:</span></p><ul class="list _bullet" id="i6itqze_400"><li class="list__item" id="i6itqze_401"><p>Suitable for applications that require data to be distributed across multiple regions.</p></li></ul><p id="i6itqze_402">Use Firestore for applications needing more complex queries, hierarchical data structures, better scalability, and robust offline support.</p></li></ul></section><section class="chapter"><h2 id="implementation" data-toc="implementation">Implementation</h2><p id="i6itqze_403">In your module (app-level) Gradle file, add the dependency for the Firebase <code class="code" id="i6itqze_404">Authentication</code> library for Android. Is recommend to use the Firebase <a href="firebase.html" id="i6itqze_405" data-tooltip="Is a set of backend cloud computing services and application development platforms provided by Google. It hosts databases, services, authentication, and integration for a variety of applications, including Android, iOS, JavaScript, Node.js, Java, Unity, PHP, and C++.">Android BoM</a> to control library versioning.</p><div class="code-block" data-lang="kotlin">
+dependencies {
+    // Import the BoM for the Firebase platform
+    implementation(platform(&quot;com.google.firebase:firebase-bom:33.1.2&quot;))
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation(&quot;com.google.firebase:firebase-firestore-ktx&quot;)
+}
+</div></section><section class="chapter"><h2 id="use" data-toc="use">Use</h2><section class="chapter"><h3 id="initialization" data-toc="initialization">Initialization</h3><div class="code-block" data-lang="kotlin">
+val db = Firebase.firestore
+</div></section><section class="chapter"><h3 id="add-data" data-toc="add-data">Add Data</h3><section class="chapter"><h4 id="data-types" data-toc="data-types">Data types</h4><p id="i6itqze_408">Cloud Firestore lets you write a variety of data types inside a document, including strings, booleans, numbers, dates, null, and nested arrays and objects. Cloud Firestore always stores numbers as doubles, regardless of what type of number you use in your code.</p><div class="code-block" data-lang="kotlin">
+val docData = hashMapOf(
+    &quot;stringExample&quot; to &quot;Hello world!&quot;,
+    &quot;booleanExample&quot; to true,
+    &quot;numberExample&quot; to 3.14159265,
+    &quot;dateExample&quot; to Timestamp(Date()),
+    &quot;listExample&quot; to arrayListOf(1, 2, 3),
+    &quot;nullExample&quot; to null,
+)
+val nestedData = hashMapOf(
+&quot;a&quot; to 5,
+&quot;b&quot; to true,
+)
+docData[&quot;objectExample&quot;] = nestedData
+db.collection(&quot;data&quot;).document(&quot;one&quot;)
+.set(docData)
+.addOnSuccessListener { Log.d(TAG, &quot;DocumentSnapshot successfully written!&quot;) }
+.addOnFailureListener { e -&gt; Log.w(TAG, &quot;Error writing document&quot;, e) }
+</div><p id="i6itqze_410">Adding a new document:</p><div class="code-block" data-lang="kotlin">
+fun addNewNote(data1: Any, data2: Any, image: Uri) {
+        val email = auth.currentUser?.email.toString()
+        viewModelScope.launch(Dispatchers.IO) {
+            val imgPath = uploadImage(image = image)
+            try {
+                val newElement = hashMapOf(
+                    &quot;data1&quot; to data1,
+                    &quot;data2&quot; to data2,
+                    // Recommended if working with dates
+                    &quot;date&quot; to dateToString(),
+                    &quot;userEmail&quot; to email,
+                    &quot;imgPath&quot; to imgPath
+                )
+                db.collection(&quot;collectionName&quot;).add(newElement).addOnSuccessListener {
+                    // Action if success
+                }
+            } catch (e: Exception) {
+                // Actions if not sucess
+            }
+        }
+    }
+private fun dateToString(): String {
+        val currentDate = Calendar.getInstance().time
+        val res = SimpleDateFormat(&quot;dd/MM/yyyy&quot;, Locale.getDefault())
+        return res.format(currentDate)
+    }
+</div><p id="i6itqze_412"><span class="control" id="i6itqze_413">Where:</span></p><ul class="list _bullet" id="i6itqze_414"><li class="list__item" id="i6itqze_415"><p><code class="code" id="i6itqze_416">val email = auth.currentUser?.email.toString()</code>: Gets the user email.</p></li><li class="list__item" id="i6itqze_417"><p><code class="code" id="i6itqze_418">imgPath</code>: Save and Contains the image path from the <a href="cloud-storage.html" id="i6itqze_419" data-tooltip="Firebase Cloud Storage is a powerful, secure, and scalable object storage service provided by Firebase. It allows you to store and serve user-generated content such as photos, videos, and other files.">Cloud Storage</a> integration</p></li><li class="list__item" id="i6itqze_420"><p><code class="code" id="i6itqze_421">newElement = hashMapOf( ... )</code> Creates an instance of the new element to save. The left represent the field names and the right their values</p></li><li class="list__item" id="i6itqze_422"><p><code class="code" id="i6itqze_423">db.collection(&quot;collectionName&quot;)</code>: Indicates the collection (Table in SQL) where the new element will be saved. (If the collection does not exist then, Firebase creates it).</p></li><li class="list__item" id="i6itqze_424"><p><code class="code" id="i6itqze_425">.addOnSuccessListener { ... }</code>: Indicates what to do if the element is inserted successfully.</p></li><li class="list__item" id="i6itqze_426"><p><code class="code" id="i6itqze_427">.addOnFailureListener{ ... }</code>: Indicates what to do if the element is NOT inserted successfully.</p></li></ul></section><section class="chapter"><h4 id="custom-objects" data-toc="custom-objects">Custom objects</h4><p id="i6itqze_428">Using Map or Dictionary objects to represent your documents is often not very convenient, so Cloud Firestore supports writing documents with custom classes. Cloud Firestore converts the objects to supported data types.</p><p id="i6itqze_429">Using custom classes, you could rewrite the initial example as shown:</p><div class="code-block" data-lang="none">
+data class City(
+    val name: String? = null,
+    val state: String? = null,
+    val country: String? = null,
+    @field:JvmField // use this annotation if your Boolean field is prefixed with 'is'
+    val isCapital: Boolean? = null,
+    val population: Long? = null,
+    val regions: List&lt;String&gt;? = null,
+)
+</div><p id="i6itqze_431"><span class="control" id="i6itqze_432">See other ways to</span> <a href="https://firebase.google.com/docs/firestore/manage-data/add-data#set_a_document" id="i6itqze_433" data-external="true" rel="noopener noreferrer">add data</a></p></section></section><section class="chapter"><h3 id="fetch-data" data-toc="fetch-data">Fetch Data</h3><p id="i6itqze_434">The following function gets all data with any restriction or condition.</p><div class="code-block" data-lang="kotlin">
+fun getAll() {
+        db.collection(&quot;Notes&quot;).get().addOnSuccessListener { documents -&gt;
+            for (document in documents) {
+                // get all data (prints a map)
+                Log.d(document.id, &quot;${document.data}&quot;)
+                // get a specific field (prints the value of the key)
+                Log.d(document.id, &quot;${document.data[&quot;fieldName&quot;]}  
+            }
+        }
+    }
+</div><section class="chapter"><h4 id="fetch-data-using-where" data-toc="fetch-data-using-where">Fetch data using Where</h4><p id="i6itqze_436">It is recommended to work with <code class="code" id="i6itqze_437">DataClass</code> to contain all the fetched documents.</p><div class="code-block" data-lang="kotlin">
+ return Entity(
+            entityId = query.id,
+            data1 = query.data[&quot;data1&quot;].toString(),
+            data2 = query.data[&quot;data2&quot;].toString(),
+            date = query.data[&quot;date&quot;].toString(),
+            userEmail = query.data[&quot;userEmail&quot;].toString(),
+            imgPath = query.data[&quot;imgPath&quot;].toString()
+        )
+</div><p> The following code shows an example of how to fetch data from a single user </p><div class="tabs" id="i6itqze_439" data-anchors="[i6itqze_440,i6itqze_474]"><div class="tabs__content" data-gtm="tab" id="i6itqze_440" data-title="With toObject()"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+var entityList = MutableStateFlow&lt;List&lt;Entity&gt;&gt;(emptyList())
+        private set
+fun fetchWhere(/*conditions : Any*/) {
+        // If working with multiple users and need to get de rows from one user
+        // val email = auth.currentUser?.email.toString()
+        db.collection(&quot;collection&quot;).whereEqualTo(&quot;email&quot;, email)
+            .addSnapshotListener { querySnapshot, error -&gt;
+                if (error != null)
+                    return@addSnapshotListener
+                val documents = mutableListOf&lt;Entity&gt;()
+                if (querySnapshot != null) {
+                    for (document in querySnapshot) {
+                        val myDocument =
+                            document.toObject(Entity::class.java).copy(entityId = document.id)
+                        documents.add(myDocument)
+                    }
+                }
+                entityList.value = documents
+            }
+    }
+</div><p id="i6itqze_442"><span class="control" id="i6itqze_443">Where:</span></p><ul class="list _bullet" id="i6itqze_444"><li class="list__item" id="i6itqze_445"><p><code class="code" id="i6itqze_446">entityList</code>: is the global list that will contain all the fetched data.</p></li><li class="list__item" id="i6itqze_447"><p><code class="code" id="i6itqze_448">email</code>: Contains the current user email.</p></li><li class="list__item" id="i6itqze_449"><p><code class="code" id="i6itqze_450">db.collection(&quot;collection&quot;)</code>: Indicates in which collection the data will be fetched</p></li><li class="list__item" id="i6itqze_451"><p><code class="code" id="i6itqze_452">.whereEqualTo(&quot;email&quot;, email)</code>: Indicates the condition. <code class="code" id="i6itqze_453">&quot;email&quot;</code> is the name of the field whose values will be compared with <code class="code" id="i6itqze_454">email</code>. It means, Firebase will only return the rows where the email is equals to the current user email. * <span class="control" id="i6itqze_455">1</span></p></li><li class="list__item" id="i6itqze_456"><p><code class="code" id="i6itqze_457">.addSnapshotListener { querySnapshot, error -&gt; ... }</code>: Is the unified version if <code class="code" id="i6itqze_458">.addOnSuccessListener { ... }</code> and <code class="code" id="i6itqze_459">.addOnFailureListener { ... }</code>. It helps to add what to do whether it is successful or not, but it can be done separately.</p></li><li class="list__item" id="i6itqze_460"><p><code class="code" id="i6itqze_461">if (error != null) return@addSnapshotListener</code>: Indicates what to do if there is an error. (Do not allow the following code to be executed) same as <code class="code" id="i6itqze_462">.addOnFailureListener { ... }</code>.</p></li><li class="list__item" id="i6itqze_463"><p><code class="code" id="i6itqze_464">if (querySnapshot != null) { ... }</code> same as <code class="code" id="i6itqze_465">.addOnSuccessListener { ... }</code>. Indicates what to do if there is no error.</p></li><li class="list__item" id="i6itqze_466"><p><code class="code" id="i6itqze_467">documents</code>: Temporary val that will contain the fetched data.</p></li><li class="list__item" id="i6itqze_468"><p><code class="code" id="i6itqze_469">val myDocument = document.toObject(Entity::class.java).copy(entityId = document.id)</code>: Transform the fetched data in the document into an Entity and add the ID. This requires that the Entity fields are named the same as the firebase document fields.</p></li><li class="list__item" id="i6itqze_470"><p><code class="code" id="i6itqze_471">documents.add(myDocument)</code>: Add each document (Now converted into an Entity) into the temporary list.</p></li><li class="list__item" id="i6itqze_472"><p><code class="code" id="i6itqze_473">entityList.value = documents</code>: Add the fetch data from the temporary to the global-access list.</p></li></ul></div><div class="tabs__content" data-gtm="tab" id="i6itqze_474" data-title="With Factory"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+var entityList = MutableStateFlow&lt;List&lt;Entity&gt;&gt;(emptyList())
+        private set
+fun fetchWhere(/*conditions : Any*/) {
+        // If working with multiple users and need to get de rows from one user
+        // val email = auth.currentUser?.email.toString()
+        db.collection(&quot;collection&quot;).whereEqualTo(&quot;fieldName&quot;, valueCondition)
+            .addSnapshotListener { querySnapshot, error -&gt;
+                if (error != null)
+                    return@addSnapshotListener
+                val documents = mutableListOf&lt;Any&gt;()
+                if (querySnapshot != null) {
+                    for (document in querySnapshot) {
+                        documents.add(factoryDocument(document))
+                    }
+                }
+                entityList.value = documents
+            }
+    }
+ private fun factoryDocument(query: QueryDocumentSnapshot): Entity {
+        return Entity(
+            entityId = query.id,
+            data1 = query.data[&quot;data1&quot;].toString(),
+            data2 = query.data[&quot;data2&quot;].toString(),
+            date = query.data[&quot;date&quot;].toString(),
+            userEmail = query.data[&quot;userEmail&quot;].toString(),
+            imgPath = query.data[&quot;imgPath&quot;].toString()
+        )
+    }
+</div><p id="i6itqze_476"><span class="control" id="i6itqze_477">Where:</span></p><ul class="list _bullet" id="i6itqze_478"><li class="list__item" id="i6itqze_479"><p><code class="code" id="i6itqze_480">entityList</code>: is the global list that will contain all the fetched data.</p></li><li class="list__item" id="i6itqze_481"><p><code class="code" id="i6itqze_482">email</code>: Contains the current user email.</p></li><li class="list__item" id="i6itqze_483"><p><code class="code" id="i6itqze_484">db.collection(&quot;collection&quot;)</code>: Indicates in which collection the data will be fetched</p></li><li class="list__item" id="i6itqze_485"><p><code class="code" id="i6itqze_486">.whereEqualTo(&quot;email&quot;, email)</code>: Indicates the condition. <code class="code" id="i6itqze_487">&quot;email&quot;</code> is the name of the field whose values will be compared with <code class="code" id="i6itqze_488">email</code>. It means, Firebase will only return the rows where the email is equals to the current user email. * <span class="control" id="i6itqze_489">1</span></p></li><li class="list__item" id="i6itqze_490"><p><code class="code" id="i6itqze_491">.addSnapshotListener { querySnapshot, error -&gt; ... }</code>: Is the unified version if <code class="code" id="i6itqze_492">.addOnSuccessListener { ... }</code> and <code class="code" id="i6itqze_493">.addOnFailureListener { ... }</code>. It helps to add what to do whether it is successful or not, but it can be done separately.</p></li><li class="list__item" id="i6itqze_494"><p><code class="code" id="i6itqze_495">if (error != null) return@addSnapshotListener</code>: Indicates what to do if there is an error. (Do not allow the following code to be executed) same as <code class="code" id="i6itqze_496">.addOnFailureListener { ... }</code>.</p></li><li class="list__item" id="i6itqze_497"><p><code class="code" id="i6itqze_498">if (querySnapshot != null) { ... }</code> same as <code class="code" id="i6itqze_499">.addOnSuccessListener { ... }</code>. Indicates what to do if there is no error.</p></li><li class="list__item" id="i6itqze_500"><p><code class="code" id="i6itqze_501">documents</code>: Temporary val that will contain the fetched data.</p></li><li class="list__item" id="i6itqze_502"><p><code class="code" id="i6itqze_503">documents.add(factoryDocument(document))</code>: Transform the fetched data in the document into an Entity and add them into the temporary list. This does not require that the Entity fields are named the same as the firebase document fields</p></li><li class="list__item" id="i6itqze_504"><p><code class="code" id="i6itqze_505">entityList.value = documents</code>: Add the fetch data from the temporary to the global-access list.</p></li><li class="list__item" id="i6itqze_506"><p><code class="code" id="i6itqze_507">private fun factoryDocument(query: QueryDocumentSnapshot): Entity { ... }</code>: Convert any <code class="code" id="i6itqze_508">QueryDocumentSnapshot</code> into an Entity</p></li></ul></div></div><p id="i6itqze_509">Read more about <a href="https://firebase.google.com/docs/firestore/query-data/listen" id="i6itqze_510" data-external="true" rel="noopener noreferrer">getting real time data updates</a></p></section><section class="chapter"><h4 id="fetch-document" data-toc="fetch-document">Fetch Document</h4><div class="code-block" data-lang="kotlin">
+var entity by mutableStateOf(Entity())
+        private set
+fun getById(docId: String) {
+        db.collection(&quot;collection&quot;).document(docId).addSnapshotListener { querySnapshot, _ -&gt;
+            if (querySnapshot != null) {
+                val result = snapshot.toObject(NoteState::class.java)/*?.copy(idNote = snapshot.id)*/
+                entity = entity.copy(
+                    data1 = result?.title ?: &quot;&quot;,
+                    data2 = result?.note ?: &quot;No note found&quot;,
+                    date = result.?date ?: &quot;&quot;
+                    imgPath = result?.imgPath ?: &quot;Error&quot;
+                    ...
+                )
+            }
+        }
+    }
+</div><p id="i6itqze_512"><span class="control" id="i6itqze_513">Where:</span></p><ul class="list _bullet" id="i6itqze_514"><li class="list__item" id="i6itqze_515"><p><code class="code" id="i6itqze_516">entity</code>: Will contain the fetch date from the document.</p></li><li class="list__item" id="i6itqze_517"><p><code class="code" id="i6itqze_518">db.collection(&quot;collection&quot;)</code>: Indicates in which collection the data will be fetched</p></li><li class="list__item" id="i6itqze_519"><p><code class="code" id="i6itqze_520">.document(docId)</code>: Indicates which document will be fetched.</p></li><li class="list__item" id="i6itqze_521"><p><code class="code" id="i6itqze_522">.addSnapshotListener { querySnapshot, error -&gt; ... }</code>: Is the unified version if <code class="code" id="i6itqze_523">.addOnSuccessListener { ... }</code> and <code class="code" id="i6itqze_524">.addOnFailureListener { ... }</code>. It helps to add what to do whether it is successful or not, but it can be done separately.</p></li><li class="list__item" id="i6itqze_525"><p><code class="code" id="i6itqze_526">_</code>: The error handler is not needed.</p></li><li class="list__item" id="i6itqze_527"><p><code class="code" id="i6itqze_528">if (querySnapshot != null) { ... }</code> same as <code class="code" id="i6itqze_529">.addOnSuccessListener { ... }</code>. Indicates what to do if there is no error</p></li><li class="list__item" id="i6itqze_530"><p><code class="code" id="i6itqze_531">val result = snapshot.toObject(NoteState::class.java)</code>: Transform the fetched data in the document into an Entity. This requires that the Entity fields are named the same as the firebase document fields.</p></li><li class="list__item" id="i6itqze_532"><p><code class="code" id="i6itqze_533">entity = entity.copy( ... )</code>: Set the value from the <code class="code" id="i6itqze_534">result</code> into the <code class="code" id="i6itqze_535">entity</code>.</p></li></ul><p id="i6itqze_536"><span class="control" id="i6itqze_537">Se more information about</span> <span class="emphasis" id="i6itqze_538"><a href="https://firebase.google.com/docs/firestore/query-data/get-data" id="i6itqze_539" data-external="true" rel="noopener noreferrer">getting data</a></span></p></section><section class="chapter"><h4 id="extras" data-toc="extras">EXTRAS</h4><p id="i6itqze_540"><code class="code" id="i6itqze_541">toObject()</code> can be replaced with a factory function that returns the <code class="code" id="i6itqze_542">DataClass</code>. You can use it if the Firebase field names are not the same as the <code class="code" id="i6itqze_543">Entity</code>.</p><div class="code-block" data-lang="kotlin">
+private fun factory(query: Any): NoteState {
+        return when (query) {
+            is QueryDocumentSnapshot -&gt; Entity(
+                idEntity = query.id,
+                data1 = query.data.get(&quot;data1&quot;).toString(),
+                data2 = query.data.get(&quot;data2&quot;).toString(),
+                date = query.data[&quot;date&quot;].toString(),
+                userEmail = query.data[&quot;userEmail&quot;].toString(),
+                imgPath = query.data[&quot;imgPath&quot;].toString()
+            )
+            is DocumentSnapshot -&gt;
+                Entity(
+                    idEntity = query.id,
+                    data1 = query.data?.get(&quot;data1&quot;).toString(),
+                    data2 = query.data?.get(&quot;data2&quot;).toString(),
+                    date = query.data?.get(&quot;date&quot;).toString(),
+                    userEmail = query.data?.get(&quot;userEmail&quot;).toString(),
+                    imgPath = query.data?.get(&quot;imgPath&quot;).toString()
+            else -&gt; Entity()
+        }
+    }
+</div></section></section><section class="chapter"><h3 id="edit-data" data-toc="edit-data">Edit Data</h3><div class="code-block" data-lang="kotlin">
+fun updateNewNote(id: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                val newElement = hashMapOf(
+                    &quot;data1&quot; to entity.data1,
+                    &quot;data2&quot; to entity.data2,
+                    // More data to edit ...
+                    )
+                db.collection(&quot;collectionName&quot;).document(id).update(newElement as Map&lt;String, Any&gt;)
+                    .addOnSuccessListener {
+                        // Actions if sucesss
+                    }
+            } catch (e: Exception) {
+                // Handle exceptions
+            }
+        }
+    }
+</div><p id="i6itqze_546"><span class="control" id="i6itqze_547">Read more about updates</span> <a href="https://firebase.google.com/docs/firestore/manage-data/add-data" id="i6itqze_548" data-external="true" rel="noopener noreferrer">Updates - documentation</a></p></section><section class="chapter"><h3 id="delete-data" data-toc="delete-data">Delete Data</h3><section class="chapter"><h4 id="delete-document" data-toc="delete-document">Delete Document</h4><div class="code-block" data-lang="kotlin">
+ fun deleteNote(id: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                db.collection(&quot;collectionName&quot;).document(id).delete()
+                    .addOnSuccessListener {
+                        // Actions if sucess
+                    }
+            } catch (e: Exception) {
+               // handle errors
+            }
+        }
+    }
+</div></section><section class="chapter"><h4 id="delete-fields" data-toc="delete-fields">Delete fields</h4><p id="i6itqze_550">To delete specific fields from a document, use the following language-specific <code class="code" id="i6itqze_551">FieldValue.delete()</code>methods when you update a document:</p><div class="code-block" data-lang="kotlin">
+ val docRef = db.collection(&quot;collection&quot;).document(&quot;document&quot;)
+// Remove the 'capital' field from the document
+val updates = hashMapOf&lt;String, Any&gt;(
+&quot;field&quot; to FieldValue.delete(),
+)
+docRef.update(updates).addOnCompleteListener { }
+</div></section></section></section><div class="last-modified">Last modified: 21 julio 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="authentication.html" class="navigation-links__prev">TODO : Authentication</a><a href="real-time-database.html" class="navigation-links__next">TODO : Real Time Database</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b267/app.js"></script></body></html>

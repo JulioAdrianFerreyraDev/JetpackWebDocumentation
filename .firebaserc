@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "jetpack-compose-documentation",
+    "jetpackdocs": "jetpack-compose-documentation"
+  },
+  "targets": {},
+  "etags": {}
+}
