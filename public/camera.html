@@ -124,6 +124,7 @@ cameraLauncher.launch(uri)
 </div></section><section class="chapter"><h3 id="delete-file" data-toc="delete-file">Delete File</h3><p id="-ze4wua_71">If you need to dispose the file then use the following code:</p><div class="code-block" data-lang="kotlin">
 private fun deletePhoto(path: String) {
     val file = File(path)
+    // Overrides the file if exists
     if (file.exists()) file.delete()
 }
 </div></section></section><section class="chapter"><h2 id="camerax" data-toc="camerax">CameraX</h2></section><div class="last-modified">Last modified: 21 julio 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="internet.html" class="navigation-links__prev">Internet</a><a href="pick-images.html" class="navigation-links__next">Gallery</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b267/app.js"></script></body></html>
