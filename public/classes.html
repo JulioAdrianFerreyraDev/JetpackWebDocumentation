@@ -1,0 +1,187 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-11-28T09:32:44.2466464"><title>Classes | Jetpack Compose</title><script type="application/json" id="virtual-toc-data">[{"id":"constructor","level":0,"title":"Constructor","anchor":"#constructor"},{"id":"init-block","level":0,"title":"Init Block","anchor":"#init-block"},{"id":"types-of-classes","level":0,"title":"Types of Classes","anchor":"#types-of-classes"},{"id":"companion-object","level":0,"title":"Companion Object","anchor":"#companion-object"},{"id":"getters-and-setters","level":0,"title":"Getters And Setters","anchor":"#getters-and-setters"},{"id":"nested-and-inner-classes","level":0,"title":"Nested and Inner Classes","anchor":"#nested-and-inner-classes"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Classes | Jetpack Compose"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Jetpack Compose Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/classes.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Classes | Jetpack Compose"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/classes.html#webpage",
+    "url": "writerside-documentation/classes.html",
+    "name": "Classes | Jetpack Compose",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Jetpack Compose Help"
+}</script><!-- End Schema.org --></head><body data-id="Classes" data-main-title="Classes" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Kotlin.md|Kotlin///POO.md|POO"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Jetpack Compose  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Classes" id="Classes.md">Classes</h1><p id="-afmzru_3">In Kotlin, classes are blueprints for creating objects, encapsulating data and behavior. They are central to object-oriented programming and are used to model real-world entities.</p><section class="chapter"><h2 id="constructor" data-toc="constructor">Constructor</h2><p id="-afmzru_10">In Kotlin, constructors are special functions used to initialize objects. There are two types of constructors:</p><section class="chapter"><h3 id="primary-constructor" data-toc="primary-constructor">Primary Constructor</h3><ul class="list _bullet" id="-afmzru_13"><li class="list__item" id="-afmzru_17"><p>The main constructor of a class, defined as part of the class header.</p></li><li class="list__item" id="-afmzru_18"><p>Used for straightforward initialization of properties.</p></li><li class="list__item" id="-afmzru_19"><p>Does not contain a body unless combined with <code class="code" id="-afmzru_20">init</code> blocks for additional logic.</p></li></ul><div class="code-block" data-lang="kotlin">
+class Person(val name: String, var age: Int) {
+    fun greet() {
+        println(&quot;Hello, my name is $name and I am $age years old.&quot;)
+    }
+}
+val person = Person(&quot;Alice&quot;, 30)
+person.greet()
+// Output: Hello, my name is Alice and I am 30 years old.
+
+</div><p id="-afmzru_15"><span class="control" id="-afmzru_21">Usage</span></p><ol class="list _decimal" id="-afmzru_16" type="1"><li class="list__item" id="-afmzru_22"><p>The parameters of the primary constructor can be directly used to initialize class properties.</p></li><li class="list__item" id="-afmzru_23"><p>It is concise and typically sufficient for simple classes.</p></li></ol></section><section class="chapter"><h3 id="secondary-constructor" data-toc="secondary-constructor">Secondary Constructor</h3><ul class="list _bullet" id="-afmzru_24"><li class="list__item" id="-afmzru_29"><p>An additional constructor used when you need alternative ways to create an object.</p></li><li class="list__item" id="-afmzru_30"><p>Defined inside the class body using the <code class="code" id="-afmzru_33">constructor</code> keyword.</p></li><li class="list__item" id="-afmzru_31"><p>Can include custom initialization logic.</p></li><li class="list__item" id="-afmzru_32"><p>Must delegate to the primary constructor (if it exists) using the <code class="code" id="-afmzru_34">this</code> keyword.</p></li></ul><div class="code-block" data-lang="kotlin">
+class Rectangle(val width: Int, val height: Int) {
+    var area: Int = 0
+
+    constructor(side: Int) : this(side, side) {
+        area = side * side
+    }
+}
+
+val square = Rectangle(5)
+println(square.area) // Output: 25
+
+</div><p id="-afmzru_26"><span class="control" id="-afmzru_35">When to Use Each?</span></p><ol class="list _decimal" id="-afmzru_27" type="1"><li class="list__item" id="-afmzru_36"><p>Use <span class="control" id="-afmzru_38">Primary Constructor</span> for the main or default initialization logic.</p></li><li class="list__item" id="-afmzru_37"><p>Use <span class="control" id="-afmzru_39">Secondary Constructor</span> for: </p><ul class="list _bullet" id="-afmzru_40"><li class="list__item" id="-afmzru_41"><p>Alternate ways to initialize an object.</p></li><li class="list__item" id="-afmzru_42"><p>Handling optional parameters or different initialization paths.</p></li></ul></li></ol><div class="code-block" data-lang="kotlin">
+class Student(val name: String) {
+    var grade: Int = 0
+
+    // Secondary constructor
+    constructor(name: String, grade: Int) : this(name) {
+        this.grade = grade
+    }
+}
+
+val student1 = Student(&quot;Alice&quot;)
+val student2 = Student(&quot;Bob&quot;, 90)
+
+println(&quot;${student1.name}, Grade: ${student1.grade}&quot;) // Alice, Grade: 0
+println(&quot;${student2.name}, Grade: ${student2.grade}&quot;) // Bob, Grade: 90
+</div></section></section><section class="chapter"><h2 id="init-block" data-toc="init-block">Init Block</h2><section class="chapter"><h3 id="characteristics-of-init-block" data-toc="characteristics-of-init-block">Characteristics of init Block</h3><ul class="list _bullet" id="-afmzru_44"><li class="list__item" id="-afmzru_46"><p><span class="control" id="-afmzru_52">Runs Automatically</span>: The init block is called automatically whenever an instance of the class is created.</p></li><li class="list__item" id="-afmzru_47"><p><span class="control" id="-afmzru_53">Order of Execution</span>: If there are multiple init blocks, they are executed in the order they are declared in the class. The init blocks run before the body of the primary constructor.</p></li><li class="list__item" id="-afmzru_48"><p><span class="control" id="-afmzru_54">Access to Constructor Parameters</span>: The init block has access to the parameters of the primary constructor.</p></li><li class="list__item" id="-afmzru_49"><p><span class="control" id="-afmzru_55">No Explicit Call Needed</span>: Unlike functions, you do not need to explicitly call the init block.</p></li><li class="list__item" id="-afmzru_50"><p><span class="control" id="-afmzru_56">Optional</span>:</p></li><li class="list__item" id="-afmzru_51"><p>You can omit the init block if no initialization logic is required.</p></li></ul><div class="code-block" data-lang="kotlin">
+class Circle(val radius: Double) {
+    val area: Double
+
+    init {
+        area = Math.PI * radius * radius
+    }
+}
+</div></section></section><section class="chapter"><h2 id="types-of-classes" data-toc="types-of-classes">Types of Classes</h2><section class="chapter"><h3 id="regular-clas" data-toc="regular-clas">Regular Clas</h3><p id="-afmzru_63">A standard class for creating objects.</p><div class="code-block" data-lang="kotlin">
+class Animal(val name: String, val age: Int)
+
+</div></section><section class="chapter"><h3 id="data-class" data-toc="data-class">Data Class</h3><p id="-afmzru_65">Used to hold data. Automatically provides <code class="code" id="-afmzru_67">toString()</code>, <code class="code" id="-afmzru_68">equals()</code>, <code class="code" id="-afmzru_69">hashCode()</code>, and <code class="code" id="-afmzru_70">copy()</code> methods.</p><div class="code-block" data-lang="kotlin">
+data class User(val id: Int, val name: String)
+
+</div></section><section class="chapter"><h3 id="abstract-class" data-toc="abstract-class">Abstract Class</h3><p id="-afmzru_71">Cannot be instantiated directly. Used as a base class.</p><div class="code-block" data-lang="kotlin">
+abstract class Vehicle {
+    abstract fun drive()
+}
+
+</div></section><section class="chapter"><h3 id="open-class" data-toc="open-class">Open Class</h3><p id="-afmzru_73">Allows other classes to inherit from it (default classes are final in Kotlin).</p><div class="code-block" data-lang="kotlin">
+open class Shape
+class Circle : Shape()
+
+</div></section><section class="chapter"><h3 id="sealed-class" data-toc="sealed-class">Sealed Class</h3><p id="-afmzru_75">Used to represent a restricted hierarchy of types.</p><div class="code-block" data-lang="kotlin">
+sealed class Result
+data class Success(val data: String) : Result()
+data class Error(val message: String) : Result()
+
+</div></section><section class="chapter"><h3 id="enum-class" data-toc="enum-class">Enum Class</h3><p id="-afmzru_77">Defines a set of constants.</p><div class="code-block" data-lang="kotlin">
+enum class Direction {
+    NORTH, SOUTH, EAST, WEST
+}
+
+</div></section></section><section class="chapter"><h2 id="companion-object" data-toc="companion-object">Companion Object</h2><p id="-afmzru_79">Allows defining static-like members for a class.</p><div class="code-block" data-lang="kotlin">
+class MathUtils {
+    companion object {
+        fun add(a: Int, b: Int) = a + b
+    }
+}
+val result = MathUtils.add(3, 5)
+println(result) // Output: 8
+
+</div></section><section class="chapter"><h2 id="getters-and-setters" data-toc="getters-and-setters">Getters And Setters</h2><p id="-afmzru_81">In Kotlin, getters and setters are special methods used to encapsulate the fields of a class, allowing controlled access and modification of a property. Unlike Java, Kotlin provides a concise and idiomatic way of defining and customizing these methods for properties.</p><p id="-afmzru_82">In Kotlin, every property has a default getter and, if it's <code class="code" id="-afmzru_90">var</code>, a default setter. These allow you to retrieve and modify the value of the property.</p><p id="-afmzru_83"><span class="control" id="-afmzru_91">Default Behavior</span></p><ul class="list _bullet" id="-afmzru_84"><li class="list__item" id="-afmzru_92"><p><code class="code" id="-afmzru_94">val</code> (<span class="control" id="-afmzru_95">Immutable property</span>): Only a getter is generated.</p></li><li class="list__item" id="-afmzru_93"><p><code class="code" id="-afmzru_96">var</code> (<span class="control" id="-afmzru_97">Mutable property</span>): Both a getter and a setter are generated.</p></li></ul><div class="code-block" data-lang="kotlin">
+class Person {
+    var name: String = &quot;John Doe&quot; // Default getter and setter are generated
+    val age: Int = 25            // Only a default getter is generated
+}
+
+fun main() {
+    val person = Person()
+    println(person.name) // Calls the default getter
+    person.name = &quot;Jane Doe&quot; // Calls the default setter
+    println(person.age) // Calls the default getter
+}
+</div><section class="chapter"><h3 id="custom-getters-and-setters" data-toc="custom-getters-and-setters">Custom Getters and Setters</h3><p id="-afmzru_98">You can customize the behavior of getters and setters by overriding their default implementation.</p><p id="-afmzru_99"><span class="control" id="-afmzru_103">Custom Getter</span> A custom getter allows you to define how a property's value is retrieved</p><div class="code-block" data-lang="kotlin">
+class Circle(private val radius: Double) {
+    val area: Double
+        get() = Math.PI * radius * radius // Calculate the area dynamically
+}
+
+fun main() {
+    val circle = Circle(5.0)
+    println(circle.area) // Calls the custom getter
+}
+</div><p id="-afmzru_101"><span class="control" id="-afmzru_104">Custom Setter</span> A custom setter allows you to control how a property&rsquo;s value is set</p><div class="code-block" data-lang="kotlin">
+class User {
+    var password: String = &quot;&quot;
+        set(value) {
+            if (value.length &gt;= 8) {
+                field = value // `field` represents the backing field
+            } else {
+                println(&quot;Password must be at least 8 characters long&quot;)
+            }
+        }
+}
+
+fun main() {
+    val user = User()
+    user.password = &quot;short&quot; // Prints warning
+    user.password = &quot;longenough&quot; // Sets the password
+}
+</div></section><section class="chapter"><h3 id="backing-fields-and-backing-properties" data-toc="backing-fields-and-backing-properties">Backing Fields and Backing Properties</h3><p id="-afmzru_105">Backing Field (<code class="code" id="-afmzru_110">field</code>)</p><ul class="list _bullet" id="-afmzru_106"><li class="list__item" id="-afmzru_111"><p>Kotlin uses a backing field to store the actual value of a property.</p></li><li class="list__item" id="-afmzru_112"><p>The <code class="code" id="-afmzru_113">field</code> keyword is only accessible in custom getters and setters</p></li></ul><div class="code-block" data-lang="kotlin">
+class Box {
+    var width: Int = 0
+        set(value) {
+            field = if (value &gt;= 0) value else 0 // Use `field` to assign the value
+        }
+}
+</div><aside class="prompt" data-type="note" data-title="" id="-afmzru_108"><p id="-afmzru_114"><span class="control" id="-afmzru_116">Backing Property</span></p><p id="-afmzru_115">Instead of using a backing field, you can use another private property to hold the data.</p></aside><div class="code-block" data-lang="kotlin">
+class Rectangle {
+    private var _height: Int = 0
+    var height: Int
+        get() = _height
+        set(value) {
+            _height = if (value &gt;= 0) value else 0
+        }
+}
+</div></section><section class="chapter"><h3 id="properties-in-primary-constructor" data-toc="properties-in-primary-constructor">Properties in Primary Constructor</h3><p id="-afmzru_117">You can define properties directly in the primary constructor with default getters and setters.</p><div class="code-block" data-lang="kotlin">
+class Person(var name: String, val age: Int)
+</div><p id="-afmzru_119">If you need custom logic, you can add a custom getter or setter:</p><div class="code-block" data-lang="kotlin">
+class Person(var name: String, val birthYear: Int) {
+    val age: Int
+        get() = 2024 - birthYear // Custom getter
+}
+</div></section><section class="chapter"><h3 id="visibility-modifiers-for-getters-and-setters" data-toc="visibility-modifiers-for-getters-and-setters">Visibility Modifiers for Getters and Setters</h3><p id="-afmzru_121">Getters and setters can have different visibility modifiers, allowing controlled access.</p><div class="code-block" data-lang="kotlin">
+class Account {
+    var balance: Int = 0
+        private set // Setter is private
+}
+
+fun main() {
+    val account = Account()
+    println(account.balance) // Allowed (getter is public)
+    // account.balance = 100 // Error: Cannot access private setter
+}
+</div></section></section><section class="chapter"><h2 id="nested-and-inner-classes" data-toc="nested-and-inner-classes">Nested and Inner Classes</h2><section class="chapter"><h3 id="nested-class" data-toc="nested-class">Nested Class</h3><p id="-afmzru_125">Does not have access to the outer class members.</p><div class="code-block" data-lang="kotlin">
+class Outer {
+    class Nested {
+        fun message() = &quot;Nested class&quot;
+    }
+}
+val nested = Outer.Nested().message()
+println(nested) // Output: Nested class
+
+</div></section><section class="chapter"><h3 id="inner-class" data-toc="inner-class">Inner Class</h3><p id="-afmzru_127">Has access to the outer class members.</p><div class="code-block" data-lang="kotlin">
+class Outer {
+    private val message = &quot;Inner class&quot;
+
+    inner class Inner {
+        fun display() = message
+    }
+}
+val inner = Outer().Inner().display()
+println(inner) // Output: Inner class
+</div></section></section><div class="last-modified">Last modified: 28 noviembre 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="poo.html" class="navigation-links__prev">POO</a><a href="dataclasses.html" class="navigation-links__next">Data Classes</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.js"></script></body></html>

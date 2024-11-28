@@ -1,0 +1,80 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-11-28T09:32:44.2476504"><title>Lists | Jetpack Compose</title><script type="application/json" id="virtual-toc-data">[{"id":"creating-lists","level":0,"title":"Creating Lists","anchor":"#creating-lists"},{"id":"syntax","level":0,"title":"Syntax","anchor":"#syntax"},{"id":"common-list-operations","level":0,"title":"Common List Operations","anchor":"#common-list-operations"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Lists | Jetpack Compose"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Jetpack Compose Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/lists.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Lists | Jetpack Compose"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/lists.html#webpage",
+    "url": "writerside-documentation/lists.html",
+    "name": "Lists | Jetpack Compose",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Jetpack Compose Help"
+}</script><!-- End Schema.org --></head><body data-id="Lists" data-main-title="Lists" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Kotlin.md|Kotlin"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Jetpack Compose  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Lists" id="Lists.md">Lists</h1><p id="-ha3wkp_3">In Kotlin, a list is an ordered collection of elements. There are two main types of lists:</p><ol class="list _decimal" id="-ha3wkp_4" type="1"><li class="list__item" id="-ha3wkp_8"><p><span class="control" id="-ha3wkp_10">Immutable List</span> (<code class="code" id="-ha3wkp_11">List&lt;T&gt;</code>): Read-only, meaning elements cannot be added or removed.</p></li><li class="list__item" id="-ha3wkp_9"><p><span class="control" id="-ha3wkp_12">Mutable List</span> (<code class="code" id="-ha3wkp_13">MutableList&lt;T&gt;</code>): Supports modification (adding, removing, updating elements).</p></li></ol><section class="chapter"><h2 id="creating-lists" data-toc="creating-lists">Creating Lists</h2><p id="-ha3wkp_14">Kotlin offers several ways to create lists:</p><div class="code-block" data-lang="kotlin">
+// Immutable List
+val immutableList = listOf(1, 2, 3)
+// Mutable List
+val mutableList = mutableListOf(1, 2, 3)
+</div></section><section class="chapter"><h2 id="syntax" data-toc="syntax">Syntax</h2><div class="code-block" data-lang="kotlin">
+val intList: List&lt;Int&gt; = listOf(1, 2, 3)                 // Immutable type-safe list of Ints
+val mutableIntList: MutableList&lt;Int&gt; = mutableListOf()   // Mutable type-safe list of Ints
+mutableIntList.add(5)                                    // Works, as 5 is an Int
+// Attempting to add a String to intList or mutableIntList would cause a compilation error.
+</div></section><section class="chapter"><h2 id="common-list-operations" data-toc="common-list-operations">Common List Operations</h2><section class="chapter"><h3 id="accessing-elements" data-toc="accessing-elements">Accessing Elements</h3><p id="-ha3wkp_27">Elements in a list can be accessed by their index:</p><div class="code-block" data-lang="kotlin">
+val firstElement = immutableList[0] // Access the first element
+val elementAt = immutableList.getOrNull(2) // Safely get an element or return null
+</div></section><section class="chapter"><h3 id="adding-and-removing-elements-mutable-lists-only" data-toc="adding-and-removing-elements-mutable-lists-only">Adding and Removing Elements (Mutable Lists Only)</h3><p id="-ha3wkp_29">For mutable lists, you can add and remove elements as needed.</p><div class="code-block" data-lang="kotlin">
+// Adding elements
+mutableList.add(4)             // Adds to the end
+mutableList.add(1, 5)          // Adds 5 at index 1
+// Removing elements
+mutableList.remove(2)          // Removes the first occurrence of 2
+mutableList.removeAt(0)        // Removes the element at index 0
+mutableList.clear()            // Removes all elements
+</div></section><section class="chapter"><h3 id="updating-elements-mutable-lists-only" data-toc="updating-elements-mutable-lists-only">Updating Elements (Mutable Lists Only)</h3><div class="code-block" data-lang="kotlin">
+mutableList[1] = 10 // Sets the value at index 1 to 10
+</div></section><section class="chapter"><h3 id="iterating-over-a-list" data-toc="iterating-over-a-list">Iterating Over a List</h3><p id="-ha3wkp_32">Kotlin provides multiple ways to iterate over a list.</p><ul class="list _bullet" id="-ha3wkp_33"><li class="list__item" id="-ha3wkp_41"><p><span class="control" id="-ha3wkp_42">For Loop</span></p></li></ul><div class="code-block" data-lang="kotlin">
+for (element in immutableList) {
+    println(element)
+}
+</div><ul class="list _bullet" id="-ha3wkp_35"><li class="list__item" id="-ha3wkp_43"><p><span class="control" id="-ha3wkp_44">For Loop with Indices</span></p></li></ul><div class="code-block" data-lang="kotlin">
+for (index in immutableList.indices) {
+    println(&quot;Index $index: ${immutableList[index]}&quot;)
+}
+</div><ul class="list _bullet" id="-ha3wkp_37"><li class="list__item" id="-ha3wkp_45"><p><span class="control" id="-ha3wkp_46">Using forEach</span></p></li></ul><div class="code-block" data-lang="kotlin">
+immutableList.forEach { println(it) }
+</div><ul class="list _bullet" id="-ha3wkp_39"><li class="list__item" id="-ha3wkp_47"><p><span class="control" id="-ha3wkp_48">Reverse Iteration</span></p></li></ul><div class="code-block" data-lang="kotlin">
+for (index in immutableList.indices.reversed()) {
+    println(immutableList[index])
+}
+</div></section><section class="chapter"><h3 id="list-transformation-functions" data-toc="list-transformation-functions">List Transformation Functions</h3><p id="-ha3wkp_49">Kotlin has various functions for transforming lists, such as <code class="code" id="-ha3wkp_57">map</code>, <code class="code" id="-ha3wkp_58">filter</code>, and <code class="code" id="-ha3wkp_59">sorted</code>.</p><ul class="list _bullet" id="-ha3wkp_50"><li class="list__item" id="-ha3wkp_60"><p><span class="control" id="-ha3wkp_61">Map</span>: Transforms each element using a given function.</p></li></ul><div class="code-block" data-lang="kotlin">
+val doubled = immutableList.map { it * 2 } // [2, 4, 6]
+</div><ul class="list _bullet" id="-ha3wkp_52"><li class="list__item" id="-ha3wkp_62"><p><span class="control" id="-ha3wkp_63">Filter</span>: Returns a list with elements that match a condition.</p></li></ul><div class="code-block" data-lang="kotlin">
+val evenNumbers = immutableList.filter { it % 2 == 0 } // [2]
+</div><ul class="list _bullet" id="-ha3wkp_54"><li class="list__item" id="-ha3wkp_64"><p><span class="control" id="-ha3wkp_65">Sorted</span> Returns a sorted list.</p></li></ul><div class="code-block" data-lang="kotlin">
+val sortedList = immutableList.sorted() // [1, 2, 3]
+</div><aside class="prompt" data-type="note" data-title="" id="-ha3wkp_56"><p>Note that sorted produces a new list, while sort modifies the original list</p></aside></section><section class="chapter"><h3 id="checking-conditions" data-toc="checking-conditions">Checking Conditions</h3><p id="-ha3wkp_66">Kotlin provides functions to check conditions in a list.</p><ul class="list _bullet" id="-ha3wkp_67"><li class="list__item" id="-ha3wkp_70"><p><span class="control" id="-ha3wkp_71">Contains</span>: Checks if a list contains a specific element.</p></li></ul><div class="code-block" data-lang="kotlin">
+val containsTwo = immutableList.contains(2) // true
+</div><p>* **All**, **Any**, **None**: Checks conditions for elements in a list. </p><div class="code-block" data-lang="kotlin">
+val allPositive = immutableList.all { it &gt; 0 } // true
+val anyEven = immutableList.any { it % 2 == 0 } // true
+val noneNegative = immutableList.none { it &lt; 0 } // true
+</div></section><section class="chapter"><h3 id="finding-elements" data-toc="finding-elements">Finding Elements</h3><p id="-ha3wkp_72">You can find elements in a list by using functions like <code class="code" id="-ha3wkp_79">find</code>, <code class="code" id="-ha3wkp_80">first</code>, <code class="code" id="-ha3wkp_81">last</code>, and <code class="code" id="-ha3wkp_82">indexOf</code>.</p><ul class="list _bullet" id="-ha3wkp_73"><li class="list__item" id="-ha3wkp_83"><p><span class="control" id="-ha3wkp_84">Find</span>: Returns the first matching element or null.</p></li></ul><div class="code-block" data-lang="kotlin">
+val firstEven = immutableList.find { it % 2 == 0 } // 2
+</div><ul class="list _bullet" id="-ha3wkp_75"><li class="list__item" id="-ha3wkp_85"><p><span class="control" id="-ha3wkp_86">First</span>/<span class="control" id="-ha3wkp_87">Last</span>: Returns the first or last element that matches a condition.</p></li></ul><div class="code-block" data-lang="kotlin">
+val firstElement = immutableList.first() // 1
+val lastElement = immutableList.last() // 3
+</div><ul class="list _bullet" id="-ha3wkp_77"><li class="list__item" id="-ha3wkp_88"><p><span class="control" id="-ha3wkp_89">IndexOf</span>/<span class="control" id="-ha3wkp_90">LastIndexOf</span>: Finds the index of an element.</p></li></ul><div class="code-block" data-lang="kotlin">
+val indexOfTwo = immutableList.indexOf(2) // 1
+</div></section><section class="chapter"><h3 id="combining-lists" data-toc="combining-lists">Combining Lists</h3><p id="-ha3wkp_91">You can combine lists using <code class="code" id="-ha3wkp_93">+</code> and <code class="code" id="-ha3wkp_94">-</code> operators, or using functions like <code class="code" id="-ha3wkp_95">union</code>, <code class="code" id="-ha3wkp_96">intersect</code>, and <code class="code" id="-ha3wkp_97">subtract</code>.</p><div class="code-block" data-lang="kotlin">
+val combined = immutableList + listOf(4, 5) // [1, 2, 3, 4, 5]
+val subtracted = combined - listOf(1, 2) // [3, 4, 5]
+</div></section><section class="chapter"><h3 id="getting-the-list-size" data-toc="getting-the-list-size">Getting the List Size</h3><p id="-ha3wkp_98">Use the <code class="code" id="-ha3wkp_100">size</code> property to get the length of the list:</p><div class="code-block" data-lang="kotlin">
+val listSize = immutableList.size // 3
+</div></section><section class="chapter"><h3 id="copying-lists" data-toc="copying-lists">Copying Lists</h3><p id="-ha3wkp_101">To create a copy of a list, use <code class="code" id="-ha3wkp_103">toList</code> (for an immutable copy) or <code class="code" id="-ha3wkp_104">toMutableList</code> (for a mutable copy).</p><div class="code-block" data-lang="kotlin">
+val copiedList = immutableList.toList()
+val mutableCopiedList = immutableList.toMutableList()
+</div></section></section><div class="last-modified">Last modified: 28 noviembre 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="type-checks-and-casting.html" class="navigation-links__prev">Type Checks and Casting</a><a href="operators.html" class="navigation-links__next">Operators</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.js"></script></body></html>

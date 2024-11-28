@@ -1,0 +1,76 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-11-28T09:32:44.3566526"><title>Maps | Jetpack Compose</title><script type="application/json" id="virtual-toc-data">[{"id":"creating-maps","level":0,"title":"Creating Maps","anchor":"#creating-maps"},{"id":"syntax","level":0,"title":"Syntax","anchor":"#syntax"},{"id":"common-map-operations","level":0,"title":"Common Map Operations","anchor":"#common-map-operations"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Maps | Jetpack Compose"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Jetpack Compose Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/maps.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Maps | Jetpack Compose"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/maps.html#webpage",
+    "url": "writerside-documentation/maps.html",
+    "name": "Maps | Jetpack Compose",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Jetpack Compose Help"
+}</script><!-- End Schema.org --></head><body data-id="Maps" data-main-title="Maps" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Kotlin.md|Kotlin"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Jetpack Compose  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Maps" id="Maps.md">Maps</h1><p id="z14b99j_3">Maps are collections of key-value pairs. Each key is unique, while values can be duplicated. In Kotlin, there are two main types of maps:</p><ul class="list _bullet" id="z14b99j_4"><li class="list__item" id="z14b99j_8"><p><span class="control" id="z14b99j_10">Mutable Map</span> (<code class="code" id="z14b99j_11">MutableMap&lt;K, V&gt;</code>): Allows modification (adding, removing, updating entries).</p></li><li class="list__item" id="z14b99j_9"><p><span class="control" id="z14b99j_12">Immutable Map</span> (<code class="code" id="z14b99j_13">Map&lt;K, V&gt;</code>): A read-only map.</p></li></ul><section class="chapter"><h2 id="creating-maps" data-toc="creating-maps">Creating Maps</h2><p id="z14b99j_14">Kotlin provides several ways to create maps:</p><div class="code-block" data-lang="kotlin">
+// Immutable Map
+val immutableMap = mapOf(&quot;one&quot; to 1, &quot;two&quot; to 2)
+// Mutable Map
+val mutableMap = mutableMapOf(&quot;one&quot; to 1, &quot;two&quot; to 2)
+</div></section><section class="chapter"><h2 id="syntax" data-toc="syntax">Syntax</h2><div class="code-block" data-lang="kotlin">
+val stringIntMap: Map&lt;String, Int&gt; = mapOf(&quot;a&quot; to 1, &quot;b&quot; to 2)         // Immutable type-safe map
+val mutableStringIntMap: MutableMap&lt;String, Int&gt; = mutableMapOf()      // Mutable type-safe map
+mutableStringIntMap[&quot;c&quot;] = 3                                          // Adds key &quot;c&quot; with value 3
+</div></section><section class="chapter"><h2 id="common-map-operations" data-toc="common-map-operations">Common Map Operations</h2><section class="chapter"><h3 id="accessing-values" data-toc="accessing-values">Accessing Values</h3><p id="z14b99j_27">Values in a map can be accessed by their keys.</p><div class="code-block" data-lang="kotlin">
+val value = immutableMap[&quot;one&quot;]       // Returns 1
+val safeValue = immutableMap[&quot;three&quot;] // Returns null if key doesn’t exist
+val valueOrDefault = immutableMap.getOrDefault(&quot;three&quot;, 0) // Returns 0 if key doesn't exist
+</div></section><section class="chapter"><h3 id="adding-and-updating-entries-mutable-maps-only" data-toc="adding-and-updating-entries-mutable-maps-only">Adding and Updating Entries (Mutable Maps Only)</h3><p id="z14b99j_29">For mutable maps, you can add new entries or update existing ones.</p><div class="code-block" data-lang="kotlin">
+// Adding entries
+mutableMap[&quot;three&quot;] = 3
+mutableMap.put(&quot;four&quot;, 4)
+// Updating entries
+mutableMap[&quot;one&quot;] = 10
+</div></section><section class="chapter"><h3 id="removing-entries-mutable-maps-only" data-toc="removing-entries-mutable-maps-only">Removing Entries (Mutable Maps Only)</h3><p id="z14b99j_31">You can remove entries from mutable maps by their key:</p><div class="code-block" data-lang="kotlin">
+mutableMap.remove(&quot;two&quot;) // Removes the entry with key &quot;two&quot;
+mutableMap.clear()       // Removes all entries
+</div></section><section class="chapter"><h3 id="checking-for-keys-and-values" data-toc="checking-for-keys-and-values">Checking for Keys and Values</h3><p id="z14b99j_33">Kotlin provides several functions to check for keys or values in a map.</p><div class="code-block" data-lang="kotlin">
+// Check if a key exists
+val hasKey = immutableMap.containsKey(&quot;one&quot;) // true
+// Check if a value exists
+val hasValue = immutableMap.containsValue(1) // true
+</div></section><section class="chapter"><h3 id="iterating-over-a-map" data-toc="iterating-over-a-map">Iterating Over a Map</h3><p id="z14b99j_35">Kotlin provides several ways to iterate over a map&rsquo;s entries, keys, and values.</p><ul class="list _bullet" id="z14b99j_36"><li class="list__item" id="z14b99j_42"><p><span class="control" id="z14b99j_43">For Loop with Entries</span></p></li></ul><div class="code-block" data-lang="kotlin">
+for ((key, value) in immutableMap) {
+    println(&quot;$key = $value&quot;)
+}
+</div><ul class="list _bullet" id="z14b99j_38"><li class="list__item" id="z14b99j_44"><p><span class="control" id="z14b99j_45">For Each Entry</span></p></li></ul><div class="code-block" data-lang="kotlin">
+immutableMap.forEach { (key, value) -&gt;
+    println(&quot;$key = $value&quot;)
+}
+</div><ul class="list _bullet" id="z14b99j_40"><li class="list__item" id="z14b99j_46"><p><span class="control" id="z14b99j_47">Iterating Over Keys and Values Separately</span></p></li></ul><div class="code-block" data-lang="kotlin">
+for (key in immutableMap.keys) {
+    println(&quot;Key: $key&quot;)
+}
+for (value in immutableMap.values) {
+println(&quot;Value: $value&quot;)
+}
+</div></section><section class="chapter"><h3 id="map-transformations" data-toc="map-transformations">Map Transformations</h3><p id="z14b99j_48">Kotlin offers transformation functions, such as <code class="code" id="z14b99j_55">map</code>, <code class="code" id="z14b99j_56">filter</code>, and <code class="code" id="z14b99j_57">mapValues</code>.</p><ul class="list _bullet" id="z14b99j_49"><li class="list__item" id="z14b99j_58"><p><span class="control" id="z14b99j_59">Mapping Over Entries</span>: Transforms each entry.</p></li></ul><div class="code-block" data-lang="kotlin">
+val newMap = immutableMap.map { (key, value) -&gt; &quot;$key -&gt; ${value * 2}&quot; }
+// Returns a List of transformed entries: [&quot;one -&gt; 2&quot;, &quot;two -&gt; 4&quot;]
+</div><ul class="list _bullet" id="z14b99j_51"><li class="list__item" id="z14b99j_60"><p><span class="control" id="z14b99j_61">Mapping Only Values</span>: Transform values, keeping the same keys.</p></li></ul><div class="code-block" data-lang="kotlin">
+val doubledValuesMap = immutableMap.mapValues { it.value * 2 } // {one=2, two=4}
+</div><ul class="list _bullet" id="z14b99j_53"><li class="list__item" id="z14b99j_62"><p><span class="control" id="z14b99j_63">Filtering Entries</span>: Returns a new map with entries that match a condition.</p></li></ul><div class="code-block" data-lang="kotlin">
+val filteredMap = immutableMap.filter { (key, value) -&gt; value &gt; 1 } // {two=2}
+</div></section><section class="chapter"><h3 id="combining-maps" data-toc="combining-maps">Combining Maps</h3><p id="z14b99j_64">Maps can be combined using <code class="code" id="z14b99j_69">+</code> or with specific functions like <code class="code" id="z14b99j_70">putAll</code> (for mutable maps only).</p><ul class="list _bullet" id="z14b99j_65"><li class="list__item" id="z14b99j_71"><p>Immutable Combination</p></li></ul><div class="code-block" data-lang="kotlin">
+val combinedMap = immutableMap + mapOf(&quot;three&quot; to 3) // {one=1, two=2, three=3}
+</div><ul class="list _bullet" id="z14b99j_67"><li class="list__item" id="z14b99j_72"><p>Mutable Combination</p></li></ul><div class="code-block" data-lang="kotlin">
+mutableMap.putAll(mapOf(&quot;five&quot; to 5, &quot;six&quot; to 6)) // Modifies mutableMap in place
+</div></section><section class="chapter"><h3 id="getting-map-size" data-toc="getting-map-size">Getting Map Size</h3><p id="z14b99j_73">Use the size property to get the number of entries in a map.</p><div class="code-block" data-lang="kotlin">
+val mapSize = immutableMap.size // 2
+</div></section><section class="chapter"><h3 id="default-values" data-toc="default-values">Default Values</h3><p id="z14b99j_75">The <code class="code" id="z14b99j_77">getOrElse</code> function provides a default value if a key is not found.</p><div class="code-block" data-lang="kotlin">
+val value = immutableMap.getOrElse(&quot;unknown&quot;) { 0 } // Returns 0 if &quot;unknown&quot; isn't found
+</div></section><section class="chapter"><h3 id="copying-maps" data-toc="copying-maps">Copying Maps</h3><p id="z14b99j_78">Use <code class="code" id="z14b99j_80">toMap</code> or <code class="code" id="z14b99j_81">toMutableMap</code> to create copies of maps.</p><div class="code-block" data-lang="kotlin">
+val copiedMap = immutableMap.toMap()         // Immutable copy
+val mutableCopiedMap = immutableMap.toMutableMap() // Mutable copy
+</div></section></section><div class="last-modified">Last modified: 28 noviembre 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="loops.html" class="navigation-links__prev">Loops</a><a href="returns-an-jumps.html" class="navigation-links__next">Returns and Jumps</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.js"></script></body></html>

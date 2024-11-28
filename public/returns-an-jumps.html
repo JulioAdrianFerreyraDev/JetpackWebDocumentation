@@ -1,0 +1,58 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-11-28T09:32:44.2446476"><title>Returns and Jumps | Jetpack Compose</title><script type="application/json" id="virtual-toc-data">[{"id":"return","level":0,"title":"return","anchor":"#return"},{"id":"continue","level":0,"title":"Continue","anchor":"#continue"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Returns and Jumps | Jetpack Compose"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Jetpack Compose Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/returns-an-jumps.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Returns and Jumps | Jetpack Compose"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/returns-an-jumps.html#webpage",
+    "url": "writerside-documentation/returns-an-jumps.html",
+    "name": "Returns and Jumps | Jetpack Compose",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Jetpack Compose Help"
+}</script><!-- End Schema.org --></head><body data-id="Returns-an-Jumps" data-main-title="Returns and Jumps" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Kotlin.md|Kotlin"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Jetpack Compose  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Returns-an-Jumps" id="Returns-an-Jumps.md">Returns and Jumps</h1><section class="chapter"><h2 id="return" data-toc="return">return</h2><p id="uxkbhr_5">The <code class="code" id="uxkbhr_9">return</code> keyword is used to exit a function and optionally send a value back to the calling function. In Kotlin, it&rsquo;s commonly used in two contexts: within regular functions and within lambda expressions.</p><div class="code-block" data-lang="kotlin">
+return // without a value, only valid in functions with no specified return type
+return value // used to return a specific value
+</div><section class="chapter"><h3 id="use-in-functions" data-toc="use-in-functions">Use in Functions</h3><p id="uxkbhr_10">In a function, <code class="code" id="uxkbhr_12">return</code> immediately exits the function and can return a value if specified. The return type of the function must match the type of the value being returned (if any).</p><div class="code-block" data-lang="kotlin">
+fun add(a: Int, b: Int): Int {
+    return a + b
+}
+</div></section><section class="chapter"><h3 id="use-in-lambdas" data-toc="use-in-lambdas">Use in Lambdas</h3><p id="uxkbhr_13">In Kotlin, <code class="code" id="uxkbhr_16">return</code> can be a bit different within lambdas, where it is used with labeled returns (<code class="code" id="uxkbhr_17">return@label</code>). A non-labeled <code class="code" id="uxkbhr_18">return</code> within a lambda will exit the containing function.</p><div class="code-block" data-lang="kotlin">
+fun checkNumbers(numbers: Lis&lt;Int&gt;): List&lt;Int&gt; {
+    return numbers.filter {
+        if (it &lt; 0) return@filter false // returns from the lambda, not from checkNumbers
+        true
+    }
+}
+</div><aside class="prompt" data-type="note" data-title="Note" id="uxkbhr_15"><p>Kotlin offers return@label for local returns within lambdas, helping you control the return scope.</p></aside></section></section><section class="chapter"><h2 id="continue" data-toc="continue">Continue</h2><p id="uxkbhr_19">The <code class="code" id="uxkbhr_26">continue</code> keyword is used within loops (<code class="code" id="uxkbhr_27">for</code>, <code class="code" id="uxkbhr_28">while</code>, <code class="code" id="uxkbhr_29">do-while</code>) to skip the current iteration and proceed to the next iteration.</p><div class="code-block" data-lang="kotlin">
+continue
+</div><section class="chapter"><h3 id="continue-use-with-loops" data-toc="continue-use-with-loops">Continue Use with Loops</h3><p id="uxkbhr_30">When <code class="code" id="uxkbhr_32">continue</code> is encountered within a loop, the code following <code class="code" id="uxkbhr_33">continue</code> is skipped, and the next iteration begins. It is often used with conditions to control iteration flow.</p><div class="code-block" data-lang="kotlin">
+for (i in 1..5) {
+    if (i == 3) continue // skips when i is 3
+    println(i)
+}
+</div></section><section class="chapter"><h3 id="labeled-continue" data-toc="labeled-continue">Labeled Continue</h3><p id="uxkbhr_34">In nested loops, <code class="code" id="uxkbhr_37">continue</code> can be combined with a label to specify which loop should continue its next iteration.</p><div class="code-block" data-lang="kotlin">
+outer@ for (i in 1..3) {
+    for (j in 1..3) {
+        if (i == 2 &amp;&amp; j == 2) continue@outer
+        println(&quot;i: $i, j: $j&quot;)
+    }
+}
+</div><aside class="prompt" data-type="tip" data-title="" id="uxkbhr_36"><p>In this example, continue@outer skips directly to the next iteration of the outer loop, bypassing the inner loop.</p></aside></section><section class="chapter"><h3 id="break" data-toc="break">Break</h3><p id="uxkbhr_38">The <code class="code" id="uxkbhr_40">break</code> keyword is used to exit a loop (either <code class="code" id="uxkbhr_41">for</code>, <code class="code" id="uxkbhr_42">while</code>, or <code class="code" id="uxkbhr_43">do-while</code>) prematurely, stopping further iterations.</p><div class="code-block" data-lang="kotlin">
+break
+</div></section><section class="chapter"><h3 id="break-use-with-loops" data-toc="break-use-with-loops">Break Use with Loops</h3><p id="uxkbhr_44">When <code class="code" id="uxkbhr_46">break</code> is used in a loop, it immediately terminates the loop and proceeds with the code following the loop.</p><div class="code-block" data-lang="kotlin">
+for (i in 1..5) {
+    if (i == 3) break // exits loop when i is 3
+    println(i)
+}
+</div></section><section class="chapter"><h3 id="labeled-break" data-toc="labeled-break">Labeled Break</h3><p id="uxkbhr_47">Like <code class="code" id="uxkbhr_50">continue</code>, <code class="code" id="uxkbhr_51">break</code> can also be used with labels to exit from a specific loop in nested structures.</p><div class="code-block" data-lang="kotlin">
+outer@ for (i in 1..3) {
+    for (j in 1..3) {
+        if (i == 2 &amp;&amp; j == 2) break@outer
+        println(&quot;i: $i, j: $j&quot;)
+    }
+}
+</div><aside class="prompt" data-type="tip" data-title="" id="uxkbhr_49"><p id="uxkbhr_52">In this case, <code class="code" id="uxkbhr_53">break@outer</code> exits the outer loop completely when i is 2 and j is 2, ignoring any remaining iterations in both loops.</p></aside></section></section><div class="last-modified">Last modified: 28 noviembre 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="maps.html" class="navigation-links__prev">Maps</a><a href="functions.html" class="navigation-links__next">Functions</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.js"></script></body></html>

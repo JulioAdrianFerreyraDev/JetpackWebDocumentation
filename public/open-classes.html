@@ -1,0 +1,70 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-11-28T09:32:44.4316456"><title>Open Classes | Jetpack Compose</title><script type="application/json" id="virtual-toc-data">[{"id":"key-characteristics-of-open-classes","level":0,"title":"Key Characteristics of Open Classes","anchor":"#key-characteristics-of-open-classes"},{"id":"when-to-use-open-classes","level":0,"title":"When to Use Open Classes","anchor":"#when-to-use-open-classes"},{"id":"open-functions-and-properties","level":0,"title":"Open Functions and Properties","anchor":"#open-functions-and-properties"},{"id":"open-modifier-for-methods-and-properties","level":0,"title":"Open Modifier for Methods and Properties","anchor":"#open-modifier-for-methods-and-properties"},{"id":"best-practices","level":0,"title":"Best Practices","anchor":"#best-practices"},{"id":"open-vs-abstract-classes","level":0,"title":"Open vs Abstract Classes","anchor":"#open-vs-abstract-classes"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Open Classes | Jetpack Compose"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Jetpack Compose Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/open-classes.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Open Classes | Jetpack Compose"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/open-classes.html#webpage",
+    "url": "writerside-documentation/open-classes.html",
+    "name": "Open Classes | Jetpack Compose",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Jetpack Compose Help"
+}</script><!-- End Schema.org --></head><body data-id="Open-Classes" data-main-title="Open Classes" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Kotlin.md|Kotlin///POO.md|POO///Classes.md|Classes"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Jetpack Compose  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Open-Classes" id="Open-Classes.md">Open Classes</h1><p id="-vdxh39_3">In Kotlin, by default, classes are final. This means they cannot be subclassed or inherited. To allow inheritance, Kotlin provides the open modifier. An <code class="code" id="-vdxh39_10">open</code> class is a class that can be extended by other classes, making it a key feature of object-oriented programming in Kotlin.</p><section class="chapter"><h2 id="key-characteristics-of-open-classes" data-toc="key-characteristics-of-open-classes">Key Characteristics of Open Classes</h2><ul class="list _bullet" id="-vdxh39_11"><li class="list__item" id="-vdxh39_15"><p><span class="control" id="-vdxh39_18">Inheritance Allowed</span>: Classes with the open modifier can be subclassed.</p></li><li class="list__item" id="-vdxh39_16"><p><span class="control" id="-vdxh39_19">Default Behavior</span>: In Kotlin, classes are final by default, which means they cannot be extended unless explicitly marked with open.</p></li><li class="list__item" id="-vdxh39_17"><p><span class="control" id="-vdxh39_20">Open Functions and Properties</span>: Inside an open class, functions and properties are not open by default. You must explicitly use the open keyword to allow them to be overridden.</p></li></ul><div class="code-block" data-lang="kotlin">
+open class ParentClass {
+    open fun greet() {
+        println(&quot;Hello from ParentClass!&quot;)
+    }
+}
+</div><p id="-vdxh39_13">To inherit from an open class</p><div class="code-block" data-lang="kotlin">
+class ChildClass : ParentClass() {
+    override fun greet() {
+        println(&quot;Hello from ChildClass!&quot;)
+    }
+}
+
+fun main() {
+    val parent = ParentClass()
+    parent.greet() // Output: Hello from ParentClass!
+
+    val child = ChildClass()
+    child.greet() // Output: Hello from ChildClass!
+}
+</div></section><section class="chapter"><h2 id="when-to-use-open-classes" data-toc="when-to-use-open-classes">When to Use Open Classes</h2><ul class="list _bullet" id="-vdxh39_21"><li class="list__item" id="-vdxh39_22"><p>When you want to create a base class that other classes can inherit from.</p></li><li class="list__item" id="-vdxh39_23"><p>To support polymorphism, enabling you to define methods or properties in a base class that subclasses can override.</p></li></ul></section><section class="chapter"><h2 id="open-functions-and-properties" data-toc="open-functions-and-properties">Open Functions and Properties</h2><p id="-vdxh39_24">If you want to allow a function or property to be overridden, you must also mark it as <code class="code" id="-vdxh39_26">open</code>.</p><div class="code-block" data-lang="kotlin">
+open class BaseClass {
+    open val property: String = &quot;Base&quot;
+    open fun display() {
+        println(&quot;Base class display&quot;)
+    }
+}
+
+class DerivedClass : BaseClass() {
+    override val property: String = &quot;Derived&quot;
+    override fun display() {
+        println(&quot;Derived class display&quot;)
+    }
+}
+
+fun main() {
+    val instance: BaseClass = DerivedClass()
+    println(instance.property) // Output: Derived
+    instance.display()         // Output: Derived class display
+}
+</div></section><section class="chapter"><h2 id="open-modifier-for-methods-and-properties" data-toc="open-modifier-for-methods-and-properties">Open Modifier for Methods and Properties</h2><ul class="list _bullet" id="-vdxh39_27"><li class="list__item" id="-vdxh39_29"><p><span class="control" id="-vdxh39_31">Methods</span>: By default, methods in Kotlin are <code class="code" id="-vdxh39_32">final</code>. To allow them to be overridden in subclasses, mark them as <code class="code" id="-vdxh39_33">open</code>.</p></li><li class="list__item" id="-vdxh39_30"><p><span class="control" id="-vdxh39_34">Properties</span>: Properties also need to be explicitly marked as <code class="code" id="-vdxh39_35">open</code> to be overridden.</p></li></ul><div class="code-block" data-lang="kotlin">
+open class Animal {
+    open val sound: String = &quot;Some sound&quot;
+    open fun makeSound() {
+        println(sound)
+    }
+}
+
+class Dog : Animal() {
+    override val sound: String = &quot;Bark&quot;
+    override fun makeSound() {
+        println(sound)
+    }
+}
+</div></section><section class="chapter"><h2 id="best-practices" data-toc="best-practices">Best Practices</h2><ol class="list _decimal" id="-vdxh39_36" type="1"><li class="list__item" id="-vdxh39_37"><p><span class="control" id="-vdxh39_40">Use open classes sparingly</span>: Allow inheritance only when it's necessary, as it can introduce complexity.</p></li><li class="list__item" id="-vdxh39_38"><p><span class="control" id="-vdxh39_41">Seal your classes</span> if you want to restrict inheritance to specific subclasses within the same file (use sealed classes).</p></li><li class="list__item" id="-vdxh39_39"><p><span class="control" id="-vdxh39_42">Prefer composition over inheritance</span> when possible, as it provides better flexibility and reduces tight coupling.</p></li></ol></section><section class="chapter"><h2 id="open-vs-abstract-classes" data-toc="open-vs-abstract-classes">Open vs Abstract Classes</h2><div class="table-wrapper"><table class="wide" id="-vdxh39_43"><thead><tr class="ijRowHead" id="-vdxh39_46"><th id="-vdxh39_54"><p>Feature</p></th><th id="-vdxh39_55"><p>Abstract Class</p></th><th id="-vdxh39_56"><p>Open Class</p></th></tr></thead><tbody><tr id="-vdxh39_47"><td id="-vdxh39_57"><p><span class="control" id="-vdxh39_60">Purpose</span></p></td><td id="-vdxh39_58"><p>Used as a base class to define shared functionality and enforce implementation of specific methods in subclasses.</p></td><td id="-vdxh39_59"><p>Used for creating a class that can be extended by other classes without enforcing any unimplemented methods.</p></td></tr><tr id="-vdxh39_48"><td id="-vdxh39_61"><p><span class="control" id="-vdxh39_64">Instantiability</span></p></td><td id="-vdxh39_62"><p>Cannot be instantiated directly.</p></td><td id="-vdxh39_63"><p>Can be instantiated directly.</p></td></tr><tr id="-vdxh39_49"><td id="-vdxh39_65"><p><span class="control" id="-vdxh39_68">Abstract Methods</span></p></td><td id="-vdxh39_66"><p>Can contain abstract methods (methods without a body) that subclasses must implement.</p></td><td id="-vdxh39_67"><p>Cannot contain abstract methods.</p></td></tr><tr id="-vdxh39_50"><td id="-vdxh39_69"><p><span class="control" id="-vdxh39_72">Concrete Methods</span></p></td><td id="-vdxh39_70"><p>Can contain both concrete and abstract methods.</p></td><td id="-vdxh39_71"><p>Contains only concrete methods.</p></td></tr><tr id="-vdxh39_51"><td id="-vdxh39_73"><p><span class="control" id="-vdxh39_76">Constructors</span></p></td><td id="-vdxh39_74"><p>Can have constructors.</p></td><td id="-vdxh39_75"><p>Can have constructors.</p></td></tr><tr id="-vdxh39_52"><td id="-vdxh39_77"><p><span class="control" id="-vdxh39_80">Modifiers</span></p></td><td id="-vdxh39_78"><p>Requires the <code class="code" id="-vdxh39_81">abstract</code> keyword.</p></td><td id="-vdxh39_79"><p>Requires the <code class="code" id="-vdxh39_82">open</code> keyword for allowing inheritance.</p></td></tr><tr id="-vdxh39_53"><td id="-vdxh39_83"><p><span class="control" id="-vdxh39_86">Use Case</span></p></td><td id="-vdxh39_84"><p>When a common base with shared functionality and partial implementation is needed.</p></td><td id="-vdxh39_85"><p>When a class is intended to be extensible but does not require abstract methods.</p></td></tr></tbody></table></div><div class="table-wrapper"><table class="wide" id="-vdxh39_45"><thead><tr class="ijRowHead" id="-vdxh39_87"><th id="-vdxh39_92"><p>Feature</p></th><th id="-vdxh39_93"><p>Abstract Class</p></th><th id="-vdxh39_94"><p>Open Class</p></th></tr></thead><tbody><tr id="-vdxh39_88"><td id="-vdxh39_95"><p><span class="control" id="-vdxh39_98">Can be instantiated?</span></p></td><td id="-vdxh39_96"><p>❌ No</p></td><td id="-vdxh39_97"><p>✅ Yes</p></td></tr><tr id="-vdxh39_89"><td id="-vdxh39_99"><p><span class="control" id="-vdxh39_102">Abstract members allowed?</span></p></td><td id="-vdxh39_100"><p>✅ Yes</p></td><td id="-vdxh39_101"><p>❌ No</p></td></tr><tr id="-vdxh39_90"><td id="-vdxh39_103"><p><span class="control" id="-vdxh39_106">Must be subclassed?</span></p></td><td id="-vdxh39_104"><p>✅ Yes</p></td><td id="-vdxh39_105"><p>❌ No</p></td></tr><tr id="-vdxh39_91"><td id="-vdxh39_107"><p><span class="control" id="-vdxh39_110">Use case</span></p></td><td id="-vdxh39_108"><p>Defining incomplete functionality.</p></td><td id="-vdxh39_109"><p>Defining extensible but complete classes.</p></td></tr></tbody></table></div></section><div class="last-modified">Last modified: 28 noviembre 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="abstract-classes.html" class="navigation-links__prev">Abstract Classes</a><a href="enum-classes.html" class="navigation-links__next">Enum Classes</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.js"></script></body></html>

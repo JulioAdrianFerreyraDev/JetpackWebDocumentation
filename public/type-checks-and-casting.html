@@ -1,0 +1,61 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-11-28T09:32:44.6526516"><title>Type Checks and Casting | Jetpack Compose</title><script type="application/json" id="virtual-toc-data">[{"id":"is-and-is-operators","level":0,"title":"is and !is operators","anchor":"#is-and-is-operators"},{"id":"smart-casts","level":0,"title":"Smart casts","anchor":"#smart-casts"},{"id":"unsafe-casting","level":0,"title":"Unsafe Casting","anchor":"#unsafe-casting"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Type Checks and Casting | Jetpack Compose"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Jetpack Compose Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/type-checks-and-casting.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Type Checks and Casting | Jetpack Compose"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/type-checks-and-casting.html#webpage",
+    "url": "writerside-documentation/type-checks-and-casting.html",
+    "name": "Type Checks and Casting | Jetpack Compose",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Jetpack Compose Help"
+}</script><!-- End Schema.org --></head><body data-id="Type-Checks-and-Casting" data-main-title="Type Checks and Casting" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Kotlin.md|Kotlin"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Jetpack Compose  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Type-Checks-and-Casting" id="Type-Checks-and-Casting.md">Type Checks and Casting</h1><p id="v5oyzy_3">In Kotlin, you can perform type checks to check the type of an object at runtime. Type casts enable you to convert objects to a different type.</p><section class="chapter"><h2 id="is-and-is-operators" data-toc="is-and-is-operators">is and !is operators</h2><p id="v5oyzy_7">To perform a runtime check that identifies whether an object conforms to a given type, use the <code class="code" id="v5oyzy_9">is</code> operator or its negated form <code class="code" id="v5oyzy_10">!is</code>:</p><div class="code-block" data-lang="kotlin">
+if (obj is String) {
+    print(obj.length)
+}
+if (obj !is String) { // Same as !(obj is String)
+print(&quot;Not a String&quot;)
+} else {
+print(obj.length)
+}
+</div></section><section class="chapter"><h2 id="smart-casts" data-toc="smart-casts">Smart casts</h2><p id="v5oyzy_11">In most cases, you don't need to use explicit cast operators because the compiler automatically casts objects for you. This is called smart-casting. The compiler tracks the type checks and explicit casts for immutable values and inserts implicit (safe) casts automatically when necessary:</p><div class="code-block" data-lang="kotlin">
+fun demo(x: Any) {
+    if (x is String) {
+        print(x.length) // x is automatically cast to String
+    }
+}
+</div><p> The compiler is even smart enough to know that a cast is safe if a negative check leads to a return: </p><div class="code-block" data-lang="kotlin">
+if (x !is String) return
+print(x.length) // x is automatically cast to String
+</div><section class="chapter"><h3 id="control-flow" data-toc="control-flow">Control flow</h3><p id="v5oyzy_16">Smart casts work not only for <code class="code" id="v5oyzy_18">if</code> conditional expressions but also for <code class="code" id="v5oyzy_19">when</code> expressions and <code class="code" id="v5oyzy_20">while</code> loops:</p><div class="code-block" data-lang="kotlin">
+when (x) {
+    is Int -&gt; print(x + 1)
+    is String -&gt; print(x.length + 1)
+    is IntArray -&gt; print(x.sum())
+}
+</div></section><section class="chapter"><h3 id="logical-operators" data-toc="logical-operators">Logical operators</h3><p id="v5oyzy_21">The compiler can perform smart casts on the right-hand side of <code class="code" id="v5oyzy_23">&amp;&amp;</code> or <code class="code" id="v5oyzy_24">||</code> operators if there is a type check (regular or negative) on the left-hand side:</p><div class="code-block" data-lang="kotlin">
+// x is automatically cast to String on the right-hand side of `||`
+if (x !is String || x.length == 0) return
+// x is automatically cast to String on the right-hand side of `&amp;&amp;`
+if (x is String &amp;&amp; x.length &gt; 0) {
+print(x.length) // x is automatically cast to String
+}
+</div></section></section><section class="chapter"><h2 id="unsafe-casting" data-toc="unsafe-casting">Unsafe Casting</h2><p id="v5oyzy_25">The <code class="code" id="v5oyzy_28">as</code> operator performs an unsafe cast, meaning it will throw a ClassCastException if the cast fails</p><div class="code-block" data-lang="kotlin">
+val value: Any = &quot;Hello&quot;
+val castValue = value as String // Casts `Any` to `String`
+println(castValue.length)       // Output: 5
+// Example of unsafe cast failure
+val number: Any = 123
+val castString = number as String // This will throw ClassCastException
+</div><section class="chapter"><h3 id="safe-casting" data-toc="safe-casting">Safe Casting</h3><p id="v5oyzy_29">The <code class="code" id="v5oyzy_31">as?</code> operator performs a safe cast. If the cast is unsuccessful, it returns null instead of throwing an exception, making it useful in situations where the type might vary.</p><div class="code-block" data-lang="kotlin">
+val item: Any = &quot;Kotlin&quot;
+val safeCastString: String? = item as? String
+println(safeCastString) // Output: Kotlin
+val number: Any = 123
+val failedCast: String? = number as? String
+println(failedCast) // Output: null (no exception thrown)
+</div></section></section><div class="last-modified">Last modified: 28 noviembre 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="booleans.html" class="navigation-links__prev">Booleans</a><a href="lists.html" class="navigation-links__next">Lists</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.js"></script></body></html>

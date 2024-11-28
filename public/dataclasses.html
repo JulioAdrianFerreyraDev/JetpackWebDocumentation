@@ -1,0 +1,62 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-11-28T09:32:44.3146495"><title>Data Classes | Jetpack Compose</title><script type="application/json" id="virtual-toc-data">[{"id":"defining-a-data-class","level":0,"title":"Defining a Data Class","anchor":"#defining-a-data-class"},{"id":"requirements-for-data-classes","level":0,"title":"Requirements for Data Classes","anchor":"#requirements-for-data-classes"},{"id":"customizing-data-classes","level":0,"title":"Customizing Data Classes","anchor":"#customizing-data-classes"},{"id":"nested-and-inherited-data-classes","level":0,"title":"Nested and Inherited Data Classes","anchor":"#nested-and-inherited-data-classes"},{"id":"use-cases-of-data-classes","level":0,"title":"Use Cases of Data Classes","anchor":"#use-cases-of-data-classes"},{"id":"limitations","level":0,"title":"Limitations","anchor":"#limitations"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Data Classes | Jetpack Compose"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Jetpack Compose Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/dataclasses.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Data Classes | Jetpack Compose"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/dataclasses.html#webpage",
+    "url": "writerside-documentation/dataclasses.html",
+    "name": "Data Classes | Jetpack Compose",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Jetpack Compose Help"
+}</script><!-- End Schema.org --></head><body data-id="DataClasses" data-main-title="Data Classes" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Kotlin.md|Kotlin///POO.md|POO///Classes.md|Classes"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Jetpack Compose  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="DataClasses" id="DataClasses.md">Data Classes</h1><p id="b0pgz4_3">Data classes in Kotlin are specifically designed to hold data. They provide a concise way to declare classes that are primarily used to store and manage information, with automatic implementations of commonly used methods like equals(), <code class="code" id="b0pgz4_10">hashCode()</code>, <code class="code" id="b0pgz4_11">toString()</code>, and <code class="code" id="b0pgz4_12">copy()</code>.</p><section class="chapter"><h2 id="defining-a-data-class" data-toc="defining-a-data-class">Defining a Data Class</h2><p id="b0pgz4_13">A data class is declared using the <code class="code" id="b0pgz4_25">data</code> keyword before the <code class="code" id="b0pgz4_26">class</code> keyword.</p><div class="code-block" data-lang="kotlin">
+data class User(val id: Int, val name: String)
+</div><p id="b0pgz4_15"><span class="control" id="b0pgz4_27">Key Features:</span></p><ol class="list _decimal" id="b0pgz4_16" type="1"><li class="list__item" id="b0pgz4_28"><p>Automatically generates: <code class="code" id="b0pgz4_29">toString()</code> Provides a string representation of the object.</p></li></ol><div class="code-block" data-lang="kotlin">
+val user = User(1, &quot;Alice&quot;)
+println(user)
+// Output: User(id=1, name=Alice)
+</div><p id="b0pgz4_18"><code class="code" id="b0pgz4_30">equals()</code> and <code class="code" id="b0pgz4_31">hashCode()</code> Used for comparison and hashing. Two data class objects are equal if their properties are equal.</p><div class="code-block" data-lang="kotlin">
+val updatedUser = user1.copy(name = &quot;Bob&quot;)
+println(updatedUser) // Output: User(id=1, name=Bob)
+
+
+</div><p id="b0pgz4_20"><code class="code" id="b0pgz4_32">copy()</code> Creates a new object by copying the existing one and optionally changing some properties</p><div class="code-block" data-lang="kotlin">
+val user = User(1, &quot;Alice&quot;)
+println(user)
+// Output: User(id=1, name=Alice)
+</div><ol class="list _decimal" id="b0pgz4_22" type="1" start="2"><li class="list__item" id="b0pgz4_33"><p>Primary constructor must have at least one parameter.</p></li><li class="list__item" id="b0pgz4_34"><p>Parameters in the primary constructor must be declared as val or var.</p></li></ol><p id="b0pgz4_23"><span class="control" id="b0pgz4_35">Example</span></p><div class="code-block" data-lang="kotlin">
+data class Book(val title: String, val author: String, val price: Double)
+
+fun main() {
+    val book = Book(&quot;Kotlin in Action&quot;, &quot;Dmitry Jemerov&quot;, 35.99)
+    println(book) // Output: Book(title=Kotlin in Action, author=Dmitry Jemerov, price=35.99)
+
+    val anotherBook = book.copy(price = 29.99)
+    println(anotherBook) // Output: Book(title=Kotlin in Action, author=Dmitry Jemerov, price=29.99)
+}
+</div></section><section class="chapter"><h2 id="requirements-for-data-classes" data-toc="requirements-for-data-classes">Requirements for Data Classes</h2><ul class="list _bullet" id="b0pgz4_36"><li class="list__item" id="b0pgz4_38"><p>The primary constructor must have at least one parameter.</p></li><li class="list__item" id="b0pgz4_39"><p>All parameters must be declared as <code class="code" id="b0pgz4_41">val</code> or <code class="code" id="b0pgz4_42">var</code>.</p></li><li class="list__item" id="b0pgz4_40"><p>Data classes cannot be abstract, open, sealed, or inner.</p></li></ul><aside class="prompt" data-type="note" data-title="" id="b0pgz4_37"><p id="b0pgz4_43">Note</p><p id="b0pgz4_44">You can define default values for properties in the primary constructor.</p></aside></section><section class="chapter"><h2 id="customizing-data-classes" data-toc="customizing-data-classes">Customizing Data Classes</h2><p id="b0pgz4_45">You can override the default behavior of the generated methods.</p><div class="code-block" data-lang="kotlin">
+data class Person(val name: String, val age: Int) {
+    override fun toString(): String {
+        return &quot;Person(name=$name, age=$age)&quot;
+    }
+}
+</div></section><section class="chapter"><h2 id="nested-and-inherited-data-classes" data-toc="nested-and-inherited-data-classes">Nested and Inherited Data Classes</h2><section class="chapter"><h3 id="nested-data-classes" data-toc="nested-data-classes">Nested Data Classes</h3><p id="b0pgz4_49">Data classes can contain other data classes</p><div class="code-block" data-lang="kotlin">
+data class Address(val city: String, val country: String)
+data class Employee(val id: Int, val name: String, val address: Address)
+
+val address = Address(&quot;New York&quot;, &quot;USA&quot;)
+val employee = Employee(1, &quot;John&quot;, address)
+println(employee)
+// Output: Employee(id=1, name=John, address=Address(city=New York, country=USA))
+</div></section><section class="chapter"><h3 id="inheritance" data-toc="inheritance">Inheritance</h3><p id="b0pgz4_51">While data classes cannot inherit other classes directly, they can implement interfaces.</p><div class="code-block" data-lang="kotlin">
+interface Identifiable {
+    val id: Int
+}
+
+data class Product(override val id: Int, val name: String) : Identifiable
+
+</div></section></section><section class="chapter"><h2 id="use-cases-of-data-classes" data-toc="use-cases-of-data-classes">Use Cases of Data Classes</h2><ul class="list _bullet" id="b0pgz4_53"><li class="list__item" id="b0pgz4_54"><p><span class="control" id="b0pgz4_58">Data Transfer Objects (DTOs)</span>: Pass data between different layers of an application.</p></li><li class="list__item" id="b0pgz4_55"><p><span class="control" id="b0pgz4_59">Immutable Objects</span>: Represent objects that should not change after creation.</p></li><li class="list__item" id="b0pgz4_56"><p><span class="control" id="b0pgz4_60">Mapping and Transformations</span>: Use destructuring and mapping for concise transformations.</p></li><li class="list__item" id="b0pgz4_57"><p><span class="control" id="b0pgz4_61">Collections</span>: Store data in collections like lists, maps, or sets.</p></li></ul></section><section class="chapter"><h2 id="limitations" data-toc="limitations">Limitations</h2><ul class="list _bullet" id="b0pgz4_62"><li class="list__item" id="b0pgz4_63"><p>Cannot be used for classes requiring inheritance.</p></li><li class="list__item" id="b0pgz4_64"><p>Generated methods might not be suitable for complex objects (customization may be needed).</p></li><li class="list__item" id="b0pgz4_65"><p>Large data classes can lead to verbose <code class="code" id="b0pgz4_66">toString()</code> outputs.</p></li></ul></section><div class="last-modified">Last modified: 28 noviembre 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="classes.html" class="navigation-links__prev">Classes</a><a href="abstract-classes.html" class="navigation-links__next">Abstract Classes</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.js"></script></body></html>
