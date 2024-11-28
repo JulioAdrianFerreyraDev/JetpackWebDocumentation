@@ -1,0 +1,101 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-11-28T09:32:44.4096494"><title>POO | Jetpack Compose</title><script type="application/json" id="virtual-toc-data">[{"id":"core-principles-of-oop","level":0,"title":"Core Principles of OOP","anchor":"#core-principles-of-oop"},{"id":"key-oop-concepts","level":0,"title":"Key OOP Concepts","anchor":"#key-oop-concepts"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="POO | Jetpack Compose"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Jetpack Compose Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/poo.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="POO | Jetpack Compose"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/poo.html#webpage",
+    "url": "writerside-documentation/poo.html",
+    "name": "POO | Jetpack Compose",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Jetpack Compose Help"
+}</script><!-- End Schema.org --></head><body data-id="POO" data-main-title="POO" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Kotlin.md|Kotlin"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Jetpack Compose  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="POO" id="POO.md">POO</h1><p id="-evhx1g_3">Object-Oriented Programming (OOP) is a programming paradigm based on the concept of &quot;objects,&quot; which encapsulate data ( attributes) and behavior (methods). OOP promotes modularity, code reusability, and a structured approach to software design.</p><section class="chapter"><h2 id="core-principles-of-oop" data-toc="core-principles-of-oop">Core Principles of OOP</h2><section class="chapter"><h3 id="encapsulation" data-toc="encapsulation">Encapsulation</h3><p id="-evhx1g_10">Encapsulation is the process of bundling data (attributes) and methods (functions) that operate on the data into a single unit called a class. It restricts access to some components of an object to maintain control over its state.</p><p id="-evhx1g_11"><span class="control" id="-evhx1g_15">Access Modifiers</span></p><ul class="list _bullet" id="-evhx1g_12"><li class="list__item" id="-evhx1g_16"><p><code class="code" id="-evhx1g_20">private</code>: Accessible only within the class.</p></li><li class="list__item" id="-evhx1g_17"><p><code class="code" id="-evhx1g_21">protected</code>: Accessible within the class and its subclasses.</p></li><li class="list__item" id="-evhx1g_18"><p><code class="code" id="-evhx1g_22">public</code>: Accessible from anywhere.</p></li><li class="list__item" id="-evhx1g_19"><p><code class="code" id="-evhx1g_23">internal</code>: Accessible within the same module (specific to Kotlin).</p></li></ul><p id="-evhx1g_13"><span class="control" id="-evhx1g_24">Example</span></p><div class="code-block" data-lang="kotlin">
+class BankAccount(private var balance: Double) {
+    fun deposit(amount: Double) {
+        if (amount &gt; 0) balance += amount
+    }
+
+    fun withdraw(amount: Double) {
+        if (amount &gt; 0 &amp;&amp; amount &lt;= balance) balance -= amount
+    }
+
+    fun getBalance(): Double = balance
+}
+</div></section><section class="chapter"><h3 id="inheritance" data-toc="inheritance">Inheritance</h3><p id="-evhx1g_25">Inheritance is a mechanism where a class (subclass) can inherit attributes and methods from another class (superclass), promoting code reuse.</p><p id="-evhx1g_26">Example:</p><div class="code-block" data-lang="kotlin">
+open class Vehicle(val name: String) {
+    open fun move() = println(&quot;$name is moving&quot;)
+}
+
+class Car(name: String) : Vehicle(name) {
+    override fun move() = println(&quot;$name is driving&quot;)
+}
+
+class Bicycle(name: String) : Vehicle(name)
+</div></section><section class="chapter"><h3 id="polymorphism" data-toc="polymorphism">Polymorphism</h3><p id="-evhx1g_28">Polymorphism allows objects of different classes to be treated as objects of a common supertype. It enables dynamic method binding.</p><p id="-evhx1g_29"><span class="control" id="-evhx1g_32">Types:</span></p><ul class="list _bullet" id="-evhx1g_30"><li class="list__item" id="-evhx1g_33"><p><span class="control" id="-evhx1g_35">Compile-Time Polymorphism</span>: Achieved through method overloading (same method name, different parameters).</p></li><li class="list__item" id="-evhx1g_34"><p><span class="control" id="-evhx1g_36">Runtime Polymorphism</span>: Achieved through method overriding (subclass redefines a method of its parent class).</p></li></ul><div class="code-block" data-lang="kotlin">
+open class Animal {
+    open fun sound() = println(&quot;Animal makes a sound&quot;)
+}
+
+class Dog : Animal() {
+    override fun sound() = println(&quot;Dog barks&quot;)
+}
+
+class Cat : Animal() {
+    override fun sound() = println(&quot;Cat meows&quot;)
+}
+
+fun makeAnimalSound(animal: Animal) {
+    animal.sound() // Behavior depends on the actual type of `animal`
+}
+
+</div></section><section class="chapter"><h3 id="abstraction" data-toc="abstraction">Abstraction</h3><p id="-evhx1g_37">Abstraction is the process of hiding the internal implementation details of a class and exposing only the functionality. This is achieved using abstract classes and interfaces.</p><p id="-evhx1g_38"><span class="control" id="-evhx1g_47">Abstract Class</span></p><ul class="list _bullet" id="-evhx1g_39"><li class="list__item" id="-evhx1g_48"><p>Cannot be instantiated.</p></li><li class="list__item" id="-evhx1g_49"><p>May have both abstract and non-abstract methods.</p></li></ul><p id="-evhx1g_40"><span class="control" id="-evhx1g_50">Usage</span></p><ul class="list _bullet" id="-evhx1g_41"><li class="list__item" id="-evhx1g_51"><p>When the classes share a &quot;is-a&quot; relationship (e.g., a Dog is-a Animal).</p></li><li class="list__item" id="-evhx1g_52"><p>When you need to provide common functionality (with or without implementation) to related</p></li></ul><div class="code-block" data-lang="kotlin">
+abstract class Animal {
+    abstract fun sound(): String // Abstract method
+    open fun move() = println(&quot;Animal is moving&quot;) // Concrete method
+}
+
+class Dog : Animal() {
+    override fun sound() = &quot;Bark&quot;
+}
+
+class Cat : Animal() {
+    override fun sound() = &quot;Meow&quot;
+}
+
+</div><p id="-evhx1g_43"><span class="control" id="-evhx1g_53">Interface</span> Defines a contract that implementing classes must follow.</p><p id="-evhx1g_44"><span class="control" id="-evhx1g_54">Usage</span></p><ul class="list _bullet" id="-evhx1g_45"><li class="list__item" id="-evhx1g_55"><p>When a class needs to implement multiple behaviors (Kotlin supports multiple interfaces).</p></li></ul><div class="code-block" data-lang="kotlin">
+interface Drivable {
+    fun drive()
+}
+
+interface Flyable {
+    fun fly()
+}
+
+class Car : Drivable {
+    override fun drive() = println(&quot;Car is driving&quot;)
+}
+
+class Plane : Drivable, Flyable {
+    override fun drive() = println(&quot;Plane is driving on the runway&quot;)
+    override fun fly() = println(&quot;Plane is flying&quot;)
+}
+
+</div></section></section><section class="chapter"><h2 id="key-oop-concepts" data-toc="key-oop-concepts">Key OOP Concepts</h2><section class="chapter"><h3 id="class" data-toc="class">Class</h3><p id="-evhx1g_61">A blueprint for creating objects.</p><div class="code-block" data-lang="kotlin">
+class Person(val name: String, val age: Int)
+</div></section><section class="chapter"><h3 id="object" data-toc="object">Object</h3><p id="-evhx1g_63">An instance of a class.</p><div class="code-block" data-lang="kotlin">
+val person = Person(&quot;Alice&quot;, 25)
+</div></section><section class="chapter"><h3 id="method" data-toc="method">Method</h3><p id="-evhx1g_65">A function inside a class.</p><div class="code-block" data-lang="kotlin">
+class Calculator {
+    fun add(a: Int, b: Int) = a + b
+}
+</div></section><section class="chapter"><h3 id="properties" data-toc="properties">Properties</h3><p id="-evhx1g_67">Variables inside a class.</p><div class="code-block" data-lang="kotlin">
+class Rectangle(var width: Double, var height: Double) {
+    fun area() = width * height
+}
+</div></section><section class="chapter"><h3 id="data-classes" data-toc="data-classes">Data Classes</h3><p id="-evhx1g_69">Special <a href="dataclasses.html" id="-evhx1g_72" data-tooltip="Data classes in Kotlin are specifically designed to hold data. They provide a concise way to declare classes that are primarily used to store and manage information, with automatic implementations of commonly used methods like equals(), hashCode(), toString(), and copy().">class</a> for holding data.</p><div class="code-block" data-lang="kotlin">
+data class User(val id: Int, val name: String)
+</div><aside class="prompt" data-type="note" data-title="" id="-evhx1g_71"><p id="-evhx1g_73">Note</p><p id="-evhx1g_74">Automatically generates toString, equals, hashCode, and copy methods.</p></aside></section></section><div class="last-modified">Last modified: 28 noviembre 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="exceptions.html" class="navigation-links__prev">Exceptions</a><a href="classes.html" class="navigation-links__next">Classes</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.js"></script></body></html>

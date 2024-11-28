@@ -1,0 +1,129 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-11-28T09:32:44.2486509"><title>Enum Classes | Jetpack Compose</title><script type="application/json" id="virtual-toc-data">[{"id":"declaring-an-enum-class","level":0,"title":"Declaring an Enum Class","anchor":"#declaring-an-enum-class"},{"id":"properties-and-methods-of-enum-classes","level":0,"title":"Properties and Methods of Enum Classes","anchor":"#properties-and-methods-of-enum-classes"},{"id":"adding-custom-properties-and-methods","level":0,"title":"Adding Custom Properties and Methods","anchor":"#adding-custom-properties-and-methods"},{"id":"enum-constants-as-objects","level":0,"title":"Enum Constants as Objects","anchor":"#enum-constants-as-objects"},{"id":"enum-with-interfaces","level":0,"title":"Enum with Interfaces","anchor":"#enum-with-interfaces"},{"id":"common-use-cases","level":0,"title":"Common Use Cases","anchor":"#common-use-cases"},{"id":"limitations-of-enum-classes","level":0,"title":"Limitations of Enum Classes","anchor":"#limitations-of-enum-classes"},{"id":"enum-class-vs-sealed-class","level":0,"title":"Enum class vs sealed class","anchor":"#enum-class-vs-sealed-class"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Enum Classes | Jetpack Compose"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Jetpack Compose Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/enum-classes.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Enum Classes | Jetpack Compose"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/enum-classes.html#webpage",
+    "url": "writerside-documentation/enum-classes.html",
+    "name": "Enum Classes | Jetpack Compose",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Jetpack Compose Help"
+}</script><!-- End Schema.org --></head><body data-id="Enum-Classes" data-main-title="Enum Classes" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Kotlin.md|Kotlin///POO.md|POO///Classes.md|Classes"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Jetpack Compose  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Enum-Classes" id="Enum-Classes.md">Enum Classes</h1><p id="be8vfo_3">Kotlin provides a special type of class called Enum Class to define a set of constants. These constants are objects that are used to represent a predefined list of possible values. Enum classes are ideal for use cases like representing states, directions, or predefined options in a type-safe manner.</p><p id="be8vfo_4">An enum class in Kotlin is a special class that represents a group of constants. These constants are instances of the enum class itself and are implicitly declared as <code class="code" id="be8vfo_13">static</code> and <code class="code" id="be8vfo_14">final</code>.</p><section class="chapter"><h2 id="declaring-an-enum-class" data-toc="declaring-an-enum-class">Declaring an Enum Class</h2><p id="be8vfo_15"><span class="control" id="be8vfo_19">Basic Declaration</span></p><div class="code-block" data-lang="kotlin">
+enum class Direction {
+    NORTH, SOUTH, EAST, WEST
+}
+</div><p id="be8vfo_17">Here, <code class="code" id="be8vfo_20">NORTH</code>, <code class="code" id="be8vfo_21">SOUTH</code>, <code class="code" id="be8vfo_22">EAST</code>, and <code class="code" id="be8vfo_23">WEST</code> are the constants of the <code class="code" id="be8vfo_24">Direction</code> enum.</p><section class="chapter"><h3 id="usage" data-toc="usage">Usage</h3><div class="code-block" data-lang="kotlin">
+fun getDirectionMessage(direction: Direction): String {
+    return when (direction) {
+        Direction.NORTH -&gt; &quot;You are heading north.&quot;
+        Direction.SOUTH -&gt; &quot;You are heading south.&quot;
+        Direction.EAST -&gt; &quot;You are heading east.&quot;
+        Direction.WEST -&gt; &quot;You are heading west.&quot;
+    }
+}
+
+val direction = Direction.NORTH
+println(getDirectionMessage(direction)) // Output: You are heading north.
+</div></section></section><section class="chapter"><h2 id="properties-and-methods-of-enum-classes" data-toc="properties-and-methods-of-enum-classes">Properties and Methods of Enum Classes</h2><p id="be8vfo_26">Each enum constant has a few predefined properties and methods:</p><ul class="list _bullet" id="be8vfo_27"><li class="list__item" id="be8vfo_29"><p><code class="code" id="be8vfo_33">name</code>: The name of the enum constant as a string.</p></li><li class="list__item" id="be8vfo_30"><p><code class="code" id="be8vfo_34">ordinal</code>: The position of the enum constant (zero-based index).</p></li><li class="list__item" id="be8vfo_31"><p><code class="code" id="be8vfo_35">values()</code>: Returns an array of all enum constants.</p></li><li class="list__item" id="be8vfo_32"><p><code class="code" id="be8vfo_36">valueOf(name: String)</code>: Returns the enum constant matching the given name</p></li></ul><div class="code-block" data-lang="kotlin">
+enum class Day { MONDAY, TUESDAY, WEDNESDAY }
+
+fun main() {
+    val day = Day.MONDAY
+    println(day.name)       // Output: MONDAY
+    println(day.ordinal)    // Output: 0
+
+    val days = Day.values()
+    println(days.joinToString()) // Output: MONDAY, TUESDAY, WEDNESDAY
+
+    val tuesday = Day.valueOf(&quot;TUESDAY&quot;)
+    println(tuesday)        // Output: TUESDAY
+}
+</div></section><section class="chapter"><h2 id="adding-custom-properties-and-methods" data-toc="adding-custom-properties-and-methods">Adding Custom Properties and Methods</h2><p id="be8vfo_37">Enum constants can have properties:</p><div class="code-block" data-lang="kotlin">
+enum class Planet(val mass: Double, val radius: Double) {
+    EARTH(5.972e24, 6371.0),
+    MARS(6.39e23, 3389.5);
+
+    fun surfaceGravity(): Double {
+        val G = 6.67430e-11
+        return G * mass / (radius * radius)
+    }
+}
+</div><p id="be8vfo_39"><span class="control" id="be8vfo_41">Usage</span></p><div class="code-block" data-lang="kotlin">
+fun main() {
+    val gravity = Planet.EARTH.surfaceGravity()
+    println(&quot;Earth's surface gravity: $gravity&quot;)
+}
+</div></section><section class="chapter"><h2 id="enum-constants-as-objects" data-toc="enum-constants-as-objects">Enum Constants as Objects</h2><p id="be8vfo_42">Each constant in an enum class is an object, and you can override methods or properties for individual constants.</p><div class="code-block" data-lang="kotlin">
+enum class AnimalSound {
+    DOG {
+        override fun sound() = &quot;Woof&quot;
+    },
+    CAT {
+        override fun sound() = &quot;Meow&quot;
+    };
+
+    abstract fun sound(): String
+}
+
+fun main() {
+    println(AnimalSound.DOG.sound()) // Output: Woof
+    println(AnimalSound.CAT.sound()) // Output: Meow
+}
+</div></section><section class="chapter"><h2 id="enum-with-interfaces" data-toc="enum-with-interfaces">Enum with Interfaces</h2><p id="be8vfo_44">Enum classes can implement interfaces.</p><div class="code-block" data-lang="kotlin">
+interface DisplayName {
+    fun displayName(): String
+}
+
+enum class Color : DisplayName {
+    RED {
+        override fun displayName() = &quot;Red Color&quot;
+    },
+    BLUE {
+        override fun displayName() = &quot;Blue Color&quot;
+    }
+}
+</div></section><section class="chapter"><h2 id="common-use-cases" data-toc="common-use-cases">Common Use Cases</h2><ul class="list _bullet" id="be8vfo_46"><li class="list__item" id="be8vfo_47"><p><span class="control" id="be8vfo_51">State Management</span>: Representing states in an application (e.g., <code class="code" id="be8vfo_52">Loading</code>, <code class="code" id="be8vfo_53">Success</code>, <code class="code" id="be8vfo_54">Error</code>).</p></li><li class="list__item" id="be8vfo_48"><p><span class="control" id="be8vfo_55">Direction</span>: Representing directions or navigation options.</p></li><li class="list__item" id="be8vfo_49"><p><span class="control" id="be8vfo_56">Error</span> Codes: Predefined error types or status codes.</p></li><li class="list__item" id="be8vfo_50"><p><span class="control" id="be8vfo_57">Configuration</span> Options: Predefined settings or modes.</p></li></ul></section><section class="chapter"><h2 id="limitations-of-enum-classes" data-toc="limitations-of-enum-classes">Limitations of Enum Classes</h2><ul class="list _bullet" id="be8vfo_58"><li class="list__item" id="be8vfo_59"><p><span class="control" id="be8vfo_62">Immutability</span>: Enum constants are immutable.</p></li><li class="list__item" id="be8vfo_60"><p><span class="control" id="be8vfo_63">Singleton Nature</span>: Enum constants are single instances; they can't be instantiated multiple times.</p></li><li class="list__item" id="be8vfo_61"><p><span class="control" id="be8vfo_64">Lack of Inheritance</span>: Enum classes cannot extend other classes but can implement interfaces.</p></li></ul></section><section class="chapter"><h2 id="enum-class-vs-sealed-class" data-toc="enum-class-vs-sealed-class">Enum class vs sealed class</h2><p id="be8vfo_65">Both enum class and sealed class are powerful constructs in Kotlin, but they serve different purposes and have distinct characteristics. Here&rsquo;s a detailed comparison to help you understand their differences, use cases, and benefits.</p><p id="be8vfo_66"><span class="control" id="be8vfo_75">Enum Class</span></p><ul class="list _bullet" id="be8vfo_67"><li class="list__item" id="be8vfo_76"><p>Used to represent a fixed set of constants.</p></li><li class="list__item" id="be8vfo_77"><p>Each constant is a singleton instance of the enum class.</p></li><li class="list__item" id="be8vfo_78"><p>Typically used for simple categorizations or states with predefined values.</p></li></ul><p id="be8vfo_68"><span class="control" id="be8vfo_79">Sealed Class</span></p><ul class="list _bullet" id="be8vfo_69"><li class="list__item" id="be8vfo_80"><p>Used to represent a restricted class hierarchy.</p></li><li class="list__item" id="be8vfo_81"><p>Allows more complex state modeling with multiple subclasses.</p></li><li class="list__item" id="be8vfo_82"><p>Useful when each type needs additional data or specific behavior.</p></li></ul><section class="chapter"><h3 id="key-differences" data-toc="key-differences">Key Differences</h3><div class="table-wrapper"><table class="wide" id="be8vfo_83"><thead><tr class="ijRowHead" id="be8vfo_84"><th id="be8vfo_92"><p>Feature</p></th><th id="be8vfo_93"><p>Enum Class</p></th><th id="be8vfo_94"><p>Sealed Class</p></th></tr></thead><tbody><tr id="be8vfo_85"><td id="be8vfo_95"><p><span class="control" id="be8vfo_98">Purpose</span></p></td><td id="be8vfo_96"><p>Fixed set of predefined constants.</p></td><td id="be8vfo_97"><p>Restricted hierarchy of types with flexibility.</p></td></tr><tr id="be8vfo_86"><td id="be8vfo_99"><p><span class="control" id="be8vfo_102">Instances</span></p></td><td id="be8vfo_100"><p>All constants are singletons.</p></td><td id="be8vfo_101"><p>Can have multiple instances of subclasses.</p></td></tr><tr id="be8vfo_87"><td id="be8vfo_103"><p><span class="control" id="be8vfo_106">Flexibility</span></p></td><td id="be8vfo_104"><p>Limited to predefined constants.</p></td><td id="be8vfo_105"><p>Subclasses can have additional properties or methods.</p></td></tr><tr id="be8vfo_88"><td id="be8vfo_107"><p><span class="control" id="be8vfo_110">Data Handling</span></p></td><td id="be8vfo_108"><p>Cannot hold extra properties per constant.</p></td><td id="be8vfo_109"><p>Each subclass can hold custom data.</p></td></tr><tr id="be8vfo_89"><td id="be8vfo_111"><p><span class="control" id="be8vfo_114">Inheritance</span></p></td><td id="be8vfo_112"><p>Cannot inherit from another class.</p></td><td id="be8vfo_113"><p>Can inherit from a superclass and allow specific subclasses.</p></td></tr><tr id="be8vfo_90"><td id="be8vfo_115"><p><span class="control" id="be8vfo_118">Extensibility</span></p></td><td id="be8vfo_116"><p>Fixed constants; cannot add more at runtime.</p></td><td id="be8vfo_117"><p>Extensible within the same file.</p></td></tr><tr id="be8vfo_91"><td id="be8vfo_119"><p><span class="control" id="be8vfo_122">Switching Logic</span></p></td><td id="be8vfo_120"><p>Ideal for <code class="code" id="be8vfo_123">when</code> with constants.</p></td><td id="be8vfo_121"><p>Ideal for <code class="code" id="be8vfo_124">when</code> with complex data or logic.</p></td></tr></tbody></table></div></section><section class="chapter"><h3 id="use-cases" data-toc="use-cases">Use Cases</h3><p id="be8vfo_125"><span class="control" id="be8vfo_135">Enum Class Use Cases</span></p><ul class="list _bullet" id="be8vfo_126"><li class="list__item" id="be8vfo_136"><p><span class="control" id="be8vfo_137">State Management</span>: Represent simple states (e.g., <code class="code" id="be8vfo_138">LOADING</code>, <code class="code" id="be8vfo_139">SUCCESS</code>, <code class="code" id="be8vfo_140">ERROR</code>)</p></li></ul><div class="code-block" data-lang="kotlin">
+enum class Status {
+    LOADING, SUCCESS, ERROR
+}
+</div><ul class="list _bullet" id="be8vfo_128"><li class="list__item" id="be8vfo_141"><p><span class="control" id="be8vfo_143">Fixed Categories</span>: Days of the week, directions, colors, etc</p></li><li class="list__item" id="be8vfo_142"><p><span class="control" id="be8vfo_144">Switch Statements</span>: Easy to use in when expressions without extra logic</p></li></ul><p id="be8vfo_129"><span class="control" id="be8vfo_145">Sealed Class Use Cases</span></p><ul class="list _bullet" id="be8vfo_130"><li class="list__item" id="be8vfo_146"><p><span class="control" id="be8vfo_147">Complex States</span>: Model states with different data for each state</p></li></ul><div class="code-block" data-lang="kotlin">
+sealed class Result {
+    object Loading : Result()
+    data class Success(val data: String) : Result()
+    data class Error(val message: String) : Result()
+}
+</div><ul class="list _bullet" id="be8vfo_132"><li class="list__item" id="be8vfo_148"><p><span class="control" id="be8vfo_149">Hierarchical Models</span>: Model hierarchical relationships with a fixed set of subclasses.</p></li></ul><div class="code-block" data-lang="kotlin">
+sealed class Shape {
+    data class Circle(val radius: Double) : Shape()
+    data class Rectangle(val width: Double, val height: Double) : Shape()
+}
+</div><ul class="list _bullet" id="be8vfo_134"><li class="list__item" id="be8vfo_150"><p><span class="control" id="be8vfo_151">Rich Behaviors</span>: Provide methods or logic specific to each subclass.</p></li></ul></section><section class="chapter"><h3 id="matching-with-when" data-toc="matching-with-when">Matching with when</h3><p id="be8vfo_152"><span class="control" id="be8vfo_157">Enum</span></p><p id="be8vfo_153">The <code class="code" id="be8vfo_158">when</code> block automatically covers all enum values. If a value is missing, the compiler will give a warning.</p><div class="code-block" data-lang="kotlin">
+enum class Status { LOADING, SUCCESS, ERROR }
+
+fun getMessage(status: Status): String {
+    return when (status) {
+        Status.LOADING -&gt; &quot;Loading...&quot;
+        Status.SUCCESS -&gt; &quot;Success!&quot;
+        Status.ERROR -&gt; &quot;Error occurred.&quot;
+    }
+}
+</div><p id="be8vfo_155"><span class="control" id="be8vfo_159">Sealed Class</span> The <code class="code" id="be8vfo_160">when</code> block must explicitly cover all subclasses or include an <code class="code" id="be8vfo_161">else</code> branch.</p><div class="code-block" data-lang="kotlin">
+sealed class Result {
+    object Loading : Result()
+    data class Success(val data: String) : Result()
+    data class Error(val message: String) : Result()
+}
+
+fun getMessage(result: Result): String {
+    return when (result) {
+        is Result.Loading -&gt; &quot;Loading...&quot;
+        is Result.Success -&gt; &quot;Success: ${result.data}&quot;
+        is Result.Error -&gt; &quot;Error: ${result.message}&quot;
+    }
+}
+</div></section><section class="chapter"><h3 id="advantages-and-limitations" data-toc="advantages-and-limitations">Advantages and Limitations</h3><p id="be8vfo_162"><span class="control" id="be8vfo_164">Enum Class Advantages</span></p><ul class="list _bullet" id="be8vfo_163"><li class="list__item" id="be8vfo_165"><p><span class="control" id="be8vfo_170">Simple Syntax</span>: Easy to define and use.</p></li><li class="list__item" id="be8vfo_166"><p><span class="control" id="be8vfo_171">Type-Safe Constants</span>: Provides predefined, type-safe constants.</p></li><li class="list__item" id="be8vfo_167"><p><span class="control" id="be8vfo_172">Built-in Utility Methods</span>: Includes values(), valueOf(), ordinal, and name. <span class="control" id="be8vfo_173">Enum Class Limitations</span></p></li><li class="list__item" id="be8vfo_168"><p>Cannot hold different data per constant.</p></li><li class="list__item" id="be8vfo_169"><p>Limited to static values without dynamic behavior.</p></li></ul></section><section class="chapter"><h3 id="which-one-to-use" data-toc="which-one-to-use">Which one to use?</h3><div class="table-wrapper"><table class="wide" id="be8vfo_174"><thead><tr class="ijRowHead" id="be8vfo_175"><th id="be8vfo_181"><p><span class="control" id="be8vfo_184">Scenario</span></p></th><th id="be8vfo_182"><p><span class="control" id="be8vfo_185">Use Enum Class</span></p></th><th id="be8vfo_183"><p><span class="control" id="be8vfo_186">Use Sealed Class</span></p></th></tr></thead><tbody><tr id="be8vfo_176"><td id="be8vfo_187"><p>Fixed set of predefined constants.</p></td><td id="be8vfo_188"><p>✅</p></td><td id="be8vfo_189"></td></tr><tr id="be8vfo_177"><td id="be8vfo_190"><p>Constants need different data or logic.</p></td><td id="be8vfo_191"></td><td id="be8vfo_192"><p>✅</p></td></tr><tr id="be8vfo_178"><td id="be8vfo_193"><p>Representing complex states or hierarchy.</p></td><td id="be8vfo_194"></td><td id="be8vfo_195"><p>✅</p></td></tr><tr id="be8vfo_179"><td id="be8vfo_196"><p>Easy switching logic with <code class="code" id="be8vfo_199">when</code>.</p></td><td id="be8vfo_197"><p>✅</p></td><td id="be8vfo_198"><p>✅</p></td></tr><tr id="be8vfo_180"><td id="be8vfo_200"><p>Constants are used for static categorization.</p></td><td id="be8vfo_201"><p>✅</p></td><td id="be8vfo_202"></td></tr></tbody></table></div></section></section><div class="last-modified">Last modified: 28 noviembre 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="open-classes.html" class="navigation-links__prev">Open Classes</a><a href="sealed-classes.html" class="navigation-links__next">Sealed Classes</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.js"></script></body></html>

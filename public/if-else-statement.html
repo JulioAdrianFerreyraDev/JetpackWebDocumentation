@@ -1,0 +1,51 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-11-28T09:32:44.2446476"><title>if-else statement | Jetpack Compose</title><script type="application/json" id="virtual-toc-data">[{"id":"syntax-of-if-statement","level":0,"title":"Syntax of if Statement","anchor":"#syntax-of-if-statement"},{"id":"using-if-as-an-expression","level":0,"title":"Using if as an Expression","anchor":"#using-if-as-an-expression"},{"id":"nesting-if-statements","level":0,"title":"Nesting if Statements","anchor":"#nesting-if-statements"},{"id":"single-line-if-expression","level":0,"title":"Single-line if expression","anchor":"#single-line-if-expression"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="if-else statement | Jetpack Compose"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Jetpack Compose Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/if-else-statement.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="if-else statement | Jetpack Compose"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/if-else-statement.html#webpage",
+    "url": "writerside-documentation/if-else-statement.html",
+    "name": "if-else statement | Jetpack Compose",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Jetpack Compose Help"
+}</script><!-- End Schema.org --></head><body data-id="if-else-statement" data-main-title="if-else statement" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Kotlin.md|Kotlin"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Jetpack Compose  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="if-else-statement" id="if-else-statement.md">if-else statement</h1><p id="z5rvsw1_3">In Kotlin, <code class="code" id="z5rvsw1_8">if</code> is an expression, which means it returns a value. This sets Kotlin apart from many other programming languages where <code class="code" id="z5rvsw1_9">if</code> is a statement but not an expression. With <code class="code" id="z5rvsw1_10">if</code> expressions, you can directly assign the result to variables, making your code cleaner and more concise.</p><section class="chapter"><h2 id="syntax-of-if-statement" data-toc="syntax-of-if-statement">Syntax of if Statement</h2><p id="z5rvsw1_11">The syntax of a basic if statement in Kotlin is as follows:</p><div class="code-block" data-lang="kotlin">
+if (condition) {
+    // Code to execute if condition is true
+}
+
+</div><p id="z5rvsw1_13">You can also add an else block to handle cases when the condition is false:</p><div class="code-block" data-lang="kotlin">
+if (condition) {
+    // Code to execute if condition is true
+} else {
+    // Code to execute if condition is false
+}
+</div><p id="z5rvsw1_15">For multiple conditions, <code class="code" id="z5rvsw1_17">else if</code> can be used:</p><div class="code-block" data-lang="kotlin">
+if (condition1) {
+    // Code to execute if condition1 is true
+} else if (condition2) {
+    // Code to execute if condition2 is true
+} else {
+    // Code to execute if all conditions are false
+}
+</div></section><section class="chapter"><h2 id="using-if-as-an-expression" data-toc="using-if-as-an-expression">Using if as an Expression</h2><p id="z5rvsw1_18">Since <code class="code" id="z5rvsw1_21">if</code> in Kotlin is an <span class="control" id="z5rvsw1_22">expression</span>, you can assign its result to a variable directly:</p><div class="code-block" data-lang="kotlin">
+val max = if (a &gt; b) a else b
+</div><p id="z5rvsw1_20">In this example, <code class="code" id="z5rvsw1_23">max</code> is assigned the value of <code class="code" id="z5rvsw1_24">a</code> if <code class="code" id="z5rvsw1_25">a</code> is greater than <code class="code" id="z5rvsw1_26">b</code>; otherwise, it is assigned the value of <code class="code" id="z5rvsw1_27">b</code>.</p></section><section class="chapter"><h2 id="nesting-if-statements" data-toc="nesting-if-statements">Nesting if Statements</h2><p id="z5rvsw1_28">You can nest if statements inside each other for more complex conditions:</p><div class="code-block" data-lang="kotlin">
+val age = 20
+val hasID = true
+if (age &gt;= 18) {
+    if (hasID) {
+        println(&quot;Access granted&quot;)
+    } else {
+        println(&quot;ID required&quot;)
+    }
+} else {
+    println(&quot;Access denied&quot;)
+}
+</div></section><section class="chapter"><h2 id="single-line-if-expression" data-toc="single-line-if-expression">Single-line if expression</h2><p id="z5rvsw1_30">If the result of the <code class="code" id="z5rvsw1_32">if</code>/<code class="code" id="z5rvsw1_33">else</code> statement block is a single line of code, you can skip the <code class="code" id="z5rvsw1_34">{}</code> brackets</p><div class="code-block" data-lang="kotlin">
+if (condition) println(&quot;Hello World&quot;)
+</div></section><div class="last-modified">Last modified: 28 noviembre 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="sets.html" class="navigation-links__prev">Sets</a><a href="when-statement.html" class="navigation-links__next">When Statement</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.js"></script></body></html>

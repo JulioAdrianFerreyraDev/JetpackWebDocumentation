@@ -1,0 +1,70 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-11-28T09:32:44.2686518"><title>When Statement | Jetpack Compose</title><script type="application/json" id="virtual-toc-data">[{"id":"basic-syntax","level":0,"title":"Basic Syntax","anchor":"#basic-syntax"},{"id":"using-when-with-different-types-of-conditions","level":0,"title":"Using when with Different Types of Conditions","anchor":"#using-when-with-different-types-of-conditions"},{"id":"using-when-as-an-expression","level":0,"title":"Using when as an Expression","anchor":"#using-when-as-an-expression"},{"id":"when-and-else","level":0,"title":"when and else","anchor":"#when-and-else"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="When Statement | Jetpack Compose"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Jetpack Compose Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/when-statement.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="When Statement | Jetpack Compose"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/when-statement.html#webpage",
+    "url": "writerside-documentation/when-statement.html",
+    "name": "When Statement | Jetpack Compose",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Jetpack Compose Help"
+}</script><!-- End Schema.org --></head><body data-id="When-Statement" data-main-title="When Statement" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Kotlin.md|Kotlin"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Jetpack Compose  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="When-Statement" id="When-Statement.md">When Statement</h1><p id="urygde_3">The <code class="code" id="urygde_8">when</code> expression in Kotlin is a powerful and versatile control structure, similar to <code class="code" id="urygde_9">switch</code> statements in other languages but with more flexibility and capability. It allows you to check a value against multiple conditions or patterns, making it ideal for simplifying complex conditional statements.</p><section class="chapter"><h2 id="basic-syntax" data-toc="basic-syntax">Basic Syntax</h2><p id="urygde_10">The basic syntax of a <code class="code" id="urygde_12">when</code> expression is as follows:</p><div class="code-block" data-lang="kotlin">
+when (expression) {
+    value1 -&gt; // Code to execute if expression equals value1
+    value2 -&gt; // Code to execute if expression equals value2
+    else -&gt; // Code to execute if none of the values match
+}
+
+</div></section><section class="chapter"><h2 id="using-when-with-different-types-of-conditions" data-toc="using-when-with-different-types-of-conditions">Using when with Different Types of Conditions</h2><section class="chapter"><h3 id="matching-exact-values" data-toc="matching-exact-values">Matching Exact Values</h3><div class="code-block" data-lang="kotlin">
+val day = 3
+val dayName = when (day) {
+    1 -&gt; &quot;Monday&quot;
+    2 -&gt; &quot;Tuesday&quot;
+    3 -&gt; &quot;Wednesday&quot;
+    else -&gt; &quot;Invalid day&quot;
+}
+println(dayName)  // Output: Wednesday
+</div></section><section class="chapter"><h3 id="using-multiple-values-in-a-single-branch" data-toc="using-multiple-values-in-a-single-branch">Using Multiple Values in a Single Branch</h3><div class="code-block" data-lang="kotlin">
+val number = 7
+when (number) {
+    1, 2, 3 -&gt; println(&quot;Low number&quot;)
+    4, 5, 6 -&gt; println(&quot;Mid number&quot;)
+    7, 8, 9 -&gt; println(&quot;High number&quot;)
+    else -&gt; println(&quot;Out of range&quot;)
+}
+</div></section><section class="chapter"><h3 id="checking-ranges" data-toc="checking-ranges">Checking Ranges</h3><div class="code-block" data-lang="kotlin">
+val score = 85
+when (score) {
+    in 90..100 -&gt; println(&quot;Grade: A&quot;)
+    in 80..89 -&gt; println(&quot;Grade: B&quot;)
+    in 70..79 -&gt; println(&quot;Grade: C&quot;)
+    else -&gt; println(&quot;Grade: F&quot;)
+}
+</div></section><section class="chapter"><h3 id="using-is-for-type-checking" data-toc="using-is-for-type-checking">Using is for Type Checking</h3><div class="code-block" data-lang="kotlin">
+fun identifyType(obj: Any) {
+    when (obj) {
+        is String -&gt; println(&quot;It's a string of length ${obj.length}&quot;)
+        is Int -&gt; println(&quot;It's an integer&quot;)
+        else -&gt; println(&quot;Unknown type&quot;)
+    }
+}
+</div></section></section><section class="chapter"><h2 id="using-when-as-an-expression" data-toc="using-when-as-an-expression">Using when as an Expression</h2><p id="urygde_21">Since <code class="code" id="urygde_23">when</code> in Kotlin is an <span class="control" id="urygde_24">expression</span>, it returns a value and can be assigned directly to a variable</p><div class="code-block" data-lang="kotlin">
+val number = 5
+val result = when (number) {
+    in 1..10 -&gt; &quot;Within range&quot;
+    else -&gt; &quot;Out of range&quot;
+}
+println(result)  // Output: Within range
+</div></section><section class="chapter"><h2 id="when-and-else" data-toc="when-and-else">when and else</h2><p id="urygde_25">The <code class="code" id="urygde_27">else</code> branch in a <code class="code" id="urygde_28">when</code> expression acts as a <span class="control" id="urygde_29">default</span> case and is executed if no other branch matches. While else is not mandatory, it is highly recommended for completeness and to handle unexpected cases.</p><div class="code-block" data-lang="kotlin">
+val letter = 'X'
+val type = when (letter) {
+    'A', 'E', 'I', 'O', 'U' -&gt; &quot;Vowel&quot;
+    else -&gt; &quot;Consonant&quot;
+}
+println(type)  // Output: Consonant
+</div></section><div class="last-modified">Last modified: 28 noviembre 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="if-else-statement.html" class="navigation-links__prev">if-else statement</a><a href="loops.html" class="navigation-links__next">Loops</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.js"></script></body></html>

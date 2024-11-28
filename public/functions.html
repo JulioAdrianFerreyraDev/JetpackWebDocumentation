@@ -1,0 +1,122 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-11-28T09:32:44.2926557"><title>Functions | Jetpack Compose</title><script type="application/json" id="virtual-toc-data">[{"id":"defining-functions","level":0,"title":"Defining Functions","anchor":"#defining-functions"},{"id":"calling-functions","level":0,"title":"Calling Functions","anchor":"#calling-functions"},{"id":"function-parameters","level":0,"title":"Function Parameters","anchor":"#function-parameters"},{"id":"return-types","level":0,"title":"Return Types","anchor":"#return-types"},{"id":"higher-order-functions","level":0,"title":"Higher-Order Functions","anchor":"#higher-order-functions"},{"id":"inline-functions","level":0,"title":"Inline Functions","anchor":"#inline-functions"},{"id":"lambda-expressions-and-anonymous-functions","level":0,"title":"Lambda Expressions and Anonymous Functions","anchor":"#lambda-expressions-and-anonymous-functions"},{"id":"extension-functions","level":0,"title":"Extension Functions","anchor":"#extension-functions"},{"id":"scope-functions","level":0,"title":"Scope Functions","anchor":"#scope-functions"},{"id":"recursive-functions","level":0,"title":"Recursive Functions","anchor":"#recursive-functions"},{"id":"suspend-functions","level":0,"title":"suspend Functions","anchor":"#suspend-functions"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Functions | Jetpack Compose"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Jetpack Compose Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/functions.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Functions | Jetpack Compose"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/functions.html#webpage",
+    "url": "writerside-documentation/functions.html",
+    "name": "Functions | Jetpack Compose",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Jetpack Compose Help"
+}</script><!-- End Schema.org --></head><body data-id="Functions" data-main-title="Functions" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Kotlin.md|Kotlin"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Jetpack Compose  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Functions" id="Functions.md">Functions</h1><p id="-ynfyen_3">Functions in Kotlin allow you to encapsulate reusable pieces of logic, making code modular, organized, and easier to understand. Kotlin functions are flexible, with support for default arguments, named parameters, higher-order functions, lambdas, and extension functions.</p><section class="chapter"><h2 id="defining-functions" data-toc="defining-functions">Defining Functions</h2><p id="-ynfyen_15">Functions are defined using the <code class="code" id="-ynfyen_20">fun</code> keyword, followed by the function name, parameters (<span class="control" id="-ynfyen_21">if any</span>), and the return type.</p><div class="code-block" data-lang="kotlin">
+fun functionName(parameters): ReturnType {
+    // Function body
+}
+</div><p id="-ynfyen_17"><span class="control" id="-ynfyen_22">Example</span></p><div class="code-block" data-lang="kotlin">
+fun greet(name: String): String {
+    return &quot;Hello, $name!&quot;
+}
+</div><p id="-ynfyen_19">This function takes a <code class="code" id="-ynfyen_23">String</code> parameter called <code class="code" id="-ynfyen_24">name</code> and returns a greeting message of type <code class="code" id="-ynfyen_25">String</code>.</p></section><section class="chapter"><h2 id="calling-functions" data-toc="calling-functions">Calling Functions</h2><p id="-ynfyen_26">To call a function, use the function name followed by parentheses with arguments (<span class="control" id="-ynfyen_28">if any</span>).</p><div class="code-block" data-lang="none">
+val message = greet(&quot;Alice&quot;)
+println(message)  // Output: Hello, Alice!
+</div></section><section class="chapter"><h2 id="function-parameters" data-toc="function-parameters">Function Parameters</h2><p id="-ynfyen_29">You can declare a function with one or more parameters:</p><section class="chapter"><h3 id="single-parameter" data-toc="single-parameter">Single Parameter</h3><div class="code-block" data-lang="kotlin">
+fun square(number: Int): Int {
+    return number * number
+}
+</div></section><section class="chapter"><h3 id="multiple-parameters" data-toc="multiple-parameters">Multiple Parameters</h3><div class="code-block" data-lang="kotlin">
+fun add(a: Int, b: Int): Int {
+    return a + b
+}
+</div></section><section class="chapter"><h3 id="default-parameters" data-toc="default-parameters">Default Parameters</h3><p id="-ynfyen_36">Kotlin allows you to assign default values to function parameters, which makes them optional when calling the function.</p><div class="code-block" data-lang="kotlin">
+fun greet(name: String = &quot;Guest&quot;): String {
+    return &quot;Hello, $name!&quot;
+}
+println(greet())         // Output: Hello, Guest!
+println(greet(&quot;Alice&quot;))  // Output: Hello, Alice!
+</div></section><section class="chapter"><h3 id="named-arguments" data-toc="named-arguments">Named Arguments</h3><p id="-ynfyen_38">When calling a function, you can specify arguments by name, which improves readability.</p><div class="code-block" data-lang="kotlin">
+fun calculateRectangleArea(length: Int, width: Int): Int {
+    return length * width
+}
+val area = calculateRectangleArea(width = 5, length = 10)
+</div></section></section><section class="chapter"><h2 id="return-types" data-toc="return-types">Return Types</h2><p id="-ynfyen_40">Functions can return a value, with the return type specified after the parameter list. If a function does not return a meaningful value, use <code class="code" id="-ynfyen_42">Unit</code> (similar to <code class="code" id="-ynfyen_43">void</code> in other languages), though <code class="code" id="-ynfyen_44">Unit</code> can be omitted as it&rsquo;s the default.</p><div class="code-block" data-lang="kotlin">
+fun printMessage(message: String): Unit {
+    println(message)
+}
+</div></section><section class="chapter"><h2 id="higher-order-functions" data-toc="higher-order-functions">Higher-Order Functions</h2><p id="-ynfyen_45">A higher-order function is a function that takes another function as a parameter or returns a function. In Kotlin, functions can be treated as data and passed around.</p><div class="code-block" data-lang="kotlin">
+fun operateOnNumbers(a: Int, b: Int, operation: (Int, Int) -&gt; Int): Int {
+    return operation(a, b)
+}
+val sum = operateOnNumbers(3, 4) { x, y -&gt; x + y }
+println(sum)  // Output: 7
+</div><aside class="prompt" data-type="note" data-title="" id="-ynfyen_47"><p>If the last parameter is a function of any type, you can call and define it as a function body</p></aside></section><section class="chapter"><h2 id="inline-functions" data-toc="inline-functions">Inline Functions</h2><p id="-ynfyen_48">To avoid the performance overhead of higher-order functions, Kotlin provides <code class="code" id="-ynfyen_50">inline</code> functions, which copy the function&rsquo;s code directly at the call site.</p><div class="code-block" data-lang="kotlin">
+inline fun inlineFunctionExample(action: () -&gt; Unit) {
+    println(&quot;Start&quot;)
+    action()
+    println(&quot;End&quot;)
+}
+</div></section><section class="chapter"><h2 id="lambda-expressions-and-anonymous-functions" data-toc="lambda-expressions-and-anonymous-functions">Lambda Expressions and Anonymous Functions</h2><p id="-ynfyen_51">Kotlin supports lambdas, which are essentially anonymous functions (functions without names). Lambdas can be passed to higher-order functions.</p><div class="code-block" data-lang="kotlin">
+val add = { a: Int, b: Int -&gt; a + b }
+println(add(2, 3))  // Output: 5
+</div></section><section class="chapter"><h2 id="extension-functions" data-toc="extension-functions">Extension Functions</h2><p id="-ynfyen_53">Kotlin allows you to add new functionality to existing classes without modifying their code. These are called extension functions.</p><div class="code-block" data-lang="kotlin">
+fun String.addExclamation(): String {
+    return this + &quot;!&quot;
+}
+println(&quot;Hello&quot;.addExclamation())  // Output: Hello!
+</div></section><section class="chapter"><h2 id="scope-functions" data-toc="scope-functions">Scope Functions</h2><p id="-ynfyen_55">Kotlin provides several built-in functions (<code class="code" id="-ynfyen_61">let</code>, <code class="code" id="-ynfyen_62">run</code>, <code class="code" id="-ynfyen_63">with</code>, <code class="code" id="-ynfyen_64">apply</code>, and <code class="code" id="-ynfyen_65">also</code>) for working with objects in a functional way. They are commonly used to manipulate objects within a limited scope.</p><section class="chapter"><h3 id="let" data-toc="let">let</h3><ul class="list _bullet" id="-ynfyen_66"><li class="list__item" id="-ynfyen_70"><p><span class="control" id="-ynfyen_72">Purpose</span>: Used to execute a block of code on an object and return the result of the block. Commonly used for null checks.</p></li><li class="list__item" id="-ynfyen_71"><p><span class="control" id="-ynfyen_73">Context Object</span>: <code class="code" id="-ynfyen_74">it</code> (implicit name of the object).</p></li></ul><div class="code-block" data-lang="kotlin">
+val name: String? = &quot;Alice&quot;
+name?.let {
+    println(&quot;Hello, $it!&quot;) // Executes only if name is not null
+}
+// Output: Hello, Alice!
+</div><p id="-ynfyen_68"><span class="control" id="-ynfyen_75">Use Case:</span></p><ul class="list _bullet" id="-ynfyen_69"><li class="list__item" id="-ynfyen_76"><p>Safely accessing nullable objects.</p></li><li class="list__item" id="-ynfyen_77"><p>Executing code on an object and returning a result.</p></li></ul></section><section class="chapter"><h3 id="run" data-toc="run">run</h3><ul class="list _bullet" id="-ynfyen_78"><li class="list__item" id="-ynfyen_82"><p><span class="control" id="-ynfyen_84">Purpose</span>: Executes a code block on an object, useful when you want to initialize or configure an object and return a result.</p></li><li class="list__item" id="-ynfyen_83"><p><span class="control" id="-ynfyen_85">Context Object</span>: <code class="code" id="-ynfyen_86">this</code> (can use without naming explicitly).</p></li></ul><div class="code-block" data-lang="kotlin">
+val greeting = &quot;Hello&quot;.run {
+    &quot;$this, World!&quot;  // 'this' refers to the string &quot;Hello&quot;
+}
+println(greeting)
+// Output: Hello, World!
+</div><p id="-ynfyen_80"><span class="control" id="-ynfyen_87">Use Case</span>:</p><ul class="list _bullet" id="-ynfyen_81"><li class="list__item" id="-ynfyen_88"><p>Initialize an object and produce a result.</p></li><li class="list__item" id="-ynfyen_89"><p>Group configuration code that requires a return value.</p></li></ul></section><section class="chapter"><h3 id="with" data-toc="with">with</h3><ul class="list _bullet" id="-ynfyen_90"><li class="list__item" id="-ynfyen_94"><p><span class="control" id="-ynfyen_96">Purpose</span>: Similar to run, but it is not called on an object. Instead, it takes the object as a parameter, useful for grouping multiple operations on the same object.</p></li><li class="list__item" id="-ynfyen_95"><p><span class="control" id="-ynfyen_97">Context Object</span>: <code class="code" id="-ynfyen_98">this</code></p></li></ul><div class="code-block" data-lang="kotlin">
+val person = Person(&quot;Alice&quot;, 25)
+val info = with(person) {
+    &quot;Name: $name, Age: $age&quot;
+}
+println(info)
+// Output: Name: Alice, Age: 25
+</div><p id="-ynfyen_92"><span class="control" id="-ynfyen_99">Use Case</span>:</p><ul class="list _bullet" id="-ynfyen_93"><li class="list__item" id="-ynfyen_100"><p>Performing multiple operations on an object.</p></li><li class="list__item" id="-ynfyen_101"><p>Returning a result after working with an object.</p></li></ul></section><section class="chapter"><h3 id="apply" data-toc="apply">apply</h3><ul class="list _bullet" id="-ynfyen_102"><li class="list__item" id="-ynfyen_106"><p><span class="control" id="-ynfyen_108">Purpose</span>: Executes a block of code on an object and returns the same object. Useful for initializing or configuring an object.</p></li><li class="list__item" id="-ynfyen_107"><p><span class="control" id="-ynfyen_109">Context Object</span>: <code class="code" id="-ynfyen_110">this</code></p></li></ul><div class="code-block" data-lang="kotlin">
+val person = Person().apply {
+    name = &quot;Alice&quot;
+    age = 25
+}
+println(person.name)  // Output: Alice
+</div><p id="-ynfyen_104"><span class="control" id="-ynfyen_111">Use Case:</span></p><ul class="list _bullet" id="-ynfyen_105"><li class="list__item" id="-ynfyen_112"><p>Configuring properties of an object.</p></li><li class="list__item" id="-ynfyen_113"><p>Builder pattern where you configure an object and return it.</p></li></ul></section><section class="chapter"><h3 id="also" data-toc="also">also</h3><ul class="list _bullet" id="-ynfyen_114"><li class="list__item" id="-ynfyen_118"><p><span class="control" id="-ynfyen_120">Purpose</span>: Similar to apply, but the block does not return the object. Instead, it returns the object itself. Used for performing additional actions without changing the object.</p></li><li class="list__item" id="-ynfyen_119"><p><span class="control" id="-ynfyen_121">Context Object</span>: <code class="code" id="-ynfyen_122">it</code></p></li></ul><div class="code-block" data-lang="kotlin">
+val numbers = mutableListOf(1, 2, 3)
+numbers.also {
+    println(&quot;Original list: $it&quot;)
+}.add(4)
+println(numbers)  // Output: [1, 2, 3, 4]
+</div><p id="-ynfyen_116"><span class="control" id="-ynfyen_123">Use Case</span>:</p><ul class="list _bullet" id="-ynfyen_117"><li class="list__item" id="-ynfyen_124"><p>Logging or debugging information.</p></li><li class="list__item" id="-ynfyen_125"><p>Running additional operations on an object without modifying it.</p></li></ul></section></section><section class="chapter"><h2 id="recursive-functions" data-toc="recursive-functions">Recursive Functions</h2><p id="-ynfyen_126">A recursive function is a function that calls itself. Kotlin supports recursive functions, but be cautious to include a base case to prevent infinite recursion.</p><div class="code-block" data-lang="kotlin">
+fun factorial(n: Int): Int {
+    return if (n &lt;= 1) 1 else n * factorial(n - 1)
+}
+println(factorial(5))  // Output: 120
+</div><section class="chapter"><h3 id="tail-recursive-functions" data-toc="tail-recursive-functions">Tail-Recursive Functions</h3><p id="-ynfyen_129">Kotlin supports tail-recursive functions, which optimize recursive calls to prevent stack overflow by reusing the same stack frame.</p><div class="code-block" data-lang="kotlin">
+tailrec fun factorialTail(n: Int, acc: Int = 1): Int {
+    return if (n &lt;= 1) acc else factorialTail(n - 1, acc * n)
+}
+println(factorialTail(5))  // Output: 120
+</div></section></section><section class="chapter"><h2 id="suspend-functions" data-toc="suspend-functions">suspend Functions</h2><p id="-ynfyen_131">The <code class="code" id="-ynfyen_134">suspend</code> keyword in Kotlin is used for functions that can be paused and resumed at a later time. They are primarily used with coroutines for asynchronous and non-blocking operations. Suspend functions allow you to write asynchronous code in a sequential style.</p><div class="code-block" data-lang="kotlin">
+suspend fun fetchUserData(): User {
+    // Simulated delay
+    delay(1000L)
+    return User(&quot;Alice&quot;, 25)
+}
+</div><section class="chapter"><h3 id="using-a-suspend-function" data-toc="using-a-suspend-function">Using a Suspend Function</h3><p id="-ynfyen_135">To call a suspend function, you need to be in a coroutine or another suspend function.</p><div class="code-block" data-lang="kotlin">
+fun main() = runBlocking {
+    val user = fetchUserData()
+    println(&quot;Fetched user: $user&quot;)
+}
+</div></section></section><div class="last-modified">Last modified: 28 noviembre 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="returns-an-jumps.html" class="navigation-links__prev">Returns and Jumps</a><a href="exceptions.html" class="navigation-links__next">Exceptions</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.js"></script></body></html>

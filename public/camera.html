@@ -1,5 +1,5 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-07-21T14:25:24.2566149"><title>Camera | Jetpack Compose</title><script type="application/json" id="virtual-toc-data">[{"id":"permission","level":0,"title":"Permission","anchor":"#permission"},{"id":"provider","level":0,"title":"Provider","anchor":"#provider"},{"id":"check-feature-availability","level":0,"title":"Check Feature Availability","anchor":"#check-feature-availability"},{"id":"permissions-request","level":0,"title":"Permissions Request","anchor":"#permissions-request"},{"id":"launch-camera","level":0,"title":"Launch Camera","anchor":"#launch-camera"},{"id":"file-operations","level":0,"title":"File operations","anchor":"#file-operations"},{"id":"camerax","level":0,"title":"CameraX","anchor":"#camerax"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b267/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Camera | Jetpack Compose"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Jetpack Compose Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/camera.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Camera | Jetpack Compose"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-11-28T09:32:44.3086478"><title>Camera | Jetpack Compose</title><script type="application/json" id="virtual-toc-data">[{"id":"permission","level":0,"title":"Permission","anchor":"#permission"},{"id":"provider","level":0,"title":"Provider","anchor":"#provider"},{"id":"check-feature-availability","level":0,"title":"Check Feature Availability","anchor":"#check-feature-availability"},{"id":"permissions-request","level":0,"title":"Permissions Request","anchor":"#permissions-request"},{"id":"launch-camera","level":0,"title":"Launch Camera","anchor":"#launch-camera"},{"id":"file-operations","level":0,"title":"File operations","anchor":"#file-operations"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Camera | Jetpack Compose"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Jetpack Compose Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/camera.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Camera | Jetpack Compose"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
     "@context": "http://schema.org",
     "@type": "WebPage",
     "@id": "writerside-documentation/camera.html#webpage",
@@ -13,14 +13,14 @@
     "@id": "writerside-documentation/#website",
     "url": "writerside-documentation/",
     "name": "Jetpack Compose Help"
-}</script><!-- End Schema.org --></head><body data-id="Camera" data-main-title="Camera" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Permissions.md|Permissions"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Jetpack Compose  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Camera" id="Camera.md">Camera</h1><section class="chapter"><h2 id="permission" data-toc="permission">Permission</h2><p id="-ze4wua_50">Camera requires to grant permissions for use hardware option before using it. Also requires to specify if the camera hardware implementation is required for the application to be launched.</p><div class="code-block" data-lang="markup">
+}</script><!-- End Schema.org --></head><body data-id="Camera" data-main-title="Camera" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Permissions.md|Permissions"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Jetpack Compose  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Camera" id="Camera.md">Camera</h1><section class="chapter"><h2 id="permission" data-toc="permission">Permission</h2><p id="-o66rc7_9">Camera requires to grant permissions for use hardware option before using it. Also requires to specify if the camera hardware implementation is required for the application to be launched.</p><div class="code-block" data-lang="markup">
 
 &lt;uses-feature
     android:name=&quot;android.hardware.camera&quot;
     android:required=&quot;false&quot; /&gt;
 &lt;uses-permission android:name=&quot;android.permission.CAMERA&quot;/&gt;
 
-</div></section><section class="chapter"><h2 id="provider" data-toc="provider">Provider</h2><p id="-ze4wua_52">Provider helps to handle temporal photos and allows to create a file where the photo is saved, making the access easier.</p><div class="code-block" data-lang="markup">
+</div></section><section class="chapter"><h2 id="provider" data-toc="provider">Provider</h2><p id="-o66rc7_11">Provider helps to handle temporal photos and allows to create a file where the photo is saved, making the access easier.</p><div class="code-block" data-lang="markup">
 
 &lt;application&gt;
     ...
@@ -39,20 +39,19 @@
     &lt;/activity&gt;
 &lt;/application&gt;
 
-</div><p id="-ze4wua_54">If the <code class="code" id="-ze4wua_55">path_provider.xml</code> file is not created, then it must bre created the <code class="code" id="-ze4wua_56">res/xml</code> package</p><p id="-ze4wua_57"><figure id="-ze4wua_58"><img alt="location_xml.png" src="images/location_xml.png" title="location_xml.png" width="420" height="527"></figure> File content:</p><div class="code-block" data-lang="markup">
-
+</div><p id="-o66rc7_13">If the <code class="code" id="-o66rc7_16">path_provider.xml</code> file is not created, then it must bre created the <code class="code" id="-o66rc7_17">res/xml</code> package</p><p id="-o66rc7_14"><figure id="-o66rc7_18"><img alt="location_xml.png" src="images/location_xml.png" title="location_xml.png" width="420" height="527"></figure> File content:</p><div class="code-block" data-lang="markup">
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;paths xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;
-    &lt;external-cache-path name=&quot;my_images&quot; path=&quot;/&quot; /&gt;
+    &lt;external-cache-path name=&quot;my_images&quot; path=&quot;/&quot;/&gt;
 &lt;/paths&gt;
-
 </div></section><section class="chapter"><h2 id="check-feature-availability" data-toc="check-feature-availability">Check Feature Availability</h2><div class="code-block" data-lang="kotlin">
+val context = LocalContext.current
  if (context.packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA_FRONT)) {
     // Use Front Camera
 }else{
     // Do something else
 }
-</div><p id="-ze4wua_61">Look for more <a href="https://developer.android.com/reference/android/content/pm/PackageManager" id="-ze4wua_62" data-external="true" rel="noopener noreferrer">camera features</a></p></section><section class="chapter"><h2 id="permissions-request" data-toc="permissions-request">Permissions Request</h2><div class="code-block" data-lang="kotlin">
+</div><p id="-o66rc7_20">Look for more <a href="https://developer.android.com/reference/android/content/pm/PackageManager" id="-o66rc7_21" data-external="true" rel="noopener noreferrer">camera features</a></p></section><section class="chapter"><h2 id="permissions-request" data-toc="permissions-request">Permissions Request</h2><div class="code-block" data-lang="kotlin">
  val permissionLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.RequestPermission()
     ) { isGranted -&gt;
@@ -64,7 +63,7 @@
     }
 // Launch Permission
 permissionLauncher.launch(android.Manifest.permission.CAMERA)
-</div><section class="chapter"><h3 id="check-if-permission-is-granted" data-toc="check-if-permission-is-granted">Check if Permission is Granted</h3><div class="code-block" data-lang="none">
+</div><section class="chapter"><h3 id="check-if-permission-is-granted" data-toc="check-if-permission-is-granted">Check if Permission is Granted</h3><div class="code-block" data-lang="kotlin">
 if (ContextCompat.checkSelfPermission(
                 context,
                 Manifest.permission.RECORD_AUDIO
@@ -118,13 +117,13 @@ val cameraLauncher = rememberLauncherForActivityResult(
             // Request again if permission not granted
         }
     }
-</div><p id="-ze4wua_67">See more about <a href="https://developer.android.com/reference/androidx/activity/result/contract/ActivityResultContracts" id="-ze4wua_68" data-external="true" rel="noopener noreferrer">ActivityResultContracts</a></p><p id="-ze4wua_69">Then invoke the camera launcher wherever it will be used:</p><div class="code-block" data-lang="kotlin">
+</div><p id="-o66rc7_29">See more about <a href="https://developer.android.com/reference/androidx/activity/result/contract/ActivityResultContracts" id="-o66rc7_32" data-external="true" rel="noopener noreferrer">ActivityResultContracts</a></p><p id="-o66rc7_30">Then invoke the camera launcher wherever it will be used:</p><div class="code-block" data-lang="kotlin">
 // The functions requires a Uri where the file will be temporarily saved
 cameraLauncher.launch(uri)
-</div></section><section class="chapter"><h3 id="delete-file" data-toc="delete-file">Delete File</h3><p id="-ze4wua_71">If you need to dispose the file then use the following code:</p><div class="code-block" data-lang="kotlin">
+</div></section><section class="chapter"><h3 id="delete-file" data-toc="delete-file">Delete File</h3><p id="-o66rc7_33">If you need to dispose the file then use the following code:</p><div class="code-block" data-lang="kotlin">
 private fun deletePhoto(path: String) {
     val file = File(path)
-    // Deletes the file if already exists
     if (file.exists()) file.delete()
 }
-</div></section></section><section class="chapter"><h2 id="camerax" data-toc="camerax">CameraX</h2></section><div class="last-modified">Last modified: 21 julio 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="internet.html" class="navigation-links__prev">Internet</a><a href="pick-images.html" class="navigation-links__next">Gallery</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b267/app.js"></script></body></html>
+
+</div><p>## CameraX</p></section></section><div class="last-modified">Last modified: 28 noviembre 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="internet.html" class="navigation-links__prev">Internet</a><a href="pick-images.html" class="navigation-links__next">Gallery</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.js"></script></body></html>

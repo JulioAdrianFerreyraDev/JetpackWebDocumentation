@@ -1,0 +1,74 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-11-28T09:32:44.3646464"><title>Exceptions | Jetpack Compose</title><script type="application/json" id="virtual-toc-data">[{"id":"basics-of-exception-handling","level":0,"title":"Basics of Exception Handling","anchor":"#basics-of-exception-handling"},{"id":"throw-keyword","level":0,"title":"throw Keyword","anchor":"#throw-keyword"},{"id":"custom-exceptions","level":0,"title":"Custom Exceptions","anchor":"#custom-exceptions"},{"id":"checked-vs-unchecked-exceptions","level":0,"title":"Checked vs. Unchecked Exceptions","anchor":"#checked-vs-unchecked-exceptions"},{"id":"using-try-as-an-expression","level":0,"title":"Using try as an Expression","anchor":"#using-try-as-an-expression"},{"id":"common-exception-types","level":0,"title":"Common Exception Types","anchor":"#common-exception-types"},{"id":"extension-functions-and-null-safety","level":0,"title":"Extension Functions and Null Safety","anchor":"#extension-functions-and-null-safety"},{"id":"runcatching","level":0,"title":"runCatching","anchor":"#runcatching"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Exceptions | Jetpack Compose"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Jetpack Compose Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/exceptions.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Exceptions | Jetpack Compose"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/exceptions.html#webpage",
+    "url": "writerside-documentation/exceptions.html",
+    "name": "Exceptions | Jetpack Compose",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Jetpack Compose Help"
+}</script><!-- End Schema.org --></head><body data-id="Exceptions" data-main-title="Exceptions" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Kotlin.md|Kotlin"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Jetpack Compose  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Exceptions" id="Exceptions.md">Exceptions</h1><p id="wn1g0q_3">Exception handling in Kotlin is similar to Java but offers more concise syntax and modern features. It allows developers to manage runtime errors in a controlled way, avoiding crashes and enabling smoother user experiences.</p><section class="chapter"><h2 id="basics-of-exception-handling" data-toc="basics-of-exception-handling">Basics of Exception Handling</h2><p id="wn1g0q_12">In Kotlin, exceptions are handled using the <code class="code" id="wn1g0q_15">try</code>, <code class="code" id="wn1g0q_16">catch</code>, <code class="code" id="wn1g0q_17">finally</code>, and <code class="code" id="wn1g0q_18">throw</code> keywords.</p><div class="code-block" data-lang="kotlin">
+try {
+    // Code that may throw an exception
+} catch (e: ExceptionType) {
+    // Handle the exception
+} finally {
+    // Code that will always run, regardless of an exception
+}
+</div><section class="chapter"><h3 id="key-points" data-toc="key-points">Key Points:</h3><ol class="list _decimal" id="wn1g0q_19" type="1"><li class="list__item" id="wn1g0q_20"><p><span class="control" id="wn1g0q_24">try</span>: Wraps the code block where an exception might occur.</p></li><li class="list__item" id="wn1g0q_21"><p><span class="control" id="wn1g0q_25">catch</span>: Catches specific types of exceptions.</p></li><li class="list__item" id="wn1g0q_22"><p><span class="control" id="wn1g0q_26">finally</span>: Executes after try or catch blocks, whether an exception occurs or not.</p></li><li class="list__item" id="wn1g0q_23"><p><span class="control" id="wn1g0q_27">throw</span>: Used to explicitly throw an exception.</p></li></ol></section></section><section class="chapter"><h2 id="throw-keyword" data-toc="throw-keyword">throw Keyword</h2><p id="wn1g0q_28">In Kotlin, throw is used to manually throw an exception. This is helpful for enforcing specific conditions.</p><div class="code-block" data-lang="kotlin">
+fun validateAge(age: Int) {
+    if (age &lt; 18) {
+        throw IllegalArgumentException(&quot;Age must be at least 18&quot;)
+    }
+}
+try {
+validateAge(15)
+} catch (e: IllegalArgumentException) {
+println(e.message)
+}
+// Output: Age must be at least 18
+</div></section><section class="chapter"><h2 id="custom-exceptions" data-toc="custom-exceptions">Custom Exceptions</h2><p id="wn1g0q_30">You can create custom exceptions by extending the <code class="code" id="wn1g0q_32">Exception</code> class or any of its subclasses. This helps in creating more descriptive exceptions that are specific to your application's logic.</p><div class="code-block" data-lang="kotlin">
+class InvalidAgeException(message: String) : Exception(message)
+    fun register(age: Int) {
+    if (age &lt; 18) throw InvalidAgeException(&quot;You must be 18 or older to register.&quot;)
+    }
+/* Exception Invocation */
+try {
+register(16)
+} catch (e: InvalidAgeException) {
+println(e.message)
+}
+// Output: You must be 18 or older to register.
+</div></section><section class="chapter"><h2 id="checked-vs-unchecked-exceptions" data-toc="checked-vs-unchecked-exceptions">Checked vs. Unchecked Exceptions</h2><p id="wn1g0q_33">Kotlin doesn&rsquo;t have checked exceptions, unlike Java. This means you aren&rsquo;t required to handle exceptions in code, making the syntax cleaner and more flexible. You can still handle exceptions explicitly if needed, but there is no compiler-enforced requirement.</p></section><section class="chapter"><h2 id="using-try-as-an-expression" data-toc="using-try-as-an-expression">Using try as an Expression</h2><p id="wn1g0q_34">In Kotlin, <code class="code" id="wn1g0q_36">try</code> is an expression, which means it can return a value. You can assign the result of a <code class="code" id="wn1g0q_37">try-catch</code> block to a variable.</p><div class="code-block" data-lang="kotlin">
+val result = try {
+    &quot;Hello&quot;.toInt()
+} catch (e: NumberFormatException) {
+    0  // Default value if exception occurs
+}
+println(result)  // Output: 0
+</div></section><section class="chapter"><h2 id="common-exception-types" data-toc="common-exception-types">Common Exception Types</h2><ul class="list _bullet" id="wn1g0q_38"><li class="list__item" id="wn1g0q_39"><p><span class="control" id="wn1g0q_44">ArithmeticException</span>: Thrown when an arithmetic error, such as division by zero, occurs.</p></li><li class="list__item" id="wn1g0q_40"><p><span class="control" id="wn1g0q_45">NullPointerException</span>: Thrown when trying to use a null object reference.</p></li><li class="list__item" id="wn1g0q_41"><p><span class="control" id="wn1g0q_46">NumberFormatException</span>: Thrown when trying to convert an invalid string to a number.</p></li><li class="list__item" id="wn1g0q_42"><p><span class="control" id="wn1g0q_47">IllegalArgumentException</span>: Thrown when an invalid argument is passed to a function.</p></li><li class="list__item" id="wn1g0q_43"><p><span class="control" id="wn1g0q_48">IllegalStateException</span>: Thrown when a method is invoked at an inappropriate time.</p></li></ul></section><section class="chapter"><h2 id="extension-functions-and-null-safety" data-toc="extension-functions-and-null-safety">Extension Functions and Null Safety</h2><p id="wn1g0q_49">Kotlin&rsquo;s null safety features allow for smoother handling of <code class="code" id="wn1g0q_51">NullPointerException</code>. Using <code class="code" id="wn1g0q_52">?</code>. and <code class="code" id="wn1g0q_53">?:</code> can help avoid these exceptions.</p><div class="code-block" data-lang="kotlin">
+val nullableString: String? = null
+println(nullableString?.length ?: &quot;No length&quot;)  // Output: No length
+</div></section><section class="chapter"><h2 id="runcatching" data-toc="runcatching">runCatching</h2><p id="wn1g0q_54">The <code class="code" id="wn1g0q_56">runCatching</code> function is an alternative to <code class="code" id="wn1g0q_57">try-catch</code>, allowing for cleaner code by capturing exceptions and managing success and failure cases.</p><div class="code-block" data-lang="kotlin">
+val result = runCatching {
+    &quot;123&quot;.toInt()
+}.getOrElse {
+    println(&quot;An error occurred: ${it.message}&quot;)
+    0
+}
+println(result)  // Output: 123
+val failedResult = runCatching {
+&quot;abc&quot;.toInt()
+}.getOrElse {
+println(&quot;An error occurred: ${it.message}&quot;)
+0
+}
+println(failedResult)  // Output: An error occurred: For input string: &quot;abc&quot;
+//          0
+</div></section><div class="last-modified">Last modified: 28 noviembre 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="functions.html" class="navigation-links__prev">Functions</a><a href="poo.html" class="navigation-links__next">POO</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.js"></script></body></html>

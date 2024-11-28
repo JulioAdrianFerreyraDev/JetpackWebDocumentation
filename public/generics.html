@@ -1,0 +1,35 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-11-28T09:32:44.2446476"><title>Generics | Jetpack Compose</title><script type="application/json" id="virtual-toc-data">[{"id":"key-features-of-generics","level":0,"title":"Key Features of Generics","anchor":"#key-features-of-generics"},{"id":"defining-generics","level":0,"title":"Defining Generics","anchor":"#defining-generics"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Generics | Jetpack Compose"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Jetpack Compose Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/generics.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Generics | Jetpack Compose"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/generics.html#webpage",
+    "url": "writerside-documentation/generics.html",
+    "name": "Generics | Jetpack Compose",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Jetpack Compose Help"
+}</script><!-- End Schema.org --></head><body data-id="Generics" data-main-title="Generics" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Kotlin.md|Kotlin"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Jetpack Compose  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Generics" id="Generics.md">Generics</h1><p id="-h6cdlq_3">Generics in Kotlin allow you to write flexible and reusable code that can operate on different data types while ensuring type safety. They are particularly useful when working with collections or creating custom data structures.</p><section class="chapter"><h2 id="key-features-of-generics" data-toc="key-features-of-generics">Key Features of Generics</h2><ul class="list _bullet" id="-h6cdlq_6"><li class="list__item" id="-h6cdlq_7"><p><span class="control" id="-h6cdlq_10">Type Safety</span>: Prevents runtime type casting errors.</p></li><li class="list__item" id="-h6cdlq_8"><p><span class="control" id="-h6cdlq_11">Reusability</span>: Enables the use of a single implementation for different types.</p></li><li class="list__item" id="-h6cdlq_9"><p><span class="control" id="-h6cdlq_12">Flexibility</span>: Allows defining constraints on types.</p></li></ul></section><section class="chapter"><h2 id="defining-generics" data-toc="defining-generics">Defining Generics</h2><section class="chapter"><h3 id="generic-classes" data-toc="generic-classes">Generic Classes</h3><p id="-h6cdlq_15">You can declare a class with one or more type parameters.</p><div class="code-block" data-lang="kotlin">
+class Box&lt;T&gt;(val value: T)
+
+fun main() {
+    val intBox = Box(42)         // Box&lt;Int&gt;
+    val stringBox = Box(&quot;Hello&quot;) // Box&lt;String&gt;
+
+    println(intBox.value) // 42
+    println(stringBox.value) // Hello
+}
+</div></section><section class="chapter"><h3 id="generic-functions" data-toc="generic-functions">Generic Functions</h3><p id="-h6cdlq_17">You can also define functions with type parameters.</p><div class="code-block" data-lang="kotlin">
+fun &lt;T&gt; printItem(item: T) {
+    println(item)
+}
+
+fun main() {
+    printItem(42)      // Prints: 42
+    printItem(&quot;Hello&quot;) // Prints: Hello
+}
+</div></section></section><div class="last-modified">Last modified: 28 noviembre 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="kotlin-objects.html" class="navigation-links__prev">Kotlin Objects</a><a href="compose.html" class="navigation-links__next">Compose</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.js"></script></body></html>

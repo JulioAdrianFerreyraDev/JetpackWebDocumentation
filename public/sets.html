@@ -1,0 +1,68 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-11-28T09:32:44.4316456"><title>Sets | Jetpack Compose</title><script type="application/json" id="virtual-toc-data">[{"id":"creating-sets","level":0,"title":"Creating Sets","anchor":"#creating-sets"},{"id":"common-set-operations","level":0,"title":"Common Set Operations","anchor":"#common-set-operations"},{"id":"set-transformation-and-filtering","level":0,"title":"Set Transformation and Filtering","anchor":"#set-transformation-and-filtering"},{"id":"set-operations","level":0,"title":"Set Operations","anchor":"#set-operations"},{"id":"converting-sets-to-other-collections","level":0,"title":"Converting Sets to Other Collections","anchor":"#converting-sets-to-other-collections"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Sets | Jetpack Compose"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Jetpack Compose Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/sets.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Sets | Jetpack Compose"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/sets.html#webpage",
+    "url": "writerside-documentation/sets.html",
+    "name": "Sets | Jetpack Compose",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Jetpack Compose Help"
+}</script><!-- End Schema.org --></head><body data-id="Sets" data-main-title="Sets" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Kotlin.md|Kotlin"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Jetpack Compose  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Sets" id="Sets.md">Sets</h1><p id="k3ykkt_3">Sets are unordered collections that do not allow duplicate elements. Kotlin provides two main types of sets:</p><ul class="list _bullet" id="k3ykkt_4"><li class="list__item" id="k3ykkt_10"><p id="k3ykkt_13"><span class="control" id="k3ykkt_14">Set</span> (<code class="code" id="k3ykkt_15">Set&lt;T&gt;</code>): Immutable, read-only set.</p></li><li class="list__item" id="k3ykkt_11"><p id="k3ykkt_16"><span class="control" id="k3ykkt_17">MutableSet</span> (<code class="code" id="k3ykkt_18">MutableSet&lt;T&gt;</code>): Allows adding and removing elements, and is both mutable and modifiable.</p></li><li class="list__item" id="k3ykkt_12"><p id="k3ykkt_19">Both types of sets are generic and can hold any type (<code class="code" id="k3ykkt_20">String</code>, <code class="code" id="k3ykkt_21">Int</code>, <code class="code" id="k3ykkt_22">custom objects</code>, etc.).</p></li></ul><section class="chapter"><h2 id="creating-sets" data-toc="creating-sets">Creating Sets</h2><p id="k3ykkt_23">You can create sets using various methods, depending on whether the set is mutable or immutable</p><div class="code-block" data-lang="kotlin">
+// Immutable Set
+val fruitSet = setOf(&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;)
+// Mutable Set
+val mutableFruitSet = mutableSetOf(&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;)
+// Empty Set
+val emptySet = emptySet&lt;String&gt;()
+</div><section class="chapter"><h3 id="syntax" data-toc="syntax">Syntax</h3><div class="code-block" data-lang="kotlin">
+val stringSet: Set&lt;String&gt; = setOf(&quot;apple&quot;, &quot;banana&quot;)            // Immutable type-safe set of Strings
+val mutableStringSet: MutableSet&lt;String&gt; = mutableSetOf()        // Mutable type-safe set of Strings
+mutableStringSet.add(&quot;cherry&quot;)                                   // Adds &quot;cherry&quot; to the set
+</div></section></section><section class="chapter"><h2 id="common-set-operations" data-toc="common-set-operations">Common Set Operations</h2><p id="k3ykkt_27">Kotlin provides a range of operations for working with sets.</p><section class="chapter"><h3 id="accessing-elements" data-toc="accessing-elements">Accessing Elements</h3><p id="k3ykkt_32">Elements in a set can&rsquo;t be accessed by index, as sets are unordered. However, you can check for the presence of an element using the <code class="code" id="k3ykkt_34">contains</code> function.</p><div class="code-block" data-lang="kotlin">
+val containsBanana = fruitSet.contains(&quot;banana&quot;) // true
+</div></section><section class="chapter"><h3 id="adding-and-removing-elements-mutable-sets-only" data-toc="adding-and-removing-elements-mutable-sets-only">Adding and Removing Elements (Mutable Sets Only)</h3><p id="k3ykkt_35">Mutable sets support adding and removing elements</p><div class="code-block" data-lang="kotlin">
+// Adding elements
+mutableFruitSet.add(&quot;orange&quot;)
+// Removing elements
+mutableFruitSet.remove(&quot;apple&quot;)
+</div></section><section class="chapter"><h3 id="set-size" data-toc="set-size">Set Size</h3><p id="k3ykkt_37">The size property returns the number of unique elements in the set.</p><div class="code-block" data-lang="kotlin">
+val setSize = fruitSet.size  // 3
+</div></section><section class="chapter"><h3 id="iterating-over-a-set" data-toc="iterating-over-a-set">Iterating Over a Set</h3><p id="k3ykkt_39">You can iterate over a set using a loop, <code class="code" id="k3ykkt_41">forEach</code>, or <code class="code" id="k3ykkt_42">forEachIndexed</code> if needed</p><div class="code-block" data-lang="kotlin">
+for (fruit in fruitSet) {
+    println(fruit)
+}
+// Using forEach
+fruitSet.forEach { println(it) }
+</div></section></section><section class="chapter"><h2 id="set-transformation-and-filtering" data-toc="set-transformation-and-filtering">Set Transformation and Filtering</h2><p id="k3ykkt_43">Sets in Kotlin support a variety of transformation and filtering functions, similar to lists.</p><section class="chapter"><h3 id="mapping-elements" data-toc="mapping-elements">Mapping Elements</h3><p id="k3ykkt_48">The <code class="code" id="k3ykkt_50">map</code> function creates a new list by transforming each element in the set.</p><div class="code-block" data-lang="kotlin">
+val lengthList = fruitSet.map { it.length }  // [5, 6, 6] for &quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;
+</div></section><section class="chapter"><h3 id="filtering-elements" data-toc="filtering-elements">Filtering Elements</h3><p id="k3ykkt_51">The filter function creates a new list with elements that satisfy a given condition.</p><div class="code-block" data-lang="kotlin">
+val filteredSet = fruitSet.filter { it.length &gt; 5 }  // [&quot;banana&quot;, &quot;cherry&quot;]
+</div></section><section class="chapter"><h3 id="checking-for-empty" data-toc="checking-for-empty">Checking for Empty</h3><p id="k3ykkt_53">You can check if a set is empty with <code class="code" id="k3ykkt_55">isEmpty()</code> or <code class="code" id="k3ykkt_56">isNotEmpty()</code>.</p><div class="code-block" data-lang="kotlin">
+val isEmpty = fruitSet.isEmpty()  // false
+val isNotEmpty = fruitSet.isNotEmpty()  // true
+</div></section><section class="chapter"><h3 id="element-checking-with-all-any-and-contains" data-toc="element-checking-with-all-any-and-contains">Element Checking with all, any, and contains</h3><p id="k3ykkt_57">Kotlin offers several functions for checking elements in a set.</p><ul class="list _bullet" id="k3ykkt_58"><li class="list__item" id="k3ykkt_60"><p><span class="control" id="k3ykkt_63">All</span>: Checks if all elements match a given condition.</p></li><li class="list__item" id="k3ykkt_61"><p><span class="control" id="k3ykkt_64">Any</span>: Checks if any element matches a given condition.</p></li><li class="list__item" id="k3ykkt_62"><p><span class="control" id="k3ykkt_65">Contains</span>: Checks if a specific element is in the set.</p></li></ul><div class="code-block" data-lang="kotlin">
+val allHaveFiveChars = fruitSet.all { it.length == 5 }  // false
+val anyHasFiveChars = fruitSet.any { it.length == 5 }  // true
+val containsApple = fruitSet.contains(&quot;apple&quot;)  // true
+</div></section></section><section class="chapter"><h2 id="set-operations" data-toc="set-operations">Set Operations</h2><p id="k3ykkt_66">Sets support a range of mathematical operations, such as <code class="code" id="k3ykkt_72">union</code>, <code class="code" id="k3ykkt_73">intersection</code>, and <code class="code" id="k3ykkt_74">difference</code>.</p><section class="chapter"><h3 id="union" data-toc="union">Union</h3><p id="k3ykkt_75">The <code class="code" id="k3ykkt_77">union</code> function returns a new set containing all unique elements from both sets.</p><div class="code-block" data-lang="kotlin">
+val set1 = setOf(&quot;apple&quot;, &quot;banana&quot;)
+val set2 = setOf(&quot;banana&quot;, &quot;cherry&quot;)
+val unionSet = set1 union set2  // [&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;]
+</div></section><section class="chapter"><h3 id="intersection" data-toc="intersection">Intersection</h3><p id="k3ykkt_78">The <code class="code" id="k3ykkt_80">intersect</code> function returns a new set with elements common to both sets</p><div class="code-block" data-lang="kotlin">
+val intersectionSet = set1 intersect set2  // [&quot;banana&quot;]
+</div></section><section class="chapter"><h3 id="difference" data-toc="difference">Difference</h3><p id="k3ykkt_81">The <code class="code" id="k3ykkt_83">subtract</code> function returns a new set with elements from the first set that are not in the second set.</p><div class="code-block" data-lang="kotlin">
+val differenceSet = set1 subtract set2  // [&quot;apple&quot;]
+</div></section><section class="chapter"><h3 id="symmetric-difference" data-toc="symmetric-difference">Symmetric Difference</h3><p id="k3ykkt_84">Kotlin doesn't have a built-in symmetric difference function, but you can use <code class="code" id="k3ykkt_86">union</code> and <code class="code" id="k3ykkt_87">subtract</code> to find elements that exist in one set but not both.</p><div class="code-block" data-lang="kotlin">
+val symmetricDifference = (set1 union set2) - (set1 intersect set2)  // [&quot;apple&quot;, &quot;cherry&quot;]
+</div></section><section class="chapter"><h3 id="joining-elements-into-a-string" data-toc="joining-elements-into-a-string">Joining Elements into a String</h3><p id="k3ykkt_88">The <code class="code" id="k3ykkt_90">joinToString</code> function joins all elements into a single string with a specified separator.</p><div class="code-block" data-lang="kotlin">
+val joinedString = fruitSet.joinToString(&quot;, &quot;)  // &quot;apple, banana, cherry&quot;
+</div></section></section><section class="chapter"><h2 id="converting-sets-to-other-collections" data-toc="converting-sets-to-other-collections">Converting Sets to Other Collections</h2><p id="k3ykkt_91">You can convert sets to other types of collections, such as lists or arrays.</p><div class="code-block" data-lang="kotlin">
+val listFromSet = fruitSet.toList()
+val arrayFromSet = fruitSet.toTypedArray()
+</div></section><div class="last-modified">Last modified: 28 noviembre 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="arrays.html" class="navigation-links__prev">Arrays</a><a href="if-else-statement.html" class="navigation-links__next">if-else statement</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.js"></script></body></html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-11-28T09:32:44.3076514"><title>Loops | Jetpack Compose</title><script type="application/json" id="virtual-toc-data">[{"id":"for-loop","level":0,"title":"For Loop","anchor":"#for-loop"},{"id":"while-loop","level":0,"title":"While Loop","anchor":"#while-loop"},{"id":"do-while-loop","level":0,"title":"do-while Loop","anchor":"#do-while-loop"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Loops | Jetpack Compose"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Jetpack Compose Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/loops.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Loops | Jetpack Compose"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/loops.html#webpage",
+    "url": "writerside-documentation/loops.html",
+    "name": "Loops | Jetpack Compose",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Jetpack Compose Help"
+}</script><!-- End Schema.org --></head><body data-id="Loops" data-main-title="Loops" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Kotlin.md|Kotlin"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Jetpack Compose  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Loops" id="Loops.md">Loops</h1><p id="-277x5v_3">Kotlin provides several types of loops for repetitive tasks: for, while, and do-while. Each serves different needs, allowing you to iterate over collections, ranges, or perform repeated actions under specific conditions.</p><section class="chapter"><h2 id="for-loop" data-toc="for-loop">For Loop</h2><p id="-277x5v_7">The <code class="code" id="-277x5v_16">for</code> loop in Kotlin is used to iterate over a range, an array, a list, or any other iterable object</p><div class="code-block" data-lang="kotlin">
+for (item in collection) {
+    // Code to execute for each item
+}
+</div><p id="-277x5v_9"><span class="control" id="-277x5v_17">Example: Iterating Over a Range</span></p><div class="code-block" data-lang="kotlin">
+for (i in 1..5) {
+    println(i)  // Output: 1 2 3 4 5
+}
+</div><p id="-277x5v_11"><span class="control" id="-277x5v_18">Example: Iterating Over a Range</span></p><div class="code-block" data-lang="kotlin">
+val fruits = listOf(&quot;Apple&quot;, &quot;Banana&quot;, &quot;Cherry&quot;)
+for (fruit in fruits) {
+    println(fruit)
+}
+// Output: Apple, Banana, Cherry
+</div><section class="chapter"><h3 id="additional-control-in-for-loops" data-toc="additional-control-in-for-loops">Additional Control in for Loops</h3><ul class="list _bullet" id="-277x5v_19"><li class="list__item" id="-277x5v_21"><p><code class="code" id="-277x5v_24">step</code>: Specify increments for the range.</p></li><li class="list__item" id="-277x5v_22"><p><code class="code" id="-277x5v_25">downTo</code>: Loop in reverse order.</p></li><li class="list__item" id="-277x5v_23"><p><code class="code" id="-277x5v_26">until</code>: Exclude the upper bound in the range.</p></li></ul><div class="code-block" data-lang="kotlin">
+for (i in 10 downTo 1 step 2) {
+    println(i)  // Output: 10 8 6 4 2
+}
+</div></section><section class="chapter"><h3 id="iterating-with-indices" data-toc="iterating-with-indices">Iterating with Indices</h3><div class="code-block" data-lang="kotlin">
+val fruits = listOf(&quot;Apple&quot;, &quot;Banana&quot;, &quot;Cherry&quot;)
+for (index in fruits.indices) {
+    println(&quot;Index $index: ${fruits[index]}&quot;)
+}
+// Output: Index 0: Apple, Index 1: Banana, Index 2: Cherry
+</div></section><section class="chapter"><h3 id="withindex-extension-function" data-toc="withindex-extension-function">withIndex Extension Function</h3><div class="code-block" data-lang="kotlin">
+for ((index, value) in fruits.withIndex()) {
+    println(&quot;Index $index: $value&quot;)
+}
+// Output: Index 0: Apple, Index 1: Banana, Index 2: Cherry
+</div></section></section><section class="chapter"><h2 id="while-loop" data-toc="while-loop">While Loop</h2><p id="-277x5v_29">The <code class="code" id="-277x5v_34">while</code> loop executes as long as a given condition is true. It&rsquo;s ideal when you don&rsquo;t know in advance how many times the loop should run.</p><div class="code-block" data-lang="kotlin">
+while (condition) {
+    // Code to execute while condition is true
+}
+</div><p id="-277x5v_31"><span class="control" id="-277x5v_35">Example</span></p><div class="code-block" data-lang="kotlin">
+var i = 1
+while (i &lt;= 5) {
+    println(i)
+    i++
+}
+// Output: 1 2 3 4 5
+</div><section class="chapter"><h3 id="infinite-while-loop" data-toc="infinite-while-loop">Infinite while Loop</h3><p id="-277x5v_36">An infinite loop can be created if the condition always evaluates to true. Be cautious as this can lead to application crashes or high CPU usage:</p><div class="code-block" data-lang="kotlin">
+while (true) {
+    println(&quot;This will print indefinitely unless stopped.&quot;)
+}
+</div><aside class="prompt" data-type="warning" data-title="Warning" id="-277x5v_38"><p>Do not use infinite loops, It can lead to memory leaks, applications crashes or high memory and CPU usage.</p></aside></section></section><section class="chapter"><h2 id="do-while-loop" data-toc="do-while-loop">do-while Loop</h2><p id="-277x5v_39">The do-while loop is similar to the while loop but guarantees at least one execution, as it checks the condition after the loop body.</p><div class="code-block" data-lang="kotlin">
+do {
+    // Code to execute
+} while (condition)
+</div><p id="-277x5v_41"><span class="control" id="-277x5v_47">Example</span></p><div class="code-block" data-lang="kotlin">
+var i = 1
+do {
+    println(i)
+    i++
+} while (i &lt;= 5)
+// Output: 1 2 3 4 5
+</div><section class="chapter"><h3 id="control-statements-in-loops" data-toc="control-statements-in-loops">Control Statements in Loops</h3><p id="-277x5v_48">Kotlin offers several statements to control loop execution:</p></section><section class="chapter"><h3 id="break" data-toc="break">break</h3><p id="-277x5v_49">Exits the loop immediately.</p><div class="code-block" data-lang="kotlin">
+for (i in 1..5) {
+    if (i == 3) break
+    println(i)
+}
+// Output: 1 2
+</div></section><section class="chapter"><h3 id="continue" data-toc="continue">continue</h3><p id="-277x5v_51">Skips the current iteration and moves to the next.</p><div class="code-block" data-lang="kotlin">
+for (i in 1..5) {
+    if (i == 3) continue
+    println(i)
+}
+// Output: 1 2 4 5
+</div></section><section class="chapter"><h3 id="labels-in-loops" data-toc="labels-in-loops">Labels in Loops</h3><p id="-277x5v_53">Labels help manage nested loops, allowing you to specify which loop to break or continue.</p><div class="code-block" data-lang="kotlin">
+outer@ for (i in 1..3) {
+    for (j in 1..3) {
+        if (i == 2 &amp;&amp; j == 2) break@outer
+        println(&quot;i: $i, j: $j&quot;)
+    }
+}
+// Output: i: 1, j: 1, i: 1, j: 2, i: 1, j: 3, i: 2, j: 1
+</div></section></section><div class="last-modified">Last modified: 28 noviembre 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="when-statement.html" class="navigation-links__prev">When Statement</a><a href="maps.html" class="navigation-links__next">Maps</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.js"></script></body></html>

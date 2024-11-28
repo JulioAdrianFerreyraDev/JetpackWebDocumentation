@@ -1,0 +1,98 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-11-28T09:32:44.4336478"><title>Kotlin Objects | Jetpack Compose</title><script type="application/json" id="virtual-toc-data">[{"id":"key-features","level":0,"title":"Key Features","anchor":"#key-features"},{"id":"types-of-objects-in-kotlin","level":0,"title":"Types of Objects in Kotlin","anchor":"#types-of-objects-in-kotlin"},{"id":"when-to-use-objects","level":0,"title":"When to Use Objects","anchor":"#when-to-use-objects"},{"id":"advanced-features-of-objects","level":0,"title":"Advanced Features of Objects","anchor":"#advanced-features-of-objects"},{"id":"common-use-cases","level":0,"title":"Common Use Cases","anchor":"#common-use-cases"},{"id":"key-differences-object-vs-class","level":0,"title":"Key Differences: Object vs Class","anchor":"#key-differences-object-vs-class"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Kotlin Objects | Jetpack Compose"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Jetpack Compose Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/kotlin-objects.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Kotlin Objects | Jetpack Compose"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/kotlin-objects.html#webpage",
+    "url": "writerside-documentation/kotlin-objects.html",
+    "name": "Kotlin Objects | Jetpack Compose",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Jetpack Compose Help"
+}</script><!-- End Schema.org --></head><body data-id="Kotlin-Objects" data-main-title="Kotlin Objects" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Kotlin.md|Kotlin///POO.md|POO"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Jetpack Compose  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Kotlin-Objects" id="Kotlin-Objects.md">Kotlin Objects</h1><p id="-zg90i2_3">In Kotlin, objects are a versatile feature used to define classes with a single instance, create anonymous objects, or declare companion objects. Objects can encapsulate functionality, hold data, and serve various roles in your application. Below is an in-depth documentation covering their types, usage, and examples.</p><p id="-zg90i2_4">An object in Kotlin represents a singleton&mdash;a class with only one instance. It is created using the object keyword.</p><section class="chapter"><h2 id="key-features" data-toc="key-features">Key Features</h2><ul class="list _bullet" id="-zg90i2_11"><li class="list__item" id="-zg90i2_12"><p><span class="control" id="-zg90i2_15">Singleton Pattern</span>: Ensures only one instance of the object exists.</p></li><li class="list__item" id="-zg90i2_13"><p><span class="control" id="-zg90i2_16">No Explicit Instantiation</span>: Objects are initialized automatically the first time they are accessed.</p></li><li class="list__item" id="-zg90i2_14"><p><span class="control" id="-zg90i2_17">Encapsulation</span>: Holds methods and properties like a class but without the need for explicit instantiation.</p></li></ul></section><section class="chapter"><h2 id="types-of-objects-in-kotlin" data-toc="types-of-objects-in-kotlin">Types of Objects in Kotlin</h2><section class="chapter"><h3 id="object-declaration" data-toc="object-declaration">Object Declaration</h3><p id="-zg90i2_22">Used to create a singleton. It is a replacement for static members in Java.</p><div class="code-block" data-lang="kotlin">
+object Database {
+    val name = &quot;MainDB&quot;
+    fun connect() = &quot;Connected to $name&quot;
+}
+</div><p id="-zg90i2_24"><span class="control" id="-zg90i2_26">Usage:</span></p><div class="code-block" data-lang="kotlin">
+println(Database.connect()) // Output: Connected to MainDB
+</div></section><section class="chapter"><h3 id="object-expressions" data-toc="object-expressions">Object Expressions</h3><p id="-zg90i2_27">Used to create anonymous objects or for creating object instances of anonymous classes.</p><div class="code-block" data-lang="kotlin">
+val greeting = object {
+    val message = &quot;Hello, Kotlin!&quot;
+    fun printMessage() = println(message)
+}
+greeting.printMessage() // Output: Hello, Kotlin!
+</div><p id="-zg90i2_29"><span class="control" id="-zg90i2_31">Use Case</span>: Creating event listeners or one-time use objects</p><div class="code-block" data-lang="kotlin">
+val comparator = object : Comparator&lt;Int&gt; {
+    override fun compare(a: Int, b: Int): Int = a - b
+}
+println(comparator.compare(10, 5)) // Output: 5
+</div></section><section class="chapter"><h3 id="companion-objects" data-toc="companion-objects">Companion Objects</h3><p id="-zg90i2_32">Acts as a singleton inside a class. It is used to hold constants or factory methods</p><div class="code-block" data-lang="kotlin">
+class Utils {
+    companion object {
+        const val DEFAULT_VALUE = 42
+        fun square(x: Int) = x * x
+    }
+}
+</div><p id="-zg90i2_34"><span class="control" id="-zg90i2_36">Usage</span></p><div class="code-block" data-lang="kotlin">
+println(Utils.DEFAULT_VALUE) // Output: 42
+println(Utils.square(5))     // Output: 25
+</div></section><section class="chapter"><h3 id="object-in-inheritance" data-toc="object-in-inheritance">Object in Inheritance</h3><p id="-zg90i2_37">An object can extend a class or implement an interface</p><div class="code-block" data-lang="kotlin">
+open class Printer {
+    open fun print() = println(&quot;Printing...&quot;)
+}
+
+val specialPrinter = object : Printer() {
+    override fun print() = println(&quot;Special Print!&quot;)
+}
+specialPrinter.print() // Output: Special Print!
+</div></section></section><section class="chapter"><h2 id="when-to-use-objects" data-toc="when-to-use-objects">When to Use Objects</h2><ul class="list _bullet" id="-zg90i2_39"><li class="list__item" id="-zg90i2_40"><p><span class="control" id="-zg90i2_44">Singleton Pattern</span>: When you need a single instance of a class for global access (e.g., managing state, caching, database connections).</p></li><li class="list__item" id="-zg90i2_41"><p><span class="control" id="-zg90i2_45">Helper Methods and Constants</span>: Store utility methods and constant values.</p></li><li class="list__item" id="-zg90i2_42"><p><span class="control" id="-zg90i2_46">Anonymous Classes</span>: Quickly create objects for one-time use, such as listeners.</p></li><li class="list__item" id="-zg90i2_43"><p><span class="control" id="-zg90i2_47">Factory Methods</span>: Create objects with complex initialization logic.</p></li></ul></section><section class="chapter"><h2 id="advanced-features-of-objects" data-toc="advanced-features-of-objects">Advanced Features of Objects</h2><section class="chapter"><h3 id="objects-with-delegation" data-toc="objects-with-delegation">Objects with Delegation</h3><p id="-zg90i2_50">Objects can delegate functionality using Kotlin's <code class="code" id="-zg90i2_52">by</code> keyword.</p><div class="code-block" data-lang="kotlin">
+interface Logger {
+    fun log(message: String)
+}
+
+val logger = object : Logger {
+    override fun log(message: String) = println(&quot;Log: $message&quot;)
+}
+</div></section><section class="chapter"><h3 id="objects-in-enums" data-toc="objects-in-enums">Objects in Enums</h3><p id="-zg90i2_53">Enums can have objects for more complex behavior.</p><div class="code-block" data-lang="kotlin">
+enum class Direction {
+    NORTH, SOUTH, EAST, WEST;
+
+    companion object {
+        fun fromDegrees(degree: Int): Direction = when (degree) {
+            in 0..89 -&gt; EAST
+            in 90..179 -&gt; SOUTH
+            in 180..269 -&gt; WEST
+            else -&gt; NORTH
+        }
+    }
+}
+</div></section></section><section class="chapter"><h2 id="common-use-cases" data-toc="common-use-cases">Common Use Cases</h2><section class="chapter"><h3 id="global-utilities" data-toc="global-utilities">Global Utilities</h3><div class="code-block" data-lang="kotlin">
+object Utils {
+    fun formatString(input: String) = input.trim().uppercase()
+}
+println(Utils.formatString(&quot; kotlin &quot;)) // Output: KOTLIN
+</div></section><section class="chapter"><h3 id="database-manager" data-toc="database-manager">Database Manager</h3><div class="code-block" data-lang="kotlin">
+object DatabaseManager {
+    private var connection: String? = null
+
+    fun connect(url: String) {
+        connection = url
+        println(&quot;Connected to $url&quot;)
+    }
+
+    fun disconnect() {
+        connection = null
+        println(&quot;Disconnected&quot;)
+    }
+}
+</div></section><section class="chapter"><h3 id="configuration" data-toc="configuration">Configuration</h3><div class="code-block" data-lang="kotlin">
+object Config {
+    const val API_URL = &quot;https://api.example.com&quot;
+    const val TIMEOUT = 5000
+}
+</div></section></section><section class="chapter"><h2 id="key-differences-object-vs-class" data-toc="key-differences-object-vs-class">Key Differences: Object vs Class</h2><div class="table-wrapper"><table class="wide" id="-zg90i2_61"><thead><tr class="ijRowHead" id="-zg90i2_62"><th id="-zg90i2_72"><p><span class="control" id="-zg90i2_75">Aspect</span></p></th><th id="-zg90i2_73"><p><span class="control" id="-zg90i2_76">Class</span></p></th><th id="-zg90i2_74"><p><span class="control" id="-zg90i2_77">Object</span></p></th></tr></thead><tbody><tr id="-zg90i2_63"><td id="-zg90i2_78"><p><span class="control" id="-zg90i2_81">Definition</span></p></td><td id="-zg90i2_79"><p>A blueprint or template for creating instances (objects).</p></td><td id="-zg90i2_80"><p>A singleton instance created directly without instantiation.</p></td></tr><tr id="-zg90i2_64"><td id="-zg90i2_82"><p><span class="control" id="-zg90i2_85">Instantiation</span></p></td><td id="-zg90i2_83"><p>Requires explicit instantiation using the <code class="code" id="-zg90i2_86">new</code> keyword or a similar process.</p></td><td id="-zg90i2_84"><p>Automatically instantiated; no <code class="code" id="-zg90i2_87">new</code> keyword is needed.</p></td></tr><tr id="-zg90i2_65"><td id="-zg90i2_88"><p><span class="control" id="-zg90i2_91">Purpose</span></p></td><td id="-zg90i2_89"><p>Used to define a group of related properties and methods.</p></td><td id="-zg90i2_90"><p>Used to hold a single instance or a utility implementation.</p></td></tr><tr id="-zg90i2_66"><td id="-zg90i2_92"><p><span class="control" id="-zg90i2_95">Type</span></p></td><td id="-zg90i2_93"><p>Can be abstract, open, or final; used as a general template.</p></td><td id="-zg90i2_94"><p>Represents a single entity; always a singleton.</p></td></tr><tr id="-zg90i2_67"><td id="-zg90i2_96"><p><span class="control" id="-zg90i2_99">Modifiers</span></p></td><td id="-zg90i2_97"><p>Can be declared as <code class="code" id="-zg90i2_100">open</code>, <code class="code" id="-zg90i2_101">abstract</code>, or <code class="code" id="-zg90i2_102">sealed</code>.</p></td><td id="-zg90i2_98"><p>Cannot have these modifiers; always a concrete instance.</p></td></tr><tr id="-zg90i2_68"><td id="-zg90i2_103"><p><span class="control" id="-zg90i2_106">Usage Scope</span></p></td><td id="-zg90i2_104"><p>Useful for creating multiple similar instances (objects).</p></td><td id="-zg90i2_105"><p>Useful for utility methods or unique instances.</p></td></tr><tr id="-zg90i2_69"><td id="-zg90i2_107"><p><span class="control" id="-zg90i2_110">Inheritance</span></p></td><td id="-zg90i2_108"><p>Can be extended by other classes or objects.</p></td><td id="-zg90i2_109"><p>Cannot be extended or inherited from.</p></td></tr><tr id="-zg90i2_70"><td id="-zg90i2_111"><p><span class="control" id="-zg90i2_114">Companion Objects</span></p></td><td id="-zg90i2_112"><p>Not applicable; declared separately within the class.</p></td><td id="-zg90i2_113"><p>Acts as a companion object when needed inside a class.</p></td></tr><tr id="-zg90i2_71"><td id="-zg90i2_115"><p><span class="control" id="-zg90i2_118">Example</span></p></td><td id="-zg90i2_116"><p><code class="code" id="-zg90i2_119">class Person(val name: String, val age: Int)</code></p></td><td id="-zg90i2_117"><p><code class="code" id="-zg90i2_120">object Logger { fun log(message: String) { ... } }</code></p></td></tr></tbody></table></div></section><div class="last-modified">Last modified: 28 noviembre 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="intefaces.html" class="navigation-links__prev">Interfaces</a><a href="generics.html" class="navigation-links__next">Generics</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.js"></script></body></html>
